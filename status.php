@@ -11,7 +11,7 @@ $query1 = $conn->prepare($sql1);
 $query1->execute();
 if($query1)
 {
-echo"<script>window.location.href='http://dppms.com/demo-projects/fieldguide/login'</script>";
+echo"<script>window.location.href='http://localhost/fieldguide/login'</script>";
 
 
 }

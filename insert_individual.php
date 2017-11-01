@@ -183,7 +183,7 @@ if($run)
 									<p align="justify" class="style2">
 										Your Account registration has been successfully created.</p>
 <p align="justify" class="style2">
-										Click here for activation of your account.<a href="http://dppms.com/demo-projects/fieldguide/status.php?email='.$email.'">click here</a></p>
+										Click here for activation of your account.<a href="http://localhost/fieldguide/status.php?email='.$email.'">click here</a></p>
 									<p align="justify" class="style2">
 										User Name: '.$name.'</p>
 										<p align="justify" class="style2">
@@ -212,14 +212,13 @@ if($run)
 		  $headers  = 'MIME-Version: 1.0' . "\r\n";
           $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	      $headers .= 'From:'.$from."\r\n";
-		 
 		$res = mail ( $to, $subject, $message, $headers );
-if ($res) 
-           { 
-       echo '<script>alert("Thank You for your registration! verification link has been send to your corresponding email check it.")</script>';    
-      echo '<script>window.location.href="http://dppms.com/demo-projects/fieldguide"</script>';       	    	 
+if ($res)
+           {
+       echo '<script>alert("Thank You for your registration! verification link has been send to your corresponding email check it.")</script>';
+      echo '<script>window.location.href="http://localhost/fieldguide"</script>';
 //$_SESSION['ind']="Thank You for your registration! verification link has been send to your corresponding email check it.";	
-//header('location:http://dppms.com/demo-projects/fieldguide');
+//header('location:http://localhost/fieldguide');
 		   }
 else
 {
