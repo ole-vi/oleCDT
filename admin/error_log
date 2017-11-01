@@ -1,0 +1,571 @@
+[27-Jan-2017 11:34:36 UTC] PHP Fatal error:  Class 'ADMIN' not found in /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php on line 3
+[27-Jan-2017 11:34:39 UTC] PHP Fatal error:  Class 'ADMIN' not found in /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php on line 3
+[27-Jan-2017 11:34:42 UTC] PHP Parse error:  syntax error, unexpected 'p' (T_STRING), expecting function (T_FUNCTION) in /home/dppms/public_html/demo-projects/fieldguide/admin/class/class.admin.php on line 76
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Notice:  Undefined index: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 47
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[27-Jan-2017 17:10:39 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[30-Jan-2017 11:05:00 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 24
+[30-Jan-2017 11:16:06 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit-individual.php on line 25
+[30-Jan-2017 11:27:22 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php:77) in /home/dppms/public_html/demo-projects/fieldguide/admin/class/class.admin.php on line 92
+[30-Jan-2017 11:30:35 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php:77) in /home/dppms/public_html/demo-projects/fieldguide/admin/class/class.admin.php on line 92
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[30-Jan-2017 11:44:57 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:26:08 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[01-Feb-2017 11:28:33 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[03-Feb-2017 10:29:55 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 51
+[03-Feb-2017 10:29:59 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 51
+[03-Feb-2017 17:33:50 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 15
+[03-Feb-2017 17:33:50 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 26
+[03-Feb-2017 17:33:50 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 37
+[03-Feb-2017 17:35:39 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 15
+[03-Feb-2017 17:35:39 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 26
+[03-Feb-2017 17:35:39 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 37
+[03-Feb-2017 17:49:23 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 15
+[03-Feb-2017 17:49:23 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 26
+[03-Feb-2017 17:49:23 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 37
+[03-Feb-2017 18:01:16 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php:77) in /home/dppms/public_html/demo-projects/fieldguide/admin/class/class.admin.php on line 92
+[03-Feb-2017 18:02:11 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/include/header.php:77) in /home/dppms/public_html/demo-projects/fieldguide/admin/class/class.admin.php on line 92
+[09-Feb-2017 13:13:55 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[09-Feb-2017 13:13:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[09-Feb-2017 13:13:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[09-Feb-2017 13:13:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[09-Feb-2017 13:13:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 14:24:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 232
+[10-Feb-2017 15:57:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 457
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 15:59:44 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 458
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:21:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 458
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[10-Feb-2017 16:23:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 458
+[13-Feb-2017 16:59:13 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 15
+[13-Feb-2017 16:59:13 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 26
+[13-Feb-2017 16:59:13 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 37
+[15-Feb-2017 12:05:00 Asia/Kolkata] PHP Notice:  Undefined index: year in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 263
+[15-Feb-2017 12:05:00 Asia/Kolkata] PHP Notice:  Undefined index: year in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 263
+[15-Feb-2017 12:05:05 Asia/Kolkata] PHP Notice:  Undefined index: year in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 263
+[15-Feb-2017 12:05:05 Asia/Kolkata] PHP Notice:  Undefined index: year in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 263
+[15-Feb-2017 16:34:04 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[15-Feb-2017 16:34:04 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:34:04 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:34:04 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:34:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:37:41 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[15-Feb-2017 16:41:01 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[15-Feb-2017 16:41:01 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:41:01 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:41:01 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[15-Feb-2017 16:41:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:48:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[20-Feb-2017 17:50:34 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[23-Feb-2017 16:42:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[17-Mar-2017 07:26:52 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit-individual.php on line 14
+[17-Mar-2017 07:26:52 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit-individual.php on line 27
+[21-Mar-2017 23:05:52 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit-individual.php on line 27
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:46:18 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[26-Mar-2017 00:50:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:01:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:10:43 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:10:43 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:10:43 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:10:43 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:10:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:14:19 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:41:37 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 15
+[30-Mar-2017 00:41:47 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/add-individual.php on line 28
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:44:30 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:50:44 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:53:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:11 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:54:39 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:03 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:55:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 00:56:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:27 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:04:52 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:06:51 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 01:07:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 10:04:30 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 34
+[30-Mar-2017 10:04:35 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 34
+[30-Mar-2017 10:05:47 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 32
+[30-Mar-2017 10:05:51 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 32
+[30-Mar-2017 15:51:53 Asia/Kolkata] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 17
+[30-Mar-2017 15:52:43 Asia/Kolkata] PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 17
+[30-Mar-2017 10:31:34 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/dppms/public_html/demo-projects/fieldguide/admin/changedpwd.php on line 9
+[30-Mar-2017 21:31:37 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:31:37 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:31:37 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:31:37 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:31:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:38:54 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:10 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:39:46 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:20 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:40:49 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:21 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:41:49 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:42:50 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:23 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:43:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:44:20 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:06 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:29 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:46:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:18 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:47:42 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[30-Mar-2017 21:48:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:11:49 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Notice:  Undefined variable: action in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Notice:  Undefined variable: tmp_dir in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Notice:  Undefined variable: imgSize in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 91
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 233
+[31-Mar-2017 00:12:29 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_organization.php on line 465
+[31-Mar-2017 14:28:47 Asia/Kolkata] PHP Warning:  include(include/sidebar1.php): failed to open stream: No such file or directory in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 9
+[31-Mar-2017 14:28:47 Asia/Kolkata] PHP Warning:  include(): Failed opening 'include/sidebar1.php' for inclusion (include_path='.;/path/to/php/pear') in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 9
+[31-Mar-2017 14:28:48 Asia/Kolkata] PHP Warning:  include(include/sidebar1.php): failed to open stream: No such file or directory in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 9
+[31-Mar-2017 14:28:48 Asia/Kolkata] PHP Warning:  include(): Failed opening 'include/sidebar1.php' for inclusion (include_path='.;/path/to/php/pear') in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 9
+[31-Mar-2017 14:46:34 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:46:38 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:46:38 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:47 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:48 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:49 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:53 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:54 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:48:55 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:09 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:12 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:13 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:29 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:30 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:50:30 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php:10
+Stack trace:
+#0 /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php(10): PDOStatement->execute()
+#1 /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php(9): include('/home/dppms/pub...')
+#2 {main}
+  thrown in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 10
+[31-Mar-2017 14:58:53 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 14:59:53 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 15:04:59 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 09:39:10 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:6) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 8
+[31-Mar-2017 09:39:11 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:6) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 8
+[31-Mar-2017 09:39:32 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:39:32 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:39:54 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:39:55 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:41:30 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:41:31 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:45:18 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:45:19 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:45:55 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:45:56 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:46:44 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:46:44 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:47:16 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:47:18 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:48:35 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:48:35 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:49:24 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:49:25 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:49:36 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:49:37 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:50:09 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 09:50:11 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 15:20:53 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 15:40:33 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 15:40:54 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /home/dppms/public_html/demo-projects/fieldguide/admin/edit_profile.php on line 27
+[31-Mar-2017 10:14:40 UTC] PHP Warning:  include(include/header1.php): failed to open stream: No such file or directory in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 3
+[31-Mar-2017 10:14:40 UTC] PHP Warning:  include(): Failed opening 'include/header1.php' for inclusion (include_path='.;/path/to/php/pear') in /home/dppms/public_html/demo-projects/fieldguide/admin/myaccount.php on line 3
+[31-Mar-2017 10:14:40 UTC] PHP Fatal error:  Call to a member function runQuery() on null in /home/dppms/public_html/demo-projects/fieldguide/admin/include/sidebar1.php on line 9
+[31-Mar-2017 10:18:12 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:18:13 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:22:31 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:22:32 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:22:51 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:22:52 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:25:24 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:25:26 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:26:03 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:26:04 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:4) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 6
+[31-Mar-2017 10:27:34 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:27:35 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:27:39 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:27:40 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:30:23 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:30:24 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:37:28 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:37:30 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:37:54 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:37:58 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:38:05 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:38:08 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:38:40 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 10:38:44 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 13:07:29 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[31-Mar-2017 13:07:30 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[01-Apr-2017 11:43:30 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[01-Apr-2017 11:43:30 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[07-Apr-2017 15:27:27 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
+[07-Apr-2017 15:27:28 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php:3) in /home/dppms/public_html/demo-projects/fieldguide/admin/userchangedpwd.php on line 5
