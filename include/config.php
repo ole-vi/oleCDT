@@ -17,5 +17,5 @@ catch(PDOException $e)
     echo "Connection failed: " . $e->getMessage();
     }
 	
-	$site_url='http://dppms.com/demo-projects/fieldguide/';
+	$site_url='http://localhost/~leonardmensah/fieldguide/';
 ?>
