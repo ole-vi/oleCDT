@@ -1,0 +1,51 @@
+RewriteEngine On
+Options -MultiViews
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	
+
+        RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+/)*index\.(htm(l)?|php)\ HTTP/ 
+        Rewriterule ^(([^/]+/)*)index\.(htm(l)?|php)$ http://dppms.com/demo-projects/fieldguide/$1 [R=301,L]
+
+	RewriteRule ^organization$ organization.php [L]
+	
+	
+	
+	
+	RewriteRule ^insert_prodemo$ insert_prodemo.php [L]
+	RewriteRule ^insert_save_without$ insert_save_without.php [L]
+	RewriteRule ^insert_prev$ insert_prev.php [L]
+	RewriteRule ^welcome$ welcome.php [L]
+	
+	
+	#RewriteRule ^like/([^/]+)/([^/]+)$ like.php?msg_id=$1&rel=$2
+	
+	
+	
+	
+	RewriteRule ^Individual$ Individual.php [L]
+	RewriteRule ^insert_individual$ insert_individual.php [L]
+	
+	RewriteRule ^forget_password$ forget_password.php [L]
+	
+	RewriteRule ^org_preview$ org_preview.php [L]
+	
+	
+	RewriteRule ^detailpage/([^/]+)$ detailpage.php?id=$1
+	
+	RewriteRule ^org_preview/([^/]+)$ org_preview.php?id=$1
+	
+	RewriteRule ^update_organization/([^/]+)$ update_organization.php?id=$1
+	
+	RewriteRule ^searching$ searching.php [L]
+	
+	RewriteRule ^reset_pass$ reset_pass.php [L]
+	RewriteRule ^login$ login.php [L]
+	RewriteRule ^logout$ logout.php [L]
+	RewriteRule ^forget_pass$ forget_pass.php [L]
+	RewriteRule ^reset_pass/([^/]+)$ reset_pass.php?email=$1
+	
+	RewriteRule ^ratingreview$ ratingreview.php [L]
+	
+</IfModule>
+
