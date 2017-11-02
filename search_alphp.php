@@ -395,7 +395,7 @@ else
  echo 'Data Not Found';
  ?>
  <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
- <?
+ <?php
 }
 
 ?>

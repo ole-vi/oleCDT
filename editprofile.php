@@ -1,8 +1,8 @@
 <?php 
 ob_start();
 session_start();
-include('include/header.php');
 include('include/config.php');
+include('include/header.php');
 
 $id = base64_decode($_REQUEST['id']);
 $sql = "select * from tbl_individual_member where id='".$id."' ";
@@ -26,7 +26,7 @@ echo $row['name'];
 ?>
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-  <script src="chosen.jquery.js" type="text/javascript"></script>
+  <script src="js/chosen.jquery.js" type="text/javascript"></script>
   <script src="docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
     <script>
    $(document).ready(function () {
@@ -99,11 +99,11 @@ var username = $("#mail1").val();
 var msgbox = $("#status1");
 
 
-$("#status1").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "email="+ username,
 success: function(msg){
 $("#status1").html(function(event, request){
@@ -113,7 +113,7 @@ if(msg == 'OK')
 
 $("#mail1").removeClass("red11"); // remove red color
 $("#mail1").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -152,11 +152,11 @@ var pass2 = $("#repassword").val();
 var msgbox = $("#status2");
 
 
-$("#status2").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status2").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "pass1="+ pass1 +"&pass2="+ pass2,
 success: function(msg){
 $("#status2").html(function(event, request){
@@ -166,7 +166,7 @@ if(msg == 'OK')
 
 $("#repassword").removeClass("red11"); // remove red color
 $("#repassword").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Matched Password </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Matched Password </font>');
 }
 else
 {
@@ -667,7 +667,7 @@ background-color:#FFD9D9;
                         <button type="reset" class="btn btn-primary btn-block">Reset</button>
                     </div>
 					<div class="col-sm-2 ">
-                        <a href="<?php echo $site_url;?>organization.php" class="btn btn-primary btn-block">Organization Sign up </a>
+                        <a href="<?php echo $site_url;?>organization" class="btn btn-primary btn-block">Organization Sign up </a>
                     </div>-->
                 </div>
 				

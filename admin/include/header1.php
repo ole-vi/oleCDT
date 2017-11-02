@@ -4,7 +4,7 @@ $admin = new ADMIN();
 $id=$_SESSION['id'];
 if($_SESSION['id']=="")
 {
-    echo '<script> window.location.href="login.php"</script>';
+    echo '<script> window.location.href="login"</script>';
 }
 
 
@@ -106,12 +106,12 @@ $name=$row1['name'];
                                     </li>
                                    
                                     <li class="dropdown-footer">
-                                        <a href="../logout.php">
+                                        <a href="../logout">
                                             Sign out
                                         </a>
                                     </li>
  <li class="dropdown-footer">
-                         <a href="userchangedpwd.php">
+                         <a href="userchangedpwd">
                                          change password
                                         </a>
                                     </li>

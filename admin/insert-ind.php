@@ -33,7 +33,7 @@ if(($name=='') or ($location=='') or ($education=='') or ($history=='') or ($hou
 	
 {
 $_SESSION['indv'] = "Please fill All fields";	
-$admin->redirect('add-individual.php');
+$admin->redirect('add-individual');
 	
 	$stmt = $admin->runQuery("select * from tbl_individual_member where email=:email");
     $stmt->execute(array(':email' => $email));
@@ -45,7 +45,7 @@ $admin->redirect('add-individual.php');
             {
                
                 $_SESSION['indv'] = "This Record Already Inserted..";
-                $admin->redirect('dashboard.php');
+                $admin->redirect('dashboard');
                 
             }
 			
@@ -56,7 +56,7 @@ $admin->redirect('add-individual.php');
                 {
                     
                     $_SESSION['indv'] = "Data Inserted Successfully..";
-                    $admin->redirect('individual-details.php');
+                    $admin->redirect('individual-details');
 					
 
                 }

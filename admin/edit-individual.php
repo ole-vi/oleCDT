@@ -64,7 +64,7 @@ $imgFile2='';
                 {
                     
                     $_SESSION['indv'] = "Record Updated Successfully";
-                    header("location:individual-details.php");
+                    header("location:individual-details");
 
                 }
             }
@@ -103,7 +103,7 @@ $loc = array('Office','Online','Field');
                         <li>
 						
                             <i class="fa fa-home"></i>
-                            <a href="dashboard.php">Home</a>
+                            <a href="dashboard">Home</a>
                         </li>
                         <li class="active">Edit Individual</li>
                     </ul>

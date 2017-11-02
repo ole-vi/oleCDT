@@ -19,7 +19,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="dashboard.php">Home</a>
+                            <a href="dashboard">Home</a>
                         </li>
                         <li class="active">Individual Members Details</li>
                     </ul>
@@ -125,7 +125,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                                             
 											<td>
                                             
-       <a href="edit-individual.php?id=<?php echo base64_encode($row['id']); ?>" class="btn btn-sm btn-info shiny editvoucher"><i class="fa fa-edit"></i>Edit</a>
+       <a href="edit-individual?id=<?php echo base64_encode($row['id']); ?>" class="btn btn-sm btn-info shiny editvoucher"><i class="fa fa-edit"></i>Edit</a>
 	 <a href="javascript:void(0);" class="btn btn-sm btn-darkorange shiny delete" id="<?php echo $row['id'];?>"><i class="fa fa-trash"></i>Delete </a>
                                             </td>
                                         </tr>                                       
@@ -162,7 +162,7 @@ if(confirm("Are you sure you want to delete this?"))
 {
  $.ajax({
    type: "POST",
-   url: "delete-individual.php",
+   url: "delete-individual",
    data: info,
    success: function(){
  }
@@ -187,7 +187,7 @@ if(confirm("Are you sure you want to Hide this?"))
 {
  $.ajax({
    type: "POST",
-   url: "hide-individual.php",
+   url: "hide-individual",
    data: info,
    success: function(){
  }

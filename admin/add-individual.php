@@ -66,7 +66,7 @@ $imgFile2='';
 	
 {
 $_SESSION['ind'] = "Please fill All fields";	
-//$admin->redirect('add-individual.php');
+//$admin->redirect('add-individual');
 	*/
 	$stmt = $admin->runQuery("select * from tbl_individual_member where email=:email");
     $stmt->execute(array(':email' => $email));
@@ -77,7 +77,7 @@ $_SESSION['ind'] = "Please fill All fields";
             {
                
                 $_SESSION['ind'] = "This Record Already Inserted..";
-                //$admin->redirect('dashboard.php');
+                //$admin->redirect('dashboard');
                 
             }
 			
@@ -88,7 +88,7 @@ $_SESSION['ind'] = "Please fill All fields";
                 {
                     
                     $_SESSION['indv'] = "Record Inserted Successfully";
-                    header("location:individual-details.php");
+                    header("location:individual-details");
 
                 }
             }
@@ -116,7 +116,7 @@ $_SESSION['ind'] = "Please fill All fields";
                         <li>
 						
                             <i class="fa fa-home"></i>
-                            <a href="dashboard.php">Home</a>
+                            <a href="dashboard">Home</a>
                         </li>
                         <li class="active">Individual Details</li>
                     </ul>
@@ -161,8 +161,8 @@ $_SESSION['ind'] = "Please fill All fields";
                                             <div class="widget flat radius-bordered">
                                                 <div class="widget-header bg-blue">
                                                     <span class="widget-caption">Add Individual</span>
-													<div class="widget-caption pull-right"><a href="individual-details.php" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
-													<!--<a href="individual-details.php" class="back2">Back To Details Page</a>-->
+													<div class="widget-caption pull-right"><a href="individual-details" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
+													<!--<a href="individual-details" class="back2">Back To Details Page</a>-->
                                                 </div>
                                                 <div class="widget-body">
                                                     <div id="registration-form">

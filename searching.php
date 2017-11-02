@@ -1,70 +1,70 @@
 <?php 
 ob_start();
 session_start();
-include('include/header.php');
 include('include/config.php');
-$value1=$_SESSION['list'];
-$final=$_SESSION['final'];
+include('include/header.php');
+
+$value1 = $_SESSION['list'];
+$final = $_SESSION['final'];
+$strat = array();
+$state = '';
+$volunteers = '';
 if(isset($_POST['submit']))
 {
+  $found = array();
+  $strat = $_POST['strategie'];	
+  $checkboxes = $_POST['strategie'];
+  $_SESSION['list'] = $checkboxes;
+  $value2 = $strat;
+  $finalvalue = array_merge($value2,$value1);
+  echo $str=implode(',',$strat);
+  $state=$_POST['state'];
+  $volunteers=$_POST['volunteers'];
+  if(($state=='') and ($volunteers==''))
+  {
+    $sql1 = "SELECT * from `pro_democracy` ";
+  }
+  else if(($state!='') and ($volunteers==''))
+  {
+    $sql1 = "SELECT * from `pro_democracy` where `state` IS NOT NULL";
+  }
+  else if(($state=='') and ($volunteers!=''))
+  {
+    $sql1 = "SELECT * from `pro_democracy` where `seeking` IS NOT NULL";
+  }
+  else 
+  {
+    $sql1 = "SELECT * from `pro_democracy` where (`state` and `seeking`) IS NOT NULL";
+  }
+  $query1 = $conn->prepare($sql1);
+  $query1->execute();
+  while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
+  {
+	  $strat1 = explode(',', $rowdata['strategies']);
 	
-$strat=array();
-$found=array();
- $strat= $_POST['strategie'];	
-$checkboxes = $_POST['strategie'];
-$_SESSION['list'] = $checkboxes;
-$value2=$strat;
-$finalvalue=array_merge($value2,$value1);
-echo $str=implode(',',$strat);
- $state=$_POST['state'];
-$volunteers=$_POST['volunteers'];
-if(($state=='') and ($volunteers==''))
-{
-$sql1 = "SELECT * from `pro_democracy` ";
-}
-else if(($state!='') and ($volunteers==''))
-{
-$sql1 = "SELECT * from `pro_democracy` where `state` IS NOT NULL";
-}
-else if(($state=='') and ($volunteers!=''))
-{
-$sql1 = "SELECT * from `pro_democracy` where `seeking` IS NOT NULL";
-}
-else 
-{
-$sql1 = "SELECT * from `pro_democracy` where (`state` and `seeking`) IS NOT NULL";
-}
- $query1 = $conn->prepare($sql1);
- $query1->execute();
-while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
- {
-	 $strat1 = explode(',', $rowdata['strategies']);
-	
-	if(($state!='') or ($volunteers!=''))
-	{
-		if($state!='')
-		{
-			if($rowdata['state']!='')
-			{
-			if($strat!='')
-			{		
-			$var= array_intersect($strat, $strat1);
-			foreach($var as $var1)
-			{
-			if($var==$strat)
-			{
-			$found[] = $rowdata['pro_id'];	
-			}
-			}
-			}
-			else
-			{
-			$found[] = $rowdata['pro_id'];		
-			}
-			}
-			
-		
-		}
+	  if(($state!='') or ($volunteers!=''))
+	  {
+		  if($state!='')
+		  {
+			  if($rowdata['state']!='')
+			  {
+			  if($strat!='')
+			  {		
+			  $var= array_intersect($strat, $strat1);
+			  foreach($var as $var1)
+			  {
+			  if($var==$strat)
+			  {
+			  $found[] = $rowdata['pro_id'];	
+			  }
+			  }
+			  }
+			  else
+			  {
+			  $found[] = $rowdata['pro_id'];		
+			  }
+			  }
+		  }
 		elseif($volunteers!='')
 		{
 			
@@ -162,11 +162,11 @@ var username = $("#mail1").val();
 var msgbox = $("#status1");
 
 
-$("#status1").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "email="+ username,
 success: function(msg){
 $("#status1").html(function(event, request){
@@ -176,7 +176,7 @@ if(msg == 'OK')
 
 $("#mail1").removeClass("red11"); // remove red color
 $("#mail1").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -246,7 +246,7 @@ background-color:#FFD9D9;
 				
 				<div class="col-sm-12">
 				<div class="col-sm-3">
-				 <h1 class="lok-lo"><span style="color:#fff; font-size:55px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>FieldGuide Directory</b></span></h1>
+				 <h1 class="lok-lo"><span style="color:#fff; font-size:55px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
 				 </div>
 				 
 				<div class="col-sm-9">
@@ -444,7 +444,7 @@ background-color:#FFD9D9;
 	</div>
 	
 	<div class="sdfr " style=" margin-top: -33px!important;">
-			<button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All 
+			<button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher 
 
 			</div>
 			
@@ -908,42 +908,38 @@ $row = $query->fetchAll(PDO::FETCH_ASSOC);
 			
 			
 		</div>
-		</div>
+	</div>
 		
-		</section>
-	<!-- contact end -->
+</section>
+<!-- contact end -->
 
-	<!-- map start --> 
+<!-- map start --> 
 		
-		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/cupertino/jquery-ui.css">
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/cupertino/jquery-ui.css">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	   <script>
-    $(document).ready(function(){
-    $('.select5').on('click',function(){          
-        var search = $(this).attr("rel");
-        //alert(search);
-        {
-            $.ajax({                
-                type: "POST",
-                url: "search_alphp.php",
-                data: "search=" + search,                        
-                success:function(html){
-					$('#masterdiv').remove();
-					//$('#masterdiv div').html('');
-                    $('#result1').html(html);                    
-                }
-            });
-
-        } 
-        })
-    });
-
+<script>
+$(document).ready(function(){
+  $('.select5').on('click',function(){          
+    var search = $(this).attr("rel");
+    //alert(search);
+    {
+      $.ajax({                
+        type: "POST",
+        url: "search_alphpphp",
+        data: "search=" + search,                        
+        success:function(html){
+		      $('#masterdiv').remove();
+		      //$('#masterdiv div').html('');
+          $('#result1').html(html);                    
+         }
+      });
+    } 
+  })
+});
 </script>	
-	<!-- map end -->
+<!-- map end -->
 
 	
 <?php include('include/footer.php');?>
-
-  

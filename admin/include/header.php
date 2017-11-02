@@ -3,7 +3,7 @@ require_once('class/class.admin.php');
 $admin = new ADMIN();
 if($admin->is_loggedin()=="")
 {
-    $admin->redirect('index.php');
+    $admin->redirect('index');
 }
  ?>
 <!DOCTYPE html>
@@ -87,12 +87,12 @@ if($admin->is_loggedin()=="")
                                     </li>
                                    
                                     <li class="dropdown-footer">
-                                        <a href="logout.php?logout=true">
+                                        <a href="logout?logout=true">
                                             Sign out
                                         </a>
                                     </li>
  <li class="dropdown-footer">
-                         <a href="changedpwd.php">
+                         <a href="changedpwd">
                                          change password
                                         </a>
                                     </li>

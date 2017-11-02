@@ -26,20 +26,20 @@
 			obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text">Max. '+options.limit+' words</span>');
 
 			obj.keyup(function() {
-			    text = obj.val();
-			    if(text === "") {
-			    	wordcount = 0;
-			    } else {
-				    wordcount = $.trim(text).split(" ").length;
+			  text = obj.val();
+			  if(text === "") {
+			    wordcount = 0;
+			  } else {
+				  wordcount = $.trim(text).split(" ").length;
 				}
-			    if(wordcount > options.limit) {
-			        $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
+			  if(wordcount > options.limit) {
+			      $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
 					limited = $.trim(text).split(" ", options.limit);
 					limited = limited.join(" ");
 					$(this).val(limited);
-			    } else {
-			        $("#counter-text").html((options.limit - wordcount)+' words left');
-			    } 
+			  } else {
+			      $("#counter-text").html((options.limit - wordcount)+' words left');
+			  } 
 			});
 		});
 	};
@@ -70,20 +70,20 @@
 			obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text">Max. '+options.limit+' words</span>');
 
 			obj.keyup(function() {
-			    text = obj.val();
-			    if(text === "") {
-			    	wordcount = 0;
-			    } else {
-				    wordcount = $.trim(text).split(" ").length;
+			  text = obj.val();
+			  if(text === "") {
+			    wordcount = 0;
+			  } else {
+				  wordcount = $.trim(text).split(" ").length;
 				}
-			    if(wordcount > options.limit) {
-			        $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
-					limited = $.trim(text).split(" ", options.limit);
-					limited = limited.join(" ");
-					$(this).val(limited);
-			    } else {
-			        $("#counter-text").html((options.limit - wordcount)+' words left');
-			    } 
+			  if(wordcount > options.limit) {
+			    $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
+				  limited = $.trim(text).split(" ", options.limit);
+				  limited = limited.join(" ");
+				  $(this).val(limited);
+			  } else {
+			    $("#counter-text").html((options.limit - wordcount)+' words left');
+			  } 
 			});
 		});
 	};
@@ -93,11 +93,10 @@
 
 <body>
 	<textarea class="textarea1" rows="15" cols="50"></textarea>
-<input type="text" class="textarea2" rows="15" cols="50">
+  <input type="text" class="textarea2" rows="15" cols="50">
 	<script type="text/javascript">
 	$(".textarea1").textareaCounter();
 	$(".textarea2").textareaCounter1();
 	</script>
-
 </body>
 </html>

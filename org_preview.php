@@ -1,12 +1,8 @@
-
 <?php
 /*ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
 error_reporting(-1);*/
 ob_start();
-
-
-
 include('include/config.php');
 include('include/header.php');
 
@@ -24,7 +20,7 @@ if(isset($_POST['submit']))
 echo '<script language="javascript">';
 echo 'alert("Thanks fo Submit")';
 echo '</script>';
-header('location:index.php');
+header('location:index');
 }
 
 ?>

@@ -1,8 +1,8 @@
 <?php 
 ob_start();
 session_start();
-include('include/header.php');
 include('include/config.php');
+include('include/header.php');
 if(isset($_POST['submit']))
 {
  $email= $_POST['email'];
@@ -87,7 +87,7 @@ else
 {
 
 		
-			//header('location:'.$site_url.'forget_pass.php');	
+			//header('location:'.$site_url.'forget_pass');	
 			echo '<script language="javascript">';
 					echo 'alert("Email not Send")';
 					echo '</script>';
@@ -104,7 +104,7 @@ else
 	echo '<script language="javascript">';
 	echo 'alert("Email Id does not Exist")';
 	echo '</script>';
-	//header('location:'.$site_url.'forget_pass.php');	
+	//header('location:'.$site_url.'forget_pass');	
 }
 
 	}

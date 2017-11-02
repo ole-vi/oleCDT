@@ -1,4 +1,3 @@
-
 <?php 
 include('include/config.php');
 include('include/header.php');
@@ -70,7 +69,7 @@ $imgSize = $_FILES['pic']['size'];
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
@@ -187,7 +186,7 @@ if($run)
 		
 if ($res) 
            { 
-                header('location:'.$site_url.'organization.php');
+                header('location:'.$site_url.'organization');
 				  echo '<script language="javascript">';
 					echo 'alert("Updated Record Sucessfully")';
 					echo '</script>';
@@ -197,7 +196,7 @@ if ($res)
 else
 {
 
-		header('location:'.$site_url.'organization.php');
+		header('location:'.$site_url.'organization');
 
 			echo '<script language="javascript">';
 					echo 'alert("Record is not Updated")';
@@ -233,7 +232,7 @@ $seek1= array('Office','Online','Convasing',);
 ?>
 	<!-- contact start --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-  <script src="<?php echo $site_url;?>chosen.jquery.js" type="text/javascript"></script>
+  <script src="<?php echo $site_url;?>js/chosen.jquery.js" type="text/javascript"></script>
   <script src="<?php echo $site_url;?>docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
 		
 		
@@ -422,11 +421,11 @@ var mob2 = $("#mob2").val();
 var msgbox = $("#status3");
 
 
-$("#status3").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status3").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "mobile2="+ mob2,
 success: function(msg){
 $("#status3").html(function(event, request){
@@ -436,7 +435,7 @@ if(msg == 'OK')
 
 $("#mob2").removeClass("red11"); // remove red color
 $("#mob2").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -459,11 +458,11 @@ var mob = $("#mob").val();
 var msgbox = $("#status2");
 
 
-$("#status2").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status2").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "mobile="+ mob,
 success: function(msg){
 $("#status2").html(function(event, request){
@@ -473,7 +472,7 @@ if(msg == 'OK')
 
 $("#mob").removeClass("red11"); // remove red color
 $("#mob").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -496,11 +495,11 @@ var username = $("#mail1").val();
 var msgbox = $("#status1");
 
 
-$("#status1").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "username="+ username,
 success: function(msg){
 $("#status1").html(function(event, request){
@@ -510,7 +509,7 @@ if(msg == 'OK')
 
 $("#mail1").removeClass("red11"); // remove red color
 $("#mail1").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
