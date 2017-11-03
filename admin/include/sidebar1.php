@@ -23,7 +23,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <ul class="nav sidebar-menu">
                     <!--Dashboard-->
                     <li>
-                        <a href="myaccount.php">
+                        <a href="myaccount">
                             <i class="menu-icon glyphicon glyphicon-home"></i>
                             <span class="menu-text"> Dashboard </span>
                         </a>
@@ -41,12 +41,12 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                             
 
                             <li>
-                                <a href="userchangedpwd.php">
+                                <a href="userchangedpwd">
                                     <span class="menu-text">change your password</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="edit_profile.php?id=<?php echo base64_encode($id); ?>">
+                                <a href="edit_profile?id=<?php echo base64_encode($id); ?>">
                                     <span class="menu-text">edit your profile</span>
                                 </a>
 							</li>
@@ -64,7 +64,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <ul class="submenu">
                            
                             <li>
-                                <a href="org_details.php">
+                                <a href="org_details">
                                     <span class="menu-text">Organizations Details</span>
                                 </a>
                             </li>

@@ -1,31 +1,28 @@
 <?php
 class Database
 {   
-    private $host = "localhost";
-    private $db_name = "dppms_fieldguide";
-    private $username = "dppms";
-    private $password = "dfHGf$3987Jgf";
-    public $conn;
+  private $host = "localhost";
+  private $db_name = "dppms_fieldguide";
+  private $username = "dppms";
+  private $password = "dfHGf$3987Jgf";
+  public $conn;
      
-    public function dbConnection()
+  public function dbConnection()
 	{
-
-
-
-       date_default_timezone_set('Asia/Kolkata');
+    date_default_timezone_set('Asia/Kolkata');
         
-	    $this->conn = null;    
-        try
+	  $this->conn = null;    
+    try
 		{
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+      $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
-        }
+     }
 		catch(PDOException $exception)
 		{
-            echo "Connection error: " . $exception->getMessage();
-        }
-         
-        return $this->conn;
+      echo "Connection error: " . $exception->getMessage();
     }
+         
+     return $this->conn;
+  }
 }
 ?>

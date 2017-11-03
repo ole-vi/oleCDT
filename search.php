@@ -1,8 +1,9 @@
 <?php 
 ob_start();
 session_start();
-include('include/header.php');
 include('include/config.php');
+include('include/header.php');
+
 $value1=$_SESSION['list'];
 print_r($value1);
 $final=$_SESSION['final'];
@@ -165,11 +166,11 @@ var username = $("#mail1").val();
 var msgbox = $("#status1");
 
 
-$("#status1").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "email="+ username,
 success: function(msg){
 $("#status1").html(function(event, request){
@@ -179,7 +180,7 @@ if(msg == 'OK')
 
 $("#mail1").removeClass("red11"); // remove red color
 $("#mail1").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -1017,7 +1018,7 @@ $row = $query->fetchAll(PDO::FETCH_ASSOC);
         {
             $.ajax({                
                 type: "POST",
-                url: "search_alphp.php",
+                url: "search_alphp",
                 data: "search=" + search,                        
                 success:function(html){
 					$('#masterdiv').remove();

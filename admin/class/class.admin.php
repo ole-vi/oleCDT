@@ -4,32 +4,29 @@ require_once('dbconfig.php');
 
 class ADMIN
 {
-
-
-private $conn;
+  private $conn;
 	public function __construct()
 	{
 		$database = new Database();
 		$db = $database->dbConnection();
 		$this->conn = $db;
+  }
 
-    }
-
-    public function runQuery($sql)
+  public function runQuery($sql)
 	{
 		$stmt = $this->conn->prepare($sql);
 		return $stmt;
 	}
 
-    public function adminregister($uname,$uemail,$upass)
+  public function adminregister($uname,$uemail,$upass)
 	{
 		try
 		{
-			$joindate = date('Y/m/d h:i:s a');
+			$joindate = date('Y-m-d H:i:s');
 			$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO `tbl_admin`(admin_name,admin_email,admin_pass,admin_joindate) 
-		                                               VALUES(:uname, :umail, :upass, :joindate)");
+			$stmt = $this->conn->prepare("INSERT INTO `tbl_admin`(admin_name,admin_email,admin_pass,admin_joindate,admin_lastlogin) 
+		                                               VALUES(:uname, :umail, :upass, :joindate, :joindate)");
 												  
 			$stmt->bindparam(":uname", $uname);
 			$stmt->bindparam(":umail", $uemail);
@@ -92,17 +89,11 @@ private $conn;
 		header("Location: $url");
 	}
 	
-
 	public function adindividual($name,$location,$education,$history,$hours,$email,$mob,$phone,$skype,$facebook,$street,$city,$state,$zip,$dob,$citizenship,$pass3,$worktype,$phone2,$phone3,$imgFile,$tmp_dir,$imgSize,$imgFile2,$tmp_dir2,$imgSize2)
 	{
-		
 		if($imgFile!='') 
 		{
-			
-			
-		
-		
-			$upload_dir = '../img/'; // upload directory
+		  $upload_dir = '../img/'; // upload directory
 	
 			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 		
@@ -120,21 +111,14 @@ private $conn;
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
-		
-		
-		// if no error occured, continue ....
-		
-	} 
+  		// if no error occured, continue ....
+	  } 
 		if($imgFile2!='') 
 		{
-			
-			
-		
-		
 			$upload_dir2 = '../img/'; // upload directory
 	
 			$imgExt2 = strtolower(pathinfo($imgFile2,PATHINFO_EXTENSION)); // get image extension
@@ -153,15 +137,12 @@ private $conn;
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
-		
-		
-		// if no error occured, continue ....
-		
-	} 
+		  // if no error occured, continue ....
+	  } 
 			
 		try
 		{
@@ -199,9 +180,9 @@ private $conn;
 			$stmt->execute();	
 			
 			$to = $email;
-	      $from = "test@dppms.com";
+	    $from = "test@dppms.com";
 		 
-		   $subject ='Registration Sucessfully';
+		  $subject ='Registration Sucessfully';
 		   
 		  $message='<table align="center" border="1" bordercolor="#caecf7" cellpadding="0" cellspacing="0" style="width: 804px;">
 		<tbody>
@@ -324,8 +305,8 @@ private $conn;
 	}
 	
  
- public function editindividual($id,$name,$location,$education,$history,$hours,$email,$mob,$phone,$skype,$facebook,$street,$city,$state,$zip,$dob,$citizenship,$worktype,$w_other,$imgFile,$tmp_dir,$imgSize,$phone2,$phone3,$imgFile2,$tmp_dir2,$imgSize2)
-	{
+  public function editindividual($id,$name,$location,$education,$history,$hours,$email,$mob,$phone,$skype,$facebook,$street,$city,$state,$zip,$dob,$citizenship,$worktype,$w_other,$imgFile,$tmp_dir,$imgSize,$phone2,$phone3,$imgFile2,$tmp_dir2,$imgSize2)
+  {
 		if($imgFile!='') 
 		{
 			
@@ -350,7 +331,7 @@ private $conn;
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
@@ -397,7 +378,7 @@ private $conn;
 				}
 				else{
 					$msg2 = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
@@ -463,8 +444,8 @@ private $conn;
 		}				
 	}
 	
-	public function adorg($name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
-	{
+  public function adorg($name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
+  {
 		
 		if($imgFile!='') 
 		{
@@ -490,15 +471,12 @@ private $conn;
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
-			
-		
 		
 		// if no error occured, continue ....
-		
-	}
+    }
 		
 		try
 		{
@@ -507,41 +485,41 @@ private $conn;
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("insert into `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, curr_priorities=:priorities, achievements=:achievements, associated_org=:org, more_info=:m_info,  seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission,logo=:pic, strategies=:strategie,  state=:state,  phone=:phone, email=:email, skype=:skype,  o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, add_date=:date, status=:status, last_update=:date");
-$stmt->bindParam(':name', $name);
-$stmt->bindParam(':web', $web);
-$stmt->bindParam(':year', $year);
-$stmt->bindParam(':tax', $tax);
-$stmt->bindParam(':lstatus', $lstatus);
-$stmt->bindParam(':location', $location);
-$stmt->bindParam(':w_other', $w_other);
-$stmt->bindParam(':mission', $mission);
-$stmt->bindParam(':priorities', $priorities);
-//$stmt->bindParam(':action', $action);
-$stmt->bindParam(':achievements', $achievements);
-$stmt->bindParam(':org', $org);
-$stmt->bindParam(':m_info', $m_info);
-$stmt->bindParam(':seeking', $seeking);
-$stmt->bindParam(':w_type', $w_type);
-$stmt->bindParam(':strategie', $strategie);
-$stmt->bindParam(':state', $state1);
-//$stmt->bindParam(':Volunteers', $Volunteers);
-//$stmt->bindParam(':budget', $budget);
-//$stmt->bindParam(':address', $address);
-$stmt->bindParam(':phone', $phone);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':skype', $skype);
-//$stmt->bindParam(':c_other', $c_other);
-$stmt->bindParam(':o_address', $e_address);
-$stmt->bindParam(':o_phone', $e_phone);
-$stmt->bindParam(':o_email', $e_email);
-$stmt->bindParam(':o_skype', $e_skype);
-$stmt->bindParam(':o_other', $e_other);
-//$stmt->bindParam(':c_name', $c_name);
-$stmt->bindParam(':o_name', $e_name);
-$stmt->bindParam(':date', $joindate );
-$stmt->bindParam(':status', $status);
-$stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
-//$stmt->bindParam(':pic', $pic,);
+      $stmt->bindParam(':name', $name);
+      $stmt->bindParam(':web', $web);
+      $stmt->bindParam(':year', $year);
+      $stmt->bindParam(':tax', $tax);
+      $stmt->bindParam(':lstatus', $lstatus);
+      $stmt->bindParam(':location', $location);
+      $stmt->bindParam(':w_other', $w_other);
+      $stmt->bindParam(':mission', $mission);
+      $stmt->bindParam(':priorities', $priorities);
+      //$stmt->bindParam(':action', $action);
+      $stmt->bindParam(':achievements', $achievements);
+      $stmt->bindParam(':org', $org);
+      $stmt->bindParam(':m_info', $m_info);
+      $stmt->bindParam(':seeking', $seeking);
+      $stmt->bindParam(':w_type', $w_type);
+      $stmt->bindParam(':strategie', $strategie);
+      $stmt->bindParam(':state', $state1);
+      //$stmt->bindParam(':Volunteers', $Volunteers);
+      //$stmt->bindParam(':budget', $budget);
+      //$stmt->bindParam(':address', $address);
+      $stmt->bindParam(':phone', $phone);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':skype', $skype);
+      //$stmt->bindParam(':c_other', $c_other);
+      $stmt->bindParam(':o_address', $e_address);
+      $stmt->bindParam(':o_phone', $e_phone);
+      $stmt->bindParam(':o_email', $e_email);
+      $stmt->bindParam(':o_skype', $e_skype);
+      $stmt->bindParam(':o_other', $e_other);
+      //$stmt->bindParam(':c_name', $c_name);
+      $stmt->bindParam(':o_name', $e_name);
+      $stmt->bindParam(':date', $joindate );
+      $stmt->bindParam(':status', $status);
+      $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
+      //$stmt->bindParam(':pic', $pic,);
 			//$stmt->bindParam(':worktype', $worktype);
 											  
 				
@@ -555,15 +533,11 @@ $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
 		}				
 	}
 	
-	public function editorg($id,$name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$action,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
-	{
+  public function editorg($id,$name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$action,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
+  {
 		
 		if($imgFile!='') 
 		{
-			
-			
-		
-		
 			$upload_dir = '../img/'; // upload directory
 	
 			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
@@ -582,29 +556,27 @@ $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
 				}
 				else{
 					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details.php");
+					//header("location:stream-details");
 				}
 			}
 			
-		
-		
-		// if no error occured, continue ....
-		if(!isset($msg))
-		{
-		$stmt = $this->conn->prepare('update `pro_democracy` SET  logo=:pic where `pro_id`=:id');
-			$stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
-			$stmt->bindParam(':id',$id , PDO::PARAM_STR);			
+		  // if no error occured, continue ....
+		  if(!isset($msg))
+		  {
+		    $stmt = $this->conn->prepare('update `pro_democracy` SET  logo=:pic where `pro_id`=:id');
+			  $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
+			  $stmt->bindParam(':id',$id , PDO::PARAM_STR);			
 			
-			if($stmt->execute())
-			{
-				$successMSG = "new record succesfully inserted ...";				 
-			}
-			else
-			{
-				$errMSG = "error while inserting....";
-			}
-		}
-	}
+			  if($stmt->execute())
+			  {
+				  $successMSG = "new record succesfully inserted ...";				 
+			  }
+			  else
+			  {
+				  $errMSG = "error while inserting....";
+			  }
+		  }
+	  }
 		
 		try
 		{
@@ -612,45 +584,44 @@ $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("update `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, curr_priorities=:priorities, curr_action=:action, achievements=:achievements, associated_org=:org, more_info=:m_info,  seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission, strategies=:strategie,  state=:state,  phone=:phone, email=:email, skype=:skype,  o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, last_update=:date where `pro_id`=:id");
-$stmt->bindParam(':id', $id);
-$stmt->bindParam(':name', $name);
-$stmt->bindParam(':web', $web);
-$stmt->bindParam(':year', $year);
-$stmt->bindParam(':tax', $tax);
-$stmt->bindParam(':lstatus', $lstatus);
-$stmt->bindParam(':location', $location);
-$stmt->bindParam(':w_other', $w_other);
-$stmt->bindParam(':mission', $mission);
-$stmt->bindParam(':priorities', $priorities);
-$stmt->bindParam(':action', $action);
-$stmt->bindParam(':achievements', $achievements);
-$stmt->bindParam(':org', $org);
-$stmt->bindParam(':m_info', $m_info);
-$stmt->bindParam(':seeking', $seeking);
-$stmt->bindParam(':w_type', $w_type);
-$stmt->bindParam(':strategie', $strategie);
-$stmt->bindParam(':state', $state1);
-//$stmt->bindParam(':Volunteers', $Volunteers);
-//$stmt->bindParam(':budget', $budget);
-//$stmt->bindParam(':address', $address);
-$stmt->bindParam(':phone', $phone);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':skype', $skype);
-//$stmt->bindParam(':c_other', $c_other);
-$stmt->bindParam(':o_address', $e_address);
-$stmt->bindParam(':o_phone', $e_phone);
-$stmt->bindParam(':o_email', $e_email);
-$stmt->bindParam(':o_skype', $e_skype);
-$stmt->bindParam(':o_other', $e_other);
-//$stmt->bindParam(':c_name', $c_name);
-$stmt->bindParam(':o_name', $e_name);
-$stmt->bindParam(':date', $joindate );
-//$stmt->bindParam(':confirm', $confirm,);
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':name', $name);
+      $stmt->bindParam(':web', $web);
+      $stmt->bindParam(':year', $year);
+      $stmt->bindParam(':tax', $tax);
+      $stmt->bindParam(':lstatus', $lstatus);
+      $stmt->bindParam(':location', $location);
+      $stmt->bindParam(':w_other', $w_other);
+      $stmt->bindParam(':mission', $mission);
+      $stmt->bindParam(':priorities', $priorities);
+      $stmt->bindParam(':action', $action);
+      $stmt->bindParam(':achievements', $achievements);
+      $stmt->bindParam(':org', $org);
+      $stmt->bindParam(':m_info', $m_info);
+      $stmt->bindParam(':seeking', $seeking);
+      $stmt->bindParam(':w_type', $w_type);
+      $stmt->bindParam(':strategie', $strategie);
+      $stmt->bindParam(':state', $state1);
+      //$stmt->bindParam(':Volunteers', $Volunteers);
+      //$stmt->bindParam(':budget', $budget);
+      //$stmt->bindParam(':address', $address);
+      $stmt->bindParam(':phone', $phone);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':skype', $skype);
+      //$stmt->bindParam(':c_other', $c_other);
+      $stmt->bindParam(':o_address', $e_address);
+      $stmt->bindParam(':o_phone', $e_phone);
+      $stmt->bindParam(':o_email', $e_email);
+      $stmt->bindParam(':o_skype', $e_skype);
+      $stmt->bindParam(':o_other', $e_other);
+      //$stmt->bindParam(':c_name', $c_name);
+      $stmt->bindParam(':o_name', $e_name);
+      $stmt->bindParam(':date', $joindate );
+      //$stmt->bindParam(':confirm', $confirm,);
 
-//$stmt->bindParam(':pic', $pic,);
+      //$stmt->bindParam(':pic', $pic,);
 			//$stmt->bindParam(':worktype', $worktype);
-											  
-				
+											  	
 			$stmt->execute();	
 			
 			return $stmt;	
@@ -659,10 +630,6 @@ $stmt->bindParam(':date', $joindate );
 		{
 			echo $e->getMessage();
 		}	
-		
 	}
-
 }
-
-
 ?>

@@ -208,7 +208,7 @@ $('a.scrollto').bind('click.smoothscroll', function (event) {
 
     $.ajax({
       type: "POST",
-      url: "email.php",
+      url: "email",
       data: data,
       success: function(msg){
 	     $('.contact-success').fadeIn().delay(3000).fadeOut();

@@ -66,7 +66,7 @@ if(searchid!='')
 {
 	$.ajax({
 	type: "POST",
-	url: "main_search.php",
+	url: "main_search",
 	data: dataString,
 	cache: false,
 	success: function(html)
@@ -134,7 +134,7 @@ $('#searchid').click(function(){
  <div class="col-sm-5">
  </div>
  <div class="col-sm-4 KO">
- <form action="action_page.php">
+ <form action="action_page">
   <DIV CLASS="glo">
   <i class="fa fa-search" aria-hidden="true"></i>
 <input type="search" class="search" id="searchid" placeholder="Type Your Search Here" name="googlesearch">

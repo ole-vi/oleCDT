@@ -61,7 +61,7 @@ $imgSize = $_FILES['pic']['size'];
             {
                
               $_SESSION['org'] = "This Record Already Inserted";
-              // $admin->redirect('add_organization.php');
+              // $admin->redirect('add_organization');
                 
             }
             else
@@ -71,7 +71,7 @@ $imgSize = $_FILES['pic']['size'];
                     
                    
 					$_SESSION['org1'] = 'Record Inserted Successfully';
-                    header("location:org_details.php");
+                    header("location:org_details");
 					
 
                 }
@@ -100,7 +100,7 @@ $imgSize = $_FILES['pic']['size'];
                         <li>
 						
                             <i class="fa fa-home"></i>
-                            <a href="dashboard.php">Home</a>
+                            <a href="dashboard">Home</a>
                         </li>
                         <li class="active">Add Organization</li>
                     </ul>
@@ -146,7 +146,7 @@ $imgSize = $_FILES['pic']['size'];
                                                 <div class="widget-header bg-blue">
                                                     <span class="widget-caption">Add Organization</span>
 													
-													<div class="widget-caption pull-right"><a href="org_details.php" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
+													<div class="widget-caption pull-right"><a href="org_details" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
                                                 </div>
                                                 <div class="widget-body">
                                                     <div id="registration-form">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?
+<?php
 ob_start();
 session_start();
 include('include/header.php');

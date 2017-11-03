@@ -20,7 +20,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                     <ul class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="dashboard.php">Home</a>
+                            <a href="dashboard">Home</a>
                         </li>
                         <li class="active"> Organizations Details</li>
                     </ul>
@@ -132,7 +132,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                                             
 											<td>
                                             
-       <a href="edit_organization.php?id=<?php echo base64_encode($row['pro_id']); ?>" class="btn btn-sm btn-info shiny"><i class="fa fa-edit"></i>Edit</a>
+       <a href="edit_organization?id=<?php echo base64_encode($row['pro_id']); ?>" class="btn btn-sm btn-info shiny"><i class="fa fa-edit"></i>Edit</a>
 	 <a href="javascript:void(0);" class="btn btn-sm btn-darkorange shiny delete" id="<?php echo $row['pro_id'];?>"><i class="fa fa-trash"></i>Delete</a>
                                             </td>
                                         </tr>                                       
@@ -169,7 +169,7 @@ if(confirm("Are you sure you want to delete this?"))
 {
  $.ajax({
    type: "POST",
-   url: "delete_org.php",
+   url: "delete_org",
    data: info,
    success: function(){
  }
@@ -194,7 +194,7 @@ if(confirm("Are you sure you want to Hide this?"))
 {
  $.ajax({
    type: "POST",
-   url: "hide-org.php",
+   url: "hide-org",
    data: info,
    success: function(){
  }

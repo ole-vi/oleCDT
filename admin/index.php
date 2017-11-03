@@ -4,7 +4,7 @@ $login = new ADMIN();
 
 if($login->is_loggedin()!="")
 {
-    $login->redirect('dashboard.php');
+    $login->redirect('dashboard');
 }
 
 if(isset($_POST['login']))
@@ -14,7 +14,7 @@ if(isset($_POST['login']))
         
     if($login->adminLogin($umail,$upass))
     {
-        $login->redirect('dashboard.php?success');
+        $login->redirect('dashboard?success');
     }
     else
     {

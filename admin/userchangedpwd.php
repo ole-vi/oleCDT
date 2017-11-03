@@ -65,7 +65,7 @@ echo '<script> alert("password dont matched")</script>';
                         <li>
 						
                             <i class="fa fa-home"></i>
-                            <a href="myaccount.php">Home</a>
+                            <a href="myaccount">Home</a>
                         </li>
                         <li class="active">Individual Details</li>
                     </ul>
@@ -110,8 +110,8 @@ echo '<script> alert("password dont matched")</script>';
                                             <div class="widget flat radius-bordered">
                                                 <div class="widget-header bg-blue">
                                                     <span class="widget-caption">change your password</span>
-													<div class="widget-caption pull-right"><a href="myaccount.php" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
-													<!--<a href="individual-details.php" class="back2">Back To Details Page</a>-->
+													<div class="widget-caption pull-right"><a href="myaccount" class="btn btn-link shiny" ><i class="fa fa-plus"></i> Back To Details</a></div>
+													<!--<a href="individual-details" class="back2">Back To Details Page</a>-->
                                                 </div>
                                                 <div class="widget-body">
                                                     <div id="registration-form">

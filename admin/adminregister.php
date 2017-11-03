@@ -3,7 +3,7 @@ require_once('class/class.admin.php');
 $admin = new ADMIN();
 if($admin->is_loggedin()!="")
 {
-    $admin->redirect('dashboard.php');
+    $admin->redirect('dashboard');
 }
 
 if(isset($_POST['submit']))
@@ -42,7 +42,7 @@ if(isset($_POST['submit']))
             else
             {
                 if($admin->adminregister($uname,$umail,$upass)){  
-                    $admin->redirect('adminregister.php?joined');
+                    $admin->redirect('adminregister?joined');
                 }
             }
         }
@@ -104,7 +104,7 @@ if(isset($_POST['submit']))
             {
                  ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index'>login</a> here
                  </div>
                  <?php
             }

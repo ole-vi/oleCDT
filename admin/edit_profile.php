@@ -64,8 +64,8 @@ $imgFile2='';
                 {
                     
                   echo '<script> alert("Records updated successfully")</script>';
-echo '<script> window.location.href="myaccount.php"</script>';
-                   // header("location:myaccount.php");
+echo '<script> window.location.href="myaccount"</script>';
+                   // header("location:myaccount");
 
                 }
             }
@@ -104,7 +104,7 @@ $loc = array('Office','Online','Field');
                         <li>
 						
                             <i class="fa fa-home"></i>
-                            <a href="myaccount.php">Home</a>
+                            <a href="myaccount">Home</a>
                         </li>
                         <li class="active">Edit Individual</li>
                     </ul>

@@ -20,6 +20,14 @@ sudo apt-get -y install mysql-server
 # Installing PHP and it's dependencies
 sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
 
+# Apache Config
+sudo a2enmod rewrite
+sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
+#PHP Config
+sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
+
 #Restart Apache
 sudo /etc/init.d/apache2 restart
 

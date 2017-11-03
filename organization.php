@@ -1,12 +1,11 @@
 <?php
 session_start();
-include('include/header.php');
 include('include/config.php');
-
+include('include/header.php');
 ?>
 	<!-- contact start --> 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-  <script src="chosen.jquery.js" type="text/javascript"></script>
+  <script src="js/chosen.jquery.js" type="text/javascript"></script>
   <script src="docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
 		
 <script type="text/javascript">
@@ -194,11 +193,11 @@ var mob2 = $("#mob2").val();
 var msgbox = $("#status3");
 
 
-$("#status3").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status3").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "mobile2="+ mob2,
 success: function(msg){
 $("#status3").html(function(event, request){
@@ -208,7 +207,7 @@ if(msg == 'OK')
 
 $("#mob2").removeClass("red11"); // remove red color
 $("#mob2").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -231,11 +230,11 @@ var mob = $("#mob").val();
 var msgbox = $("#status2");
 
 
-$("#status2").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status2").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "mobile="+ mob,
 success: function(msg){
 $("#status2").html(function(event, request){
@@ -245,7 +244,7 @@ if(msg == 'OK')
 
 $("#mob").removeClass("red11"); // remove red color
 $("#mob").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -268,11 +267,11 @@ var username = $("#mail1").val();
 var msgbox = $("#status1");
 
 
-$("#status1").html('<img src="loader.gif">&nbsp;Checking availability.');
+$("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
 
 $.ajax({
 type: "POST",
-url: "check_ajax.php",
+url: "check_ajax",
 data: "username="+ username,
 success: function(msg){
 $("#status1").html(function(event, request){
@@ -282,7 +281,7 @@ if(msg == 'OK')
 
 $("#mail1").removeClass("red11"); // remove red color
 $("#mail1").addClass("green11"); // add green color
-msgbox.html('<img src="yes.png"> <font color="Green"> Available </font>');
+msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
 }
 else
 {
@@ -943,7 +942,7 @@ $(function(){
         event.preventDefault();
         $.ajax({
             type:"post",
-            url:"org_details.php"
+            url:"org_details"
             data:$("#form").serialize(),
             
         });
@@ -957,7 +956,7 @@ $(function(){
     e.preventDefault(); // Prevent Default Submission
   
     $.ajax({
- url: '<?=$site_url;?>org_preview.php',
+ url: '<?=$site_url;?>org_preview',
  type: 'POST',
  data: $(#form).serialize(), // it will serialize the form data
  console.log(data);

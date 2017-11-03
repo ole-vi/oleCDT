@@ -1,63 +1,63 @@
 <?php
-require_once('class/class.admin.php');
+require_once('admin/class/class.admin.php');
 $admin = new ADMIN();
 if($admin->is_loggedin()!="")
 {
-    $admin->redirect('dashboard.php');
+  $admin->redirect('dashboard');
 }
 
 if(isset($_POST['submit']))
 {
-    $uname = strip_tags($_POST['name']);
-    $umail = strip_tags($_POST['email']);
-    $upass = strip_tags($_POST['password']);   
+  $uname = strip_tags($_POST['name']);
+  $umail = strip_tags($_POST['email']);
+  $upass = strip_tags($_POST['password']);   
     
-    if($uname=="")  {
-        $error[] = "Provide Name !";    
-    }
-    else if($umail=="") {
-        $error[] = "Provide Email !";    
-    }
-    else if(!filter_var($umail, FILTER_VALIDATE_EMAIL)) {
-        $error[] = 'Please enter a valid email address !';
-    }
-    else if($upass=="") {
-        $error[] = "provide password !";
-    }
-    else if(strlen($upass) < 6){
-        $error[] = "Password must be atleast 6 characters"; 
-    }
-    else
+  if($uname=="")  {
+    $error[] = "Provide Name !";    
+  }
+  else if($umail=="") {
+    $error[] = "Provide Email !";    
+  }
+  else if(!filter_var($umail, FILTER_VALIDATE_EMAIL)) {
+    $error[] = 'Please enter a valid email address !';
+  }
+  else if($upass=="") {
+    $error[] = "provide password !";
+  }
+  else if(strlen($upass) < 6){
+    $error[] = "Password must be atleast 6 characters"; 
+  }
+  else
+  {
+    try
     {
-        try
-        {
-            $stmt = $admin->runQuery("SELECT `admin_email` FROM `tbl_admin` WHERE  admin_email=:umail");
-            $stmt->execute(array(':umail' => $umail));
-            $row=$stmt->fetch(PDO::FETCH_ASSOC);
+      $stmt = $admin->runQuery("SELECT `admin_email` FROM `tbl_admin` WHERE  admin_email=:umail");
+      $stmt->execute(array(':umail' => $umail));
+      $row=$stmt->fetch(PDO::FETCH_ASSOC);
                 
-            if($row['admin_email']==$umail) {
-                $error[] = "Sorry username already taken !";
-            }
-           
-            else
-            {
-                if($admin->adminregister($uname,$umail,$upass)){  
-                    $admin->redirect('adminregister.php?joined');
-                }
-            }
+      if($row['admin_email']==$umail) {
+        $error[] = "Sorry username already taken !";
+      }
+      else
+      {
+        if($admin->adminregister($uname,$umail,$upass)){  
+          $admin->redirect('adminregister?joined');
         }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
-        }
-    }   
+      }
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }   
 }
 
 ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!--Head--><head>
+  <!--Head-->
+  <head>
     <meta charset="utf-8" />
     <title>fieldguidetodemocracy.org</title>
 
@@ -104,7 +104,7 @@ if(isset($_POST['submit']))
             {
                  ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index'>login</a> here
                  </div>
                  <?php
             }
