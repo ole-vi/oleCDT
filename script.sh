@@ -3,8 +3,7 @@
 #variables
 RTPASS=rootpass
 DBUSER=dppms
-DBPASS=dfHGf$3987Jgf
-
+DBPASS='dfHGf$3987Jgf'
 
 # Updating repository
 sudo apt-get -y update
@@ -12,13 +11,13 @@ sudo apt-get -y update
 # Installing Apache
 sudo apt-get -y install apache2
 
+# Installing PHP and it's dependencies
+sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
+
 # Installing MySQL and it's dependencies, Also, setting up root password for MySQL as it will prompt to enter the password during installation
 sudo debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password password $RTPASS"
 sudo debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password_again password $RTPASS"
-sudo apt-get -y install mysql-server
-
-# Installing PHP and it's dependencies
-sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
+sudo apt-get -y install mysql-server php5-mysql
 
 # Apache Config
 sudo a2enmod rewrite
@@ -41,19 +40,17 @@ sudo mv oleCDT-master fieldguide
 
 #create DB User
 if [ ! -z `ls /var/www/html/fieldguide/db/*.sql` ]; then
-	
-	DBNAME=`ls /var/www/html/fieldguide/db/*.sql | cut -d '/' -f 7 | sed s/.sql//`
-	#create database
-	mysqladmin -u root -p$RTPASS CREATE $DBNAME;
-	#import sql into db
-	`mysql -u root -p$RTPASS $DBNAME < /var/www/html/fieldguide/db/$DBNAME.sql`
-	#create user
-	`mysql -u root -p$RTPASS -e "\
-		GRANT ALL PRIVILEGES ON $DBNAME.* TO $DBUSER@'%' \
-		IDENTIFIED BY '$DBPASS' WITH GRANT OPTION; \
-		FLUSH PRIVILEGES; "`
+  DBNAME=`ls /var/www/html/fieldguide/db/*.sql | cut -d '/' -f 7 | sed s/.sql//`
+  #create database
+  mysqladmin -u root -p$RTPASS CREATE $DBNAME;
+  #import sql into db
+  `mysql -u root -p$RTPASS $DBNAME < /var/www/html/fieldguide/db/$DBNAME.sql`
+  #create user
+  `mysql -u root -p$RTPASS -e "\
+    GRANT ALL PRIVILEGES ON $DBNAME.* TO $DBUSER@'%' \
+    IDENTIFIED BY '$DBPASS' WITH GRANT OPTION; \
+    FLUSH PRIVILEGES; "`
 fi
-		
 
 # insert/update hosts entry
 #ip_address='127.0.0.1'
@@ -74,4 +71,3 @@ fi
  #   echo "Adding new hosts entry."
   #  echo "$host_entry" | sudo tee -a /etc/hosts > /dev/null
 #fi
-

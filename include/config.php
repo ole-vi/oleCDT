@@ -1,5 +1,5 @@
 <?php
-$site_url = 'http://localhost:8000/travelguide/';
+$site_url = 'http://localhost:8000/fieldguide/';
 $host = 'localhost';
 $dbname = 'dppms_fieldguide';
 $username = 'dppms';

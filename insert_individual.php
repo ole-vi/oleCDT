@@ -164,7 +164,7 @@ if(isset($_POST['submit']))
                     <p align="justify" class="style2">
                       Your Account registration has been successfully created.</p>
                     <p align="justify" class="style2">
-                      Click here for activation of your account.<a href="http://localhost/fieldguide/status?email='.$email.'">click here</a></p>
+                      Click here for activation of your account.<a href="'.$site_url.'status?email='.$email.'">click here</a></p>
                     <p align="justify" class="style2">
                       User Name: '.$name.'</p>
                       <p align="justify" class="style2">
@@ -199,7 +199,7 @@ if(isset($_POST['submit']))
         echo '<script>alert("Thank You for your registration! verification link has been send to your corresponding email check it.")</script>';
         echo '<script>window.location.href="'.$site_url.'"</script>';
         //$_SESSION['ind']="Thank You for your registration! verification link has been send to your corresponding email check it.";	
-        //header('location:http://localhost/fieldguide');
+        //header('location:'.$site_url);
       }
       else
       {
