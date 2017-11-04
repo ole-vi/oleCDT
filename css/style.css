@@ -2098,7 +2098,7 @@ footer .color-overlay {
     font-weight: 900;
     margin-left: -61px;
 }
-#myProgress {
+.myProgress {
     background-color: hsl(0, 0%, 87%);
     border-radius: 2px;
     height: 19px;
@@ -2106,7 +2106,7 @@ footer .color-overlay {
     position: relative;
     width: 100%;
 }
-#myBar {
+.myBar {
     background-color: hsl(43, 84%, 59%);
     height: 100%;
     position: absolute;
