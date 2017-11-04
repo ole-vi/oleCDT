@@ -119,7 +119,7 @@ $(document).ready(function()
             <h4><input required="" name="confirm" type="checkbox">
                I have read,endorse the Purpose and accept Basic Policies of the Field Guide.</h4>
             <div class="col-sm-12 voli">
-              <a href="Individual"><button type="submit" class="btn btn-primary btn-block belpo">Accept</button></a>
+              <a href="individual"><button type="submit" class="btn btn-primary btn-block belpo">Accept</button></a>
             </div>
           </div>
         </div>

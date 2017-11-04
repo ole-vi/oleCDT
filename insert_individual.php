@@ -98,12 +98,12 @@ if(isset($_POST['submit']))
   if($count>0)
   {
     $_SESSION['ind']="Email Already Exist";
-    header('location:'.$site_url.'Individual');
+    header('location:'.$site_url.'individual');
   }
   elseif($pass1!=$pass2)
   {
     $_SESSION['ind']="Please Enter Same Password";
-    header('location:'.$site_url.'Individual');
+    header('location:'.$site_url.'individual');
   }
   else
   {
@@ -204,13 +204,13 @@ if(isset($_POST['submit']))
       else
       {
         $_SESSION['ind1']="Login details has not been send";	
-        header('location:'.$site_url.'Individual');
+        header('location:'.$site_url.'individual');
       }
     }
     else
     {
       $_SESSION['ind']="Record is not Inserted";	
-      header('location:'.$site_url.'Individual');
+      header('location:'.$site_url.'individual');
     }
   }
 }
