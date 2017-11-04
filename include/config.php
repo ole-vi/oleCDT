@@ -1,5 +1,6 @@
 <?php
 $site_url = 'http://localhost:8000/fieldguide/';
+$mail_send_from = 'test@dppms.com';
 $host = 'localhost';
 $dbname = 'dppms_fieldguide';
 $username = 'dppms';
