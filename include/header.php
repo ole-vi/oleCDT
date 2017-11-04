@@ -78,13 +78,13 @@
       return false;    
     });
 
-    jQuery("#result").live("click",function(e){ 
+    jQuery("#result").on("click",function(e){ 
 	    var $clicked = $(e.target);
 	    var $name = $clicked.find('.name').html();
 	    var decoded = $("<div/>").html($name).text();
 	    $('#searchid').val(decoded);
     });
-    jQuery(document).live("click", function(e) { 
+    jQuery(document).on("click", function(e) { 
 	    var $clicked = $(e.target);
 	    if (! $clicked.hasClass("search")){
 	      jQuery("#result").fadeOut(); 

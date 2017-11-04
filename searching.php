@@ -4,22 +4,20 @@ session_start();
 include('include/config.php');
 include('include/header.php');
 
-$value1 = $_SESSION['list'];
-$final = $_SESSION['final'];
+$value1 = isset($_SESSION['list']) ? $_SESSION['list'] : array();
+$final = isset($_SESSION['final']) ? $_SESSION['final'] : array();
 $strat = array();
 $state = '';
 $volunteers = '';
 if(isset($_POST['submit']))
 {
   $found = array();
-  $strat = $_POST['strategie'];
-  $checkboxes = $_POST['strategie'];
+  $checkboxes = $value2 = $strat = isset($_POST['strategie']) ? $_POST['strategie'] : array();
   $_SESSION['list'] = $checkboxes;
-  $value2 = $strat;
-  $finalvalue = array_merge($value2,$value1);
-  echo $str=implode(',',$strat);
-  $state=$_POST['state'];
-  $volunteers=$_POST['volunteers'];
+  $finalvalue = array_merge($value2, $value1);
+  $str=implode(',', $strat);
+  $state=isset($_POST['state']) ? $_POST['state'] : '';
+  $volunteers=isset($_POST['volunteers']) ? $_POST['volunteers'] : '';
   if(($state=='') and ($volunteers==''))
   {
     $sql1 = "SELECT * from `pro_democracy` ";
@@ -42,13 +40,13 @@ if(isset($_POST['submit']))
   {
     $strat1 = explode(',', $rowdata['strategies']);
 
-    if(($state!='') or ($volunteers!=''))
+    if(($state!='') || ($volunteers!=''))
     {
       if($state!='')
       {
         if($rowdata['state']!='')
         {
-          if($strat!='')
+          if(!empty($strat))
           {
             $var= array_intersect($strat, $strat1);
             foreach($var as $var1)
@@ -65,11 +63,11 @@ if(isset($_POST['submit']))
           }
         }
       }
-      elseif($volunteers!='')
+      if($volunteers!='')
       {
         if($rowdata['seeking']!='')
         {
-          if($strat!='')
+          if(!empty($strat))
           {
             $var= array_intersect($strat, $strat1);
             foreach($var as $var1)
@@ -93,17 +91,13 @@ if(isset($_POST['submit']))
       foreach($var as $var1)
       {
         if($var==$strat)
-        //if(in_array( $strat1,$strat))
         {
           $found[] = $rowdata['pro_id'];
         }
       }
     }
   }
-  //print_r($found);
   $found = array_unique($found);
-  //print_r($found);
-  //print_r($row);
 }
 else
 {
@@ -363,7 +357,7 @@ input.big {
           $row = $query->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($row as $row) { ?>
-            <a href="<?php echo $site_url;?>detailpage/<?php echo base64_encode($row['pro_id']);?>">
+            <a href="detailpage?id=<?php echo base64_encode($row['pro_id']);?>">
               <div class="col-sm-12 no-background" >
                 <div class="col-sm-5 na-color">
                   <div class="texippo">
@@ -374,7 +368,24 @@ input.big {
                 $var= explode(',', $row['strategies']);
                 ?>
                 <div class="col-sm-7">
-                  <div class="box-po">
+                  <?php foreach($strategy_list as $k => $sl) { ?>
+                    <div class="box-po">
+                        <div class="btn-group <?php echo $strategy_class[$k] ?>" data-toggle="buttons">
+                          <?php if(in_array($sl,$var)) { ?>
+                            <label class="btn btn-success  mao-po" style=" height: 30px;
+                            padding: 3px 5px;
+                            width: 40px;">
+                            </label>
+                          <?php } else { ?>
+                            <label class="btn btn-success  mao-po" style="   height: 30px;
+                            padding: 3px 5px;
+                            width: 40px; background-color:#fff !  important;">
+                            </label>
+                          <?php } ?>
+                        </div>
+                      </div>
+                  <?php } ?>
+                  <!--<div class="box-po">
                     <div class="btn-group koi-po" data-toggle="buttons">
                       <?php if(in_array('Get Money out of Politics',$var)) { ?>
                         <label class="btn btn-success  mao-po" style=" height: 30px;
@@ -494,7 +505,7 @@ input.big {
                         </label>
                       <?php } ?>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="box-po">
                     <div class="btn-group koi-po-2" data-toggle="buttons">
                       <?php if($row['state']!='') { ?>
@@ -554,7 +565,7 @@ $(document).ready(function(){
     {
       $.ajax({
         type: "POST",
-        url: "search_alphpphp",
+        url: "search_alphp",
         data: "search=" + search,
         success:function(html){
           $('#masterdiv').remove();

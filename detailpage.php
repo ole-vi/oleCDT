@@ -19,7 +19,7 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
 		<div class="row">
       <div class="col-sm-12 jal mar-left-12 pad-ouar new-img">
 				<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-					<a href="<?php echo $site_url;?>searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>                              
+					<a href="searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>
           </p></a>					
 				</div>
 				<!-- /.intro-block end -->

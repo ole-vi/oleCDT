@@ -2,34 +2,20 @@
 include('include/config.php');
 
 $output = '';
+$sql = '';
+$search = 'ALL';
 if(isset($_POST["search"]))
 {
   $search =$_POST["search"];
-
-  /* $query = "
-  SELECT * FROM  `pro_democracy`  
-  WHERE `name` LIKE '%".$search."%'
-  OR Address LIKE '%".$search."%' 
-  OR City LIKE '%".$search."%' 
-  OR PostalCode LIKE '%".$search."%' 
-  OR Country LIKE '%".$search."%'
-  ";*/
-
-  if($search=='ALL')
-  {
-    $sql = " SELECT * FROM  `pro_democracy`  ORDER BY name ASC ";
-  }
-  else{
-    $sql = " SELECT * FROM  `pro_democracy`  
-    WHERE `name` LIKE '$search%' ORDER BY name ASC ";
-  }
 }
-/*else
+if($search=='ALL')
 {
-  $query = "
-  SELECT * FROM tbl_customer ORDER BY CustomerID
-  ";
-}*/
+  $sql = " SELECT * FROM  `pro_democracy`  ORDER BY name ASC ";
+}
+else{
+  $sql = " SELECT * FROM  `pro_democracy`  
+  WHERE `name` LIKE '$search%' ORDER BY name ASC ";
+}
 
 $query = $conn->prepare($sql);
 $query->execute();
