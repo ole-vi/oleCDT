@@ -2333,7 +2333,7 @@ footer .color-overlay {
 .box-po {
     float: left;
     margin-top: 10px;
-    width: 57.5px;
+    width: 37px;
 }
 .texippo > p {
     color: hsl(222, 99%, 34%);
@@ -2364,7 +2364,7 @@ footer .color-overlay {
     margin-top: 10px;
 }
 .lo-imh {
-    margin-left: 177px;
+    /*margin-left: 177px;*/
     margin-top: -175px;
 }
 .mart-po {
@@ -2470,13 +2470,12 @@ footer .color-overlay {
 }
 .lo-po-12 {
     float: left;
-    margin-left: 578px;
-    margin-top: -33px;
+    right: -10px;
     position: absolute;
     width: 100px;
 }
 .sdfr {
-    margin-left: -491px;
+    margin-left: -150px;
     position: absolute;
     width: 100px;
 }
@@ -2555,4 +2554,3 @@ footer .color-overlay {
     transition-duration: 0.4s;
     width: 100%;
 }
-

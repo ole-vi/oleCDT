@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 include('include/config.php');
+include('include/constants.php');
 include('include/header.php');
 
 $value1 = isset($_SESSION['list']) ? $_SESSION['list'] : array();
@@ -197,6 +198,25 @@ input.big {
   height: 2.5em;
   width: 2.5em;
 }
+.slant-filter {
+  width: 37px;
+  float: left;
+  height: 300px;
+  margin-top: 65px;
+  position: relative;
+}
+.slant-filter h3 {
+  background: hsl(21, 100%, 64%) !important;
+  color: black;
+  transform: rotate(-75deg);
+  width: 300px;
+  position: absolute;
+  left: -100px;
+  height: 40px;
+  bottom: 120px;
+  padding-left: 35px;
+  border: 2px solid black;
+}
 </style>
 
 <div class="menu-bar-fixed" id="" >
@@ -215,116 +235,31 @@ input.big {
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo"><span style="color:#fff; font-size:55px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
+            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
           </div>
 
           <div class="col-sm-9">
             <div class="lo-imh">
-              <img src="img/Untitled-3.png">
-              <div class="box-po io-poli">
+              <div style="overflow:hidden">
+              <?php foreach($strategy_short as $k => $sl) {
+                echo '<div class="slant-filter"><h3>'.$sl.'</h3></div>';
+              } ?>
+              </div>
+              <div class="io-poli" style="margin-top:-45px;">
                 <form method="post">
+                  <?php foreach($strategy_list as $k => $sl) { ?>
+                  <div class="box-po">
+                    <div class="btn-group <?php echo $strategy_class[$k];?>">
+                      <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
+                        <input style="margin:0px; "  type="checkbox" name="strategie[]" value="<?php echo $sl; ?>"
+                          <?php if(in_array($sl,$strat)) { ?> checked="checked"
+                          style='background-color:#333; color:#FFF;' <?php } ?> >
+                      </label>
+                    </div>
+                  </div>
+                  <?php } ?>
 
-                  <div class="mayt-po-pop">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po" style="background-color:#FF8745 !important;   border-color: hsl(21, 100%, 64%) !important; padding: 7px 10px !important;">
-                        <input style="margin:0px; "  type="checkbox" name="strategie[]" value="Get Money out of Politics"
-                          <?php if(in_array('Get Money out of Politics',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po" style="background-color:#FF8745 !important;   border-color: hsl(21, 100%, 64%) !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="strategie[]" value="Guarantee Voting Rights"
-                          <?php if(in_array('Guarantee Voting Rights',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi">
-                    <div class="btn-group koi-po"  >
-                      <label class="btn btn-success  mao-po" style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" value="Advocate and Educate" name="strategie[]"
-                          <?php if(in_array('Advocate and Educate',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi po-2-po">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po" style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="strategie[]" value="Dig into Data"
-                          <?php if(in_array('Dig into Data',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi po-3-po">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po"  style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="strategie[]" value="Take Legal Action"
-                          <?php if(in_array('Take Legal Action',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-  
-                  <div class="mayt-po-pop poiop op-mi po-4-po">
-                    <div class="btn-group koi-po" >
-                      <label class="btn btn-success  mao-po" style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="strategie[]" value="Activate Citizens"
-                          <?php if(in_array('Activate Citizens',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-  
-                  <div class="mayt-po-pop poiop op-mi po-5-po">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po" style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" value="Fund the Movement" name="strategie[]"
-                          <?php if(in_array('Fund the Movement',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi po-6-po">
-                    <div class="btn-group koi-po"   >
-                      <label class="btn btn-success  mao-po" style="background-color:#92CDDC !important;   border-color: #92CDDC !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="strategie[]" value="Political Action Committee"
-                          <?php if(in_array('Political Action Committee',$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi po-7-po">
-                    <div class="btn-group  koi-po  fool"  >
-                      <label class="btn btn-success  mao-po" style="background-color:#CCFFCC !important;   border-color: #CCFFCC !important; padding: 7px 10px !important; ">
-                      <input style="margin:0px;" type="checkbox" name="state" value="state"
-                          <?php if($state!='') { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="mayt-po-pop poiop op-mi po-8-po">
-                    <div class="btn-group  koi-po  fool "  >
-                      <label class="btn btn-success  mao-po" style="background-color:#FFFF00 !important;   border-color:#FFFF00 !important; padding: 7px 10px !important; ">
-                        <input style="margin:0px;" type="checkbox" name="volunteers" value="volunteers"
-                            <?php if($volunteers!='') { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="sdfr " style=" margin-top: -33px!important;">
+                  <div class="sdfr ">
                     <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher</button>
                   </div>
 
@@ -359,7 +294,7 @@ input.big {
           foreach ($row as $row) { ?>
             <a href="detailpage?id=<?php echo base64_encode($row['pro_id']);?>">
               <div class="col-sm-12 no-background" >
-                <div class="col-sm-5 na-color">
+                <div class="col-sm-3 na-color">
                   <div class="texippo">
                     <p><?php echo $row['name'];?></p>
                   </div>
@@ -367,175 +302,25 @@ input.big {
                 <?php $var=array();
                 $var= explode(',', $row['strategies']);
                 ?>
-                <div class="col-sm-7">
+                <div class="col-sm-9">
                   <?php foreach($strategy_list as $k => $sl) { ?>
                     <div class="box-po">
                         <div class="btn-group <?php echo $strategy_class[$k] ?>" data-toggle="buttons">
                           <?php if(in_array($sl,$var)) { ?>
-                            <label class="btn btn-success  mao-po" style=" height: 30px;
-                            padding: 3px 5px;
-                            width: 40px;">
+                            <label class="btn btn-success  mao-po" style="padding: 3px 11px !important;
+                            margin-left: 15px;
+                            margin-right: 15px;">&nbsp;
                             </label>
                           <?php } else { ?>
-                            <label class="btn btn-success  mao-po" style="   height: 30px;
-                            padding: 3px 5px;
-                            width: 40px; background-color:#fff !  important;">
+                            <label class="btn btn-success  mao-po" style="padding: 3px 11px !important;
+                            margin-left: 15px;
+                            margin-right: 15px;
+                            background-color: #fff !important;">&nbsp;
                             </label>
                           <?php } ?>
                         </div>
                       </div>
                   <?php } ?>
-                  <!--<div class="box-po">
-                    <div class="btn-group koi-po" data-toggle="buttons">
-                      <?php if(in_array('Get Money out of Politics',$var)) { ?>
-                        <label class="btn btn-success  mao-po" style=" height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else { ?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po" data-toggle="buttons">
-                      <?php if(in_array('Guarantee Voting Rights',$var)) { ?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Advocate and Educate',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Dig into Data',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Take Legal Action',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Activate Citizens',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Fund the Movement',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-1" data-toggle="buttons">
-                      <?php if(in_array('Political Action Committee',$var)) { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div> -->
-                  <div class="box-po">
-                    <div class="btn-group koi-po-2" data-toggle="buttons">
-                      <?php if($row['state']!='') { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
-                  <div class="box-po">
-                    <div class="btn-group koi-po-3" data-toggle="buttons">
-                      <?php if($row['seeking']!='') { ?>
-                        <label class="btn btn-success ban" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px;">
-                        </label>
-                      <?php } else {?>
-                        <label class="btn btn-success  mao-po" style="   height: 30px;
-                        padding: 3px 5px;
-                        width: 40px; background-color:#fff !  important;">
-                        </label>
-                      <?php } ?>
-                    </div>
-                  </div>
                 </div>
               </div>
             </a>
