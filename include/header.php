@@ -148,7 +148,7 @@
             <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1" >Logout<i class="fa fa-user" aria-hidden="true"></i></button></a>
             <a href="login-page.html"> <button type="button" class="default btn-lg bun-1" >Feedback</button> </a>
           <?php } else {?>
-            <a href="<?php echo $site_url;?>Individual"><button type="button" class="default btn-lg bun-1" >Join Us <i class="fa fa-user" aria-hidden="true"></i>
+            <a href="<?php echo $site_url;?>individual"><button type="button" class="default btn-lg bun-1" >Join Us <i class="fa fa-user" aria-hidden="true"></i>
             </button></a>
             <a href="<?php echo $site_url;?>login"> <button type="button" class="default btn-lg bun-1" >Login <i class="fa fa-user" aria-hidden="true"></i></button></a>
             <a href="login-page.html"> <button type="button" class="default btn-lg bun-1" >Feedback</button> </a>
