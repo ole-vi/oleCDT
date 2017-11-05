@@ -249,7 +249,7 @@ header('location:index');
                 <div class="form-group">
                     <div class="col-sm-2 ">
                         
-                       <a href="<?php echo $site_url;?>update_organization/<?php echo base64_encode($id);?>" id="back" onClick="functionback()" class="btn btn-primary btn-block cwid-1">Back To Edit</a> 
+                       <a href="<?php echo $site_url;?>update_publisher/<?php echo base64_encode($id);?>" id="back" onClick="functionback()" class="btn btn-primary btn-block cwid-1">Back To Edit</a> 
                     </div>
 
 				   <div class="col-sm-2  marg-5 ">

@@ -264,6 +264,12 @@ input.big {
                   </div>
 
                   <div class=" lo-po-12 " >
+                    <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
+                    <a href="add_publisher">
+                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
+                      </button>
+                    </a>
+                    <?php } ?>
                     <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>

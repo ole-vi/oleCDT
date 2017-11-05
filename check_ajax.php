@@ -10,9 +10,9 @@ if(isset($_POST['username']))
   }
   else
   {
-    $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$"; 
+    $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/";
 
-    if (eregi($pattern, $username)){ 
+    if (preg_match($pattern, $username)){ 
      
       //return true; 
       //echo "<font color='#cc0000'>Invalid Email Address.</font>";

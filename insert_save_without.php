@@ -53,7 +53,7 @@ if(isset($_POST['save_without']))
 	$tmp_dir = $_FILES['pic']['tmp_name'];
 	$imgSize = $_FILES['pic']['size'];		
 	
-	$upload_dir = 'img/'; // upload directory
+	$upload_dir = 'publisher/'; // upload directory
 	
 	$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 		
