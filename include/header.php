@@ -144,7 +144,7 @@
           <div class="col-sm-3 padin">
           <?php if(isset($_SESSION['id'])){?>
             <!-- <a href="<?php echo $site_url;?>editprofile?id=<?php echo base64_encode($_SESSION['id']); ?>"> <button type="button" class="default btn-lg bun-1" >edit Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>-->
-            <a href="<?php echo $site_url;?>admin/myaccount"> <button type="button" class="default btn-lg bun-1" >Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>
+            <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1" >Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>
             <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1" >Logout<i class="fa fa-user" aria-hidden="true"></i></button></a>
             <a href="login-page.html"> <button type="button" class="default btn-lg bun-1" >Feedback</button> </a>
           <?php } else {?>
