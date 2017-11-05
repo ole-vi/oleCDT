@@ -258,7 +258,7 @@ if(isset($_SESSION['ind']))
                 </div>
                 <div class="form-group col-sm-12 margngh">
                   <div class="col-sm-2">
-                    <a href="editprofile?id=<?php echo base64_encode($row['id'])?>" class="btn btn-primary btn-block">Edit Profile</a>
+                    <a href="editprofile" class="btn btn-primary btn-block">Edit Profile</a>
                   </div>
                   <div class="col-sm-3">
                     <?php if(empty($row['publisher'])) { ?>
