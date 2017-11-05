@@ -2475,9 +2475,12 @@ footer .color-overlay {
     width: 100px;
 }
 .sdfr {
-    margin-left: -150px;
+    /*margin-left: -150px;
     position: absolute;
-    width: 100px;
+    width: 100px;*/
+}
+.sdfr .button {
+  width: auto;
 }
 .koi-po-1 label {
     background-color: hsl(192, 51%, 72%) !important;
