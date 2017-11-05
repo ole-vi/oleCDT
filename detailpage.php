@@ -17,18 +17,18 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
   <div class="container">
     <div class="row">
       <div class="col-sm-12 jal mar-left-12 pad-ouar new-img">
-        <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-          <a href="searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>
-          </p></a>
-        </div>
-        <!-- /.intro-block end -->
-      </div>
-      <!-- <div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
-        <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-          <a href="<?php echo $site_url;?>update_organization/<?php echo base64_encode($id);?>"><p class=" jal-2 jal-4"><span><b>Update Profile</b></span><br>
-          </p></a>
-        </div>
-      </div>-->
+				<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
+					<a href="searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>
+          </p></a>					
+				</div>
+				<!-- /.intro-block end -->
+			</div>
+			<!--	<div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
+				<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
+					<a href="<?php echo $site_url;?>update_organization/<?php echo base64_encode($id);?>"><p class=" jal-2 jal-4"><span><b>Update Profile</b></span><br>                            
+          </p></a>					
+				</div>	
+			</div>-->
       <div class="text-pera last">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
