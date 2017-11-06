@@ -236,6 +236,12 @@ input.big {
         <div class="col-sm-12">
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
+            <div class="sdfr ">
+              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
+              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button>
+              <a href="members"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+            </div>
           </div>
 
           <div class="col-sm-9">
@@ -258,10 +264,6 @@ input.big {
                     </div>
                   </div>
                   <?php } ?>
-
-                  <div class="sdfr ">
-                    <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher</button>
-                  </div>
 
                   <div class=" lo-po-12 " >
                     <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
