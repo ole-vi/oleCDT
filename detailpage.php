@@ -5,6 +5,11 @@ include('include/config.php');
 include('include/header.php');
 
 $id=base64_decode($_REQUEST['id']);
+$is_owner = false;
+
+if(!empty($_SESSION['publisher']) && $_SESSION['publisher'] == $id) {
+  $is_owner = true;
+}
 
 $sql = "select * from pro_democracy where pro_id=:id";
 $query = $conn->prepare($sql);
@@ -17,18 +22,28 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
   <div class="container">
     <div class="row">
       <div class="col-sm-12 jal mar-left-12 pad-ouar new-img">
-				<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-					<a href="searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>
+        <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
+          <a href="searching"><p class=" jal-2 jal-4"><span><b>Return to Directory</b></span><br>
+          </p></a>
+        </div>
+        <!-- /.intro-block end -->
+      </div>
+      <?php if($is_owner) { ?>
+      <div class="col-sm-4 pull-right">
+        <a href="update_publisher">
+          <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
+        </a>
+        <a href="javascript:void(0);" onclick="" id="delPub">
+          <button type="button" class="default btn-lg bun-1">Delete Publisher <i class="fa fa-trash" aria-hidden="true"></i></button>
+        </a>
+      </div>
+      <?php } ?>
+      <!--	<div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
+        <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
+          <a href="update_publisher"><p class=" jal-2 jal-4"><span><b>Update Profile</b></span><br>
           </p></a>					
-				</div>
-				<!-- /.intro-block end -->
-			</div>
-			<!--	<div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
-				<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-					<a href="<?php echo $site_url;?>update_organization/<?php echo base64_encode($id);?>"><p class=" jal-2 jal-4"><span><b>Update Profile</b></span><br>                            
-          </p></a>					
-				</div>	
-			</div>-->
+        </div>	
+      </div>-->
       <div class="text-pera last">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
@@ -40,7 +55,7 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
                
         <div class="col-sm-3">
         <?php if($row['logo']!=''){ ?>
-          <img src="img/<?php echo $row['logo'];?>" height="150px" width="150px">
+          <img src="publisher/<?php echo $row['logo'];?>" height="150px" width="150px">
         <?php } else { ?>
           <img src="img/ole_logo.png" height="150px" width="150px">
         <?php } ?>
@@ -119,6 +134,7 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
                 <a href="<?php echo $site_url;?>login" class="w3-btn w3-ripple w3-green mart"><i class="fa fa-plus"></i>Write a review</a>
               <?php }?> 
             </div>
+            <?php if($count2 > 0) { ?>
             <div class="col-sm-3 left-po">
               <div id="myProgress">
                 <span class="tp-lo">5 star</span><div id="myBar" style="width:<?php echo round($rcnt[5]*100/$count2);?>%"></div><span class="rto-lo"><?php echo round($rcnt[5]*100/$count2);?>%</span>
@@ -141,7 +157,7 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
               </div>
             </div>
           </div>
-          
+          <?php } ?>
           <div class="col-sm-6 butten le">
             <button class="w3-btn w3-ripple w3-green mat-12">Volunteer</button>
           </div>
@@ -152,17 +168,22 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
 </section>
 <!-- contact end -->
 
-<!-- map start --> 
+<!-- map start -->
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/cupertino/jquery-ui.css">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 <script>
+$('#delPub').on('click', function() {
+  if (confirm("Are you sure? Deleting publisher will delete related resources as well.") == true) {
+    window.location.href="<?php echo $site_url.'delete_publisher' ?>";
+  }
+})
 $( "#dateofplay" ).datepicker({
   altField: "#alternate1",
   altFormat: "DD, d MM, yy",
   showWeek: true,
-  maxDate: 0,         
+  maxDate: 0,
   changeMonth: true,
   changeYear: true,
   yearRange: "-5:+0",

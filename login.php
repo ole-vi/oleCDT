@@ -24,6 +24,7 @@ if(isset($_POST['submit1']))
 	  $_SESSION['id']=$row['id'];
 	  echo $_SESSION['name']=$row['name'];
 	  echo $_SESSION['email']=$row['email'];
+    echo $_SESSION['publisher']=$row['publisher'];
 	
 	  header('location:'.$site_url.'searching');
 	  echo '<script language="javascript">';
@@ -77,4 +78,3 @@ if(isset($_POST['submit1']))
 <?php 
 include('include/footer.php');
 ?>
-	

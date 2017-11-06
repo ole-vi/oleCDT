@@ -1,9 +1,18 @@
-<?php 
+<?php
+ob_start();
+session_start();
 include('include/config.php');
 include('include/header.php');
 
 //$msg='';
-$id=base64_decode($_REQUEST['id']);
+$publisher_query = "select `publisher` from `tbl_individual_member` where `id`=:id";
+$query = $conn->prepare($publisher_query);
+$query->bindParam(':id',$_SESSION['id'],PDO::PARAM_STR);
+$query->execute();
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$id = $row['publisher'];
+//$id=base64_decode($_REQUEST['id']);
+
 if(isset($_POST['update']))
 {
   $name = $_REQUEST['name'];
@@ -49,7 +58,7 @@ if(isset($_POST['update']))
 
   if($imgFile!='') 
   {
-    $upload_dir = 'img/'; // upload directory
+    $upload_dir = 'publisher/'; // upload directory
   
     $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
     
@@ -124,7 +133,7 @@ if(isset($_POST['update']))
   if($run)
   {
     $to=$o_email;
-    $from = "test@dppms.com";
+    $from = $mail_send_from;
 
     $subject ='Account Updation Sucessfully';
 
@@ -522,7 +531,7 @@ $(document).ready(function()
 <section id="contact" class="" style="padding: 139px 0 161%;">
   <div class="container">
 
-    <h2 class="text-center flo">Update Organization Member Detail</h2>
+    <h2 class="text-center flo">Update Publisher Detail</h2>
     <div class="full-form">
       <div class="bor-1">
   
