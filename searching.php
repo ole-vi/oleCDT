@@ -5,114 +5,43 @@ include('include/config.php');
 include('include/constants.php');
 include('include/header.php');
 
-$value1 = isset($_SESSION['list']) ? $_SESSION['list'] : array();
-$final = isset($_SESSION['final']) ? $_SESSION['final'] : array();
-$strat = array();
-$state = '';
-$volunteers = '';
+/*$value1 = isset($_SESSION['list']) ? $_SESSION['list'] : array();
+$final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
+$filter_params = array();
+$found = array();
+foreach($pub_filter_group as $filter_type => $group_no) {
+  $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+}
+$_SESSION['list'] = $checkboxes;
 if(isset($_POST['submit']))
 {
-  $found = array();
-  $checkboxes = $value2 = $strat = isset($_POST['strategie']) ? $_POST['strategie'] : array();
-  $_SESSION['list'] = $checkboxes;
-  $finalvalue = array_merge($value2, $value1);
-  $str=implode(',', $strat);
-  $state=isset($_POST['state']) ? $_POST['state'] : '';
-  $volunteers=isset($_POST['volunteers']) ? $_POST['volunteers'] : '';
-  if(($state=='') and ($volunteers==''))
-  {
-    $sql1 = "SELECT * from `pro_democracy` ";
-  }
-  else if(($state!='') and ($volunteers==''))
-  {
-    $sql1 = "SELECT * from `pro_democracy` where `state` IS NOT NULL";
-  }
-  else if(($state=='') and ($volunteers!=''))
-  {
-    $sql1 = "SELECT * from `pro_democracy` where `seeking` IS NOT NULL";
-  }
-  else
-  {
-    $sql1 = "SELECT * from `pro_democracy` where (`state` and `seeking`) IS NOT NULL";
-  }
+  $sql1 = "SELECT * from `tbl_publishers` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
   {
-    $strat1 = explode(',', $rowdata['strategies']);
-
-    if(($state!='') || ($volunteers!=''))
-    {
-      if($state!='')
-      {
-        if($rowdata['state']!='')
-        {
-          if(!empty($strat))
-          {
-            $var= array_intersect($strat, $strat1);
-            foreach($var as $var1)
-            {
-              if($var==$strat)
-              {
-                $found[] = $rowdata['pro_id'];
-              }
-            }
-          }
-          else
-          {
-            $found[] = $rowdata['pro_id'];
-          }
-        }
-      }
-      if($volunteers!='')
-      {
-        if($rowdata['seeking']!='')
-        {
-          if(!empty($strat))
-          {
-            $var= array_intersect($strat, $strat1);
-            foreach($var as $var1)
-            {
-              if($var==$strat)
-              {
-                $found[] = $rowdata['pro_id'];
-              }
-            }
-          }
-          else
-          {
-            $found[] = $rowdata['pro_id'];
-          }
+    $match = true;
+    foreach($filter_params as $filter_type => $filter) {
+      if(!empty($filter)) {
+        $filter_data[$filter_type] = explode('::', $rowdata[$filter_type]);
+        if($filter[0] != '...') {
+          $var = array_intersect($filter, $filter_data[$filter_type]);
+          if($var != $filter) $match = false;
         }
       }
     }
-    else
-    {
-      $var= array_intersect($strat, $strat1);
-      foreach($var as $var1)
-      {
-        if($var==$strat)
-        {
-          $found[] = $rowdata['pro_id'];
-        }
-      }
-    }
+    if($match) $found[] = $rowdata['pub_id'];
   }
   $found = array_unique($found);
 }
 else
 {
-  $sql1 = "SELECT `pro_id` from `pro_democracy` order by `name` ";
-
+  $sql1 = "SELECT `pub_id` from `tbl_publishers` order by `name` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
-  while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
-  {
-    $found[] = $rowdata['pro_id'];
-  }
+  $found = $query1->fetchAll(PDO::FETCH_COLUMN);
 }
 ?>
-
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -206,7 +135,6 @@ input.big {
   position: relative;
 }
 .slant-filter h3 {
-  background: hsl(21, 100%, 64%) !important;
   color: black;
   transform: rotate(-75deg);
   width: 300px;
@@ -247,23 +175,27 @@ input.big {
           <div class="col-sm-9">
             <div class="lo-imh">
               <div style="overflow:hidden">
-              <?php foreach($strategy_short as $k => $sl) {
-                echo '<div class="slant-filter"><h3>'.$sl.'</h3></div>';
+              <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                foreach($filter_lbl as $lbl) {
+                  echo '<div class="slant-filter"><h3 class="slant-group-'.$pub_filter_group[$filter_type].'">'.$lbl.'</h3></div>';
+                }
               } ?>
               </div>
               <div class="io-poli" style="margin-top:-45px;">
                 <form method="post">
-                  <?php foreach($strategy_list as $k => $sl) { ?>
-                  <div class="box-po">
-                    <div class="btn-group <?php echo $strategy_class[$k];?>">
-                      <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
-                        <input style="margin:0px; "  type="checkbox" name="strategie[]" value="<?php echo $sl; ?>"
-                          <?php if(in_array($sl,$strat)) { ?> checked="checked"
-                          style='background-color:#333; color:#FFF;' <?php } ?> >
-                      </label>
-                    </div>
-                  </div>
-                  <?php } ?>
+                  <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                    foreach($filter_lbl as $k => $lbl) { ?>
+                      <div class="box-po">
+                        <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type];?>">
+                          <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
+                            <input style="margin:0px; "  type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
+                              <?php if(in_array($pub_filter[$filter_type][$k], $filter_params[$filter_type])) { ?> checked="checked"
+                              style='background-color:#333; color:#FFF;' <?php } ?> >
+                          </label>
+                        </div>
+                      </div>
+                  <?php }
+                  } ?>
 
                   <div class=" lo-po-12 " >
                     <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
@@ -293,28 +225,26 @@ input.big {
         <?php
         foreach($found as $id)
         {
-          $sql = "SELECT * from `pro_democracy` where `pro_id`='".$id."' ";
+          $sql = "SELECT * from `tbl_publishers` where `pub_id`='".$id."' ";
           $query = $conn->prepare($sql);
           //$query->bindParam(':email', $email, PDO::PARAM_STR);
           $query->execute();
           $row = $query->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($row as $row) { ?>
-            <a href="detailpage?id=<?php echo base64_encode($row['pro_id']);?>">
+            <a href="detailpage?id=<?php echo base64_encode($row['pub_id']);?>">
               <div class="col-sm-12 no-background" >
                 <div class="col-sm-3 na-color">
                   <div class="texippo">
                     <p><?php echo $row['name'];?></p>
                   </div>
                 </div>
-                <?php $var=array();
-                $var= explode(',', $row['strategies']);
-                ?>
                 <div class="col-sm-9">
-                  <?php foreach($strategy_list as $k => $sl) { ?>
-                    <div class="box-po">
-                        <div class="btn-group <?php echo $strategy_class[$k] ?>" data-toggle="buttons">
-                          <?php if(in_array($sl,$var)) { ?>
+                  <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                    foreach($filter_lbl as $k => $lbl) { ?>
+                      <div class="box-po">
+                        <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type] ?>" data-toggle="buttons">
+                          <?php if($pub_filter[$filter_type][$k] == '...' || in_array($lbl, explode('::', $row[$filter_type]))) { ?>
                             <label class="btn btn-success  mao-po" style="padding: 3px 11px !important;
                             margin-left: 15px;
                             margin-right: 15px;">&nbsp;
@@ -328,7 +258,8 @@ input.big {
                           <?php } ?>
                         </div>
                       </div>
-                  <?php } ?>
+                    <?php }
+                  } ?>
                 </div>
               </div>
             </a>
@@ -336,7 +267,7 @@ input.big {
         <?php } }?>
         <?php if(isset($_POST['submit'])) {?>
           <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
-        <?php } else {}?>
+        <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>
 

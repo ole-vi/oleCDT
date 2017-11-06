@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('include/config.php');
+include('include/constants.php');
 include('include/header.php');
 ?>
 <!-- contact start -->
@@ -30,7 +31,7 @@ include('include/header.php');
       var obj, text, wordcount, limited;
 
       obj = $(this);
-      obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text">Max. '+options.limit+' words</span>');
+      obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text-'+options.ref+'">Max. '+options.limit+' words</span>');
 
       obj.keyup(function() {
         text = obj.val();
@@ -40,144 +41,12 @@ include('include/header.php');
           wordcount = $.trim(text).split(" ").length;
         }
         if(wordcount > options.limit) {
-          $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
+          $("#counter-text-"+options.ref).html('<span style="color: #DD0000;">0 words left</span>');
           limited = $.trim(text).split(" ", options.limit);
           limited = limited.join(" ");
           $(this).val(limited);
         } else {
-           $("#counter-text").html((options.limit - wordcount)+' words left');
-        }
-      });
-    });
-  };
-})(jQuery);
-</script>
-<script type="text/javascript">
-/**
- * jQuery.textareaCounter
- * Version 1.0
- * Copyright (c) 2011 c.bavota - http://bavotasan.com
- * Dual licensed under MIT and GPL.
- * Date: 10/20/2011
-**/
-(function($){
-  $.fn.textareaCounter1 = function(options) {
-    // setting the defaults
-    // $("textarea").textareaCounter({ limit: 100 });
-    var defaults = {
-      limit: 500
-    };
-    var options = $.extend(defaults, options);
- 
-    // and the plugin begins
-    return this.each(function() {
-      var obj, text, wordcount, limited;
-
-      obj = $(this);
-      obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text1">Max. '+options.limit+' words</span>');
-
-      obj.keyup(function() {
-        text = obj.val();
-        if(text === "") {
-          wordcount = 0;
-        } else {
-          wordcount = $.trim(text).split(" ").length;
-        }
-        if(wordcount > options.limit) {
-          $("#counter-text1").html('<span style="color: #FF0000;">0 words left</span>');
-          limited = $.trim(text).split(" ", options.limit);
-          limited = limited.join(" ");
-          $(this).val(limited);
-        } else {
-          $("#counter-text1").html((options.limit - wordcount)+' words left');
-        } 
-      });
-    });
-  };
-})(jQuery);
-</script>
-<script type="text/javascript">
-/**
- * jQuery.textareaCounter
- * Version 1.0
- * Copyright (c) 2011 c.bavota - http://bavotasan.com
- * Dual licensed under MIT and GPL.
- * Date: 10/20/2011
-**/
-(function($){
-  $.fn.textareaCounter2 = function(options) {
-    // setting the defaults
-    // $("textarea").textareaCounter({ limit: 100 });
-    var defaults = {
-      limit: 500
-    };
-    var options = $.extend(defaults, options);
- 
-    // and the plugin begins
-    return this.each(function() {
-      var obj, text, wordcount, limited;
-      
-      obj = $(this);
-      obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text2">Max. '+options.limit+' words</span>');
-
-      obj.keyup(function() {
-        text = obj.val();
-        if(text === "") {
-          wordcount = 0;
-        } else {
-          wordcount = $.trim(text).split(" ").length;
-        }
-        if(wordcount > options.limit) {
-          $("#counter-text2").html('<span style="color: #FF0000;">0 words left</span>');
-          limited = $.trim(text).split(" ", options.limit);
-          limited = limited.join(" ");
-          $(this).val(limited);
-        } else {
-          $("#counter-text2").html((options.limit - wordcount)+' words left');
-        }
-      });
-    });
-  };
-})(jQuery);
-</script>
-<script type="text/javascript">
-/**
- * jQuery.textareaCounter
- * Version 1.0
- * Copyright (c) 2011 c.bavota - http://bavotasan.com
- * Dual licensed under MIT and GPL.
- * Date: 10/20/2011
-**/
-(function($){
-  $.fn.textareaCounter3 = function(options) {
-    // setting the defaults
-    // $("textarea").textareaCounter({ limit: 100 });
-    var defaults = {
-      limit: 500
-    };
-    var options = $.extend(defaults, options);
- 
-    // and the plugin begins
-    return this.each(function() {
-      var obj, text, wordcount, limited;
-
-      obj = $(this);
-      obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="counter-text3">Max. '+options.limit+' words</span>');
-
-      obj.keyup(function() {
-        text = obj.val();
-        if(text === "") {
-          wordcount = 0;
-        } else {
-          wordcount = $.trim(text).split(" ").length;
-        }
-        if(wordcount > options.limit) {
-          $("#counter-text3").html('<span style="color: #FF0000;">0 words left</span>');
-          limited = $.trim(text).split(" ", options.limit);
-          limited = limited.join(" ");
-          $(this).val(limited);
-        } else {
-          $("#counter-text3").html((options.limit - wordcount)+' words left');
+           $("#counter-text-"+options.ref).html((options.limit - wordcount)+' words left');
         }
       });
     });
@@ -324,324 +193,48 @@ function onsubmitform()
 }
 </style>
 
-<?php
-if(isset($_SESSION['org']))
-{
-  $msg=$_SESSION['org'];
-  echo '<script language="javascript">';
-  echo 'alert("'.$msg.'")';
-  echo '</script>';
-  unset($_SESSION['org']);
-}
-?>
-<section id="contact" class="" style="padding: 139px 0 161%;">
+<section id="contact" class="" style="padding: 139px 0 0">
   <div class="container">
 
-    <h2 class="text-center flo">Add Publisher</h2>
+    <h2 class="text-center flo">Add Publisher Profile</h2>
     <div class="full-form">
       <div class="bor-1">
 
-        <div class="tab-content">
+        <div class="">
           <div id="home" class="tab-pane fade in active margin-tp">
 
             <div class="form-menu bor">
               <form method="POST" name="form" onsubmit="return onsubmitform();" action="" enctype="multipart/form-data" class="form-horizontal"  role="form">
                 <h2 class="text-center marg"></h2>
+                <!-- Name -->
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Name</label>
                   <div class="col-sm-9">
                     <input  name="name" id="firstName" placeholder="Full Name" class="form-control" autofocus="" type="text">
                   </div>
                 </div>
+                <!-- Website -->
                 <div class="form-group">
                   <label for="Websites (Links)" class="col-sm-3 control-label"> Websites (Links)</label>
                   <div class="col-sm-9">
                     <input  id="Websites (Links)" name="web" placeholder="Websites (Links)" class="form-control" type="text">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="country" class="col-sm-3 control-label">Year established</label>
-                  <div class="col-sm-9">
-                    <select  id="country" name="year" class="form-control">
-                      <?php
-                      $year=date('Y');
-                      for($i=$year; $i>=2000; $i--)
-                      { ?>
-                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                      <?php
-                      }
-                      ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Tax exempt </label>
-                  <div class="col-sm-6 right-maegn">
-                    <div class="row">
-                      <div class="col-sm-4 ">
-                        <label class="radio-inline">
-                          <input  type="radio" name="tax" id="OfficeworkCheckbox" value="Officework"  type="radio"><span class="mat">Yes</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label  class="radio-inline">
-                          <input  type="radio" name="tax" id="Web MasterAnalysisCheckbox" value="Web Master" type="radio"><span class="mat">No</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Websites (Links)" class="col-sm-3 control-label"> Legal status</label>
-                  <div class="col-sm-9">
-                    <input  id="Legal status"  name="lstatus" placeholder="Legal status" class="form-control" type="text">
-                  </div>
-                </div>
-
+                <!-- Mission -->
                 <div class="form-group">
                   <label for="password" class="col-sm-3 control-label">Mission</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control mission" name="mission[]" placeholder="Enter Mission"></textarea>
+                    <textarea class="form-control" name="mission" placeholder="Enter Mission"></textarea>
                   </div>
                 </div>
-
+                <!-- More Info -->
                 <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Current priorities </label>
+                  <label for="firstName" class="col-sm-3 control-label">About</label>
                   <div class="col-sm-9">
-                    <input  id="Current priorities " name="priorities[]" placeholder="Current priorities " class="form-control priorities" autofocus="" type="text">
+                    <textarea class="form-control" name="m_info" placeholder="More information about publisher"></textarea>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Recent Achievements</label>
-                  <div class="col-sm-9">
-                    <input  id="Associated Organizations" name="achievements[]" placeholder="Recent Achievements" class="form-control achievements" autofocus="" type="text">
-                  </div>
-                </div>
-                <script type="text/javascript">
-                $(".mission").textareaCounter();
-                $(".priorities").textareaCounter1();
-                $(".action").textareaCounter2();
-                $(".achievements").textareaCounter3();
-                </script>
-
-                <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Associated Organizations</label>
-                  <div class="col-sm-9">
-                    <input  id="Associated Organizations" name="org[]" placeholder="Associated Organizations" class="form-control" autofocus="" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">More information</label>
-                  <div class="col-sm-9">
-                    <input  id="More information" placeholder="More information" class="form-control" autofocus="" name="m_info[]" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Logo" class="col-sm-3 control-label">Logo</label>
-                  <div class="col-sm-9">
-                    <input  id="file" name="pic" class="custom-file-input" type="file">
-                    <span class="custom-file-control"></span>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Seeking volunteers</label>
-                  <div class="col-sm-9">
-                    <select data-placeholder="Select Seeking volunteers" class="chosen-select" name="seeking[]" multiple style="width:350px;" tabindex="4">
-                      <option value="Office">Office</option>
-                      <option value="Online">Online</option>
-                      <option value="Canvasing">Canvasing</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Strategies </label>
-                  <div class="col-sm-6">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="AdvocacyCheckbox" value="Get Money out of Politics" type="checkbox"><span class="mat">Get Money out of Politics </span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="Data&amp;AnalysisCheckbox" value="Guarantee Voting Rights" type="checkbox"><span class="mat">Guarantee Voting Rights</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="LegalActionCheckbox" value="Advocate and Educate" type="checkbox"><span class="mat">Advocate and Educate</span>
-                        </label>
-                      </div> 
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="CitizenActionCheckbox" value="Dig into Data" type="checkbox"><span class="mat">Dig into Data</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input id="SourceofFundingCheckbox" name="strategie[]" value="Take Legal Action" type="checkbox"> <span class="mat">Take Legal Action</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="PACsCheckbox" value="Activate Citizens" type="checkbox"><span class="mat">Activate Citizens</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="PACsCheckbox" value="Fund the Movement" type="checkbox"><span class="mat">Fund the Movement</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="strategie[]" id="PACsCheckbox" value="Political Action Committee" type="checkbox"><span class="mat">Political Action Committee</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <select data-placeholder="Select State" class="chosen-select" name="state[]" multiple style="width:350px;" tabindex="4">
-                            <option value="Alaska">Alaska</option>
-                            <option value="Alabama">Alabama</option>
-                            <option value="Arizona">Arizona</option>
-                            <option value="Arkansas">Arkansas</option>
-                            <option value="California">California</option>
-                            <option value="Colorado">Colorado</option>
-                            <option value="Connecticut">Connecticut</option>
-                            <option value="Delaware">Delaware</option>
-                            <option value="Florida">Florida</option>
-                            <option value="Georgia">Georgia</option>
-                            <option value="Hawaii">Hawaii</option>
-                            <option value="Idaho">Idaho</option>
-                            <option value="Illinois">Illinois</option>
-                            <option value="Indiana">Indiana</option>
-                            <option value="Iowa">Iowa</option>
-                            <option value="Kansas">Kansas</option>
-                            <option value="Kentucky">Kentucky</option>
-                            <option value="Louisiana">Louisiana</option>
-                            <option value="Maine">Maine</option>
-                            <option value="Maryland">Maryland</option>
-                            <option value="Massachusetts">Massachusetts</option>
-                            <option value="Michigan">Michigan</option>
-                            <option value="Minnesota">Minnesota</option>
-                            <option value="Mississippi">Mississippi</option>
-                            <option value="Missouri">Missouri</option>
-                            <option value="Montana">Montana</option>
-                            <option value="Nebraska">Nebraska</option>
-                            <option value="Nevada">Nevada</option>
-                            <option value="New Hampshire">New Hampshire</option>
-                            <option value="New Jersey">New Jersey</option>
-                            <option value="New Mexico">New Mexico</option>
-                            <option value="New York">New York</option>
-                            <option value="North Carolina">North Carolina</option>
-                            <option value="North Dakota">North Dakota</option>
-                            <option value="Ohio">Ohio</option>
-                            <option value="Oklahoma">Oklahoma</option>
-                            <option value="Oregon">Oregon</option>
-                            <option value="Pennsylvania">Pennsylvania</option>
-                            <option value="Rhode Island">Rhode Island</option>
-                            <option value="South Carolina">South Carolina</option>
-                            <option value="South Dakota">South Dakota</option>
-                            <option value="Tennessee">Tennessee</option>
-                            <option value="Texas">Texas</option>
-                            <option value="Utah">Utah</option>
-                            <option value="Vermont">Vermont</option>
-                            <option value="Virginia">Virginia</option>
-                            <option value="Washington">Washington</option>
-                            <option value="West Virginia">West Virginia</option>
-                            <option value="Wisconsin">Wisconsin</option>
-                            <option value="Wyoming">Wyoming</option>
-                          </select>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Type of Work</label>
-                  <div class="col-sm-6">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="administrativeCheckbox" value="Administrative" type="checkbox"><span class="mat">Administrative</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="accountingCheckbox" value="Accounting" type="checkbox"><span class="mat">Accounting</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline pad">
-                          <input name="w_type[]" id="canvasing door-to-doorCheckbox" value="Canvasing door-to-door" type="checkbox"><span class="mat">Canvasing door-to-door</span>
-                        </label>
-                      </div> 
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="legalCheckbox" value="legal" type="checkbox"><span class="mat">Legal</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="LegislationCheckbox" value="Legislation" type="checkbox"> <span class="mat">Legislation</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="MediaCheckbox" value="Media" type="checkbox"><span class="mat">Media</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="Phone BankCheckbox" value="other" type="checkbox"><span class="mat">Phone Bank</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input  name="w_type[]" id="Web ManagementCheckbox" value="Web Management" type="checkbox"><span class="mat">Web Management</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="writingCheckbox" value="Writing" type="checkbox"><span class="mat">Writing</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="w_type[]" id="writingCheckbox" value="Writing" type="checkbox"><span class="mat">Fund Raising</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input id="Other" name="w_other" placeholder="Other" class="form-control hrt" autofocus="" type="text">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="country" class="col-sm-3 control-label">Locations of Needed Work</label>
-                  <div class="col-sm-4">
-                    <select data-placeholder="Select Locations of Work" class="chosen-select" name="location[]" multiple style="width:350px;" tabindex="4">
-                      <option value="California">California</option>
-                      <option value="Texas">Texas</option>
-                      <option value="Florida">Florida</option>
-                      <option value="Hawaii">Hawaii</option>
-                      <option value="Massachusetts">Massachusetts</option>
-                      <option value="Texas2">Texas2</option>
-                      <option value="Pennsylvania">Pennsylvania</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-5">
-                    <input id="Other"  placeholder="Other Locations" name="l_other"class="form-control" autofocus="" type="text">
-                  </div>
-                </div>
-
+                <!-- Main office -->
                 <div class="form-group col-sm-12">
                   <label class="control-label col-sm-3 pada">Main Office</label>
                   <div class="col-sm-3">
@@ -651,12 +244,12 @@ if(isset($_SESSION['org']))
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input  name="address" id="Phone" placeholder="Address" class="form-control" autofocus="" type="text">
+                      <input  name="c_email" id=" Email" placeholder=" Email" class="form-control" autofocus="" type="email">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input  name="phone" id="mob" placeholder="Phone" class="form-control" autofocus="" type="number">
+                      <input  name="c_phone" id="mob" placeholder="Phone" class="form-control" autofocus="" type="number">
                       <span id="status2"></span>
                     </div>
                   </div>
@@ -664,21 +257,16 @@ if(isset($_SESSION['org']))
                   </div>
                   <div class="col-sm-3">
                     <div class="mar">
-                      <input  name="email" id=" Email" placeholder=" Email" class="form-control" autofocus="" type="email">
+                      <input  name="c_url" id="Other" placeholder="URL" class="form-control" autofocus="" type="text">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="mar">
-                      <input name="skype" id="Skype" placeholder="Skype" class="form-control" autofocus="" type="email">
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="mar">
-                      <input  name="c_other" id="Other " placeholder="Other " class="form-control" autofocus="" type="text">
+                      <input  name="c_address" id="Phone" placeholder="Address" class="form-control" autofocus="" type="text">
                     </div>
                   </div>
                 </div>
-
+                <!-- Editor info -->
                 <div class="form-group col-sm-12">
                   <label class="control-label col-sm-3 pada">Organization Editor</label>
                   <div class="col-sm-3">
@@ -716,38 +304,279 @@ if(isset($_SESSION['org']))
                     </div>
                   </div>
                 </div>
+                <!-- Logo -->
                 <div class="form-group">
-                  <div class="col-sm-9 col-sm-offset-3">
+                  <label for="Logo" class="col-sm-3 control-label">Logo</label>
+                  <div class="col-sm-9">
+                    <input  id="file" name="pic" class="custom-file-input" type="file">
+                    <span class="custom-file-control"></span>
+                  </div>
+                </div>
+                <!-- Grade Level -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Grade Levels</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['grade'] as $pub_grade) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="grade[]" value="'.$pub_grade.'" type="checkbox"><span class="mat">'.$pub_grade.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="grade[]" placeholder="Other Grade" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Subject -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Subject Areas</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['subject'] as $pub_subject) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="subject[]" value="'.$pub_subject.'" type="checkbox"><span class="mat">'.$pub_subject.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="subject[]" placeholder="Other Subject" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Digital Formats -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Available Digital Formats</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['format'] as $pub_format) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="format[]" value="'.$pub_format.'" type="checkbox"><span class="mat">'.$pub_format.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="format[]" placeholder="Other Formats" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Content Distribution -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">How is the content distributed?</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['distribution'] as $pub_distribution) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="distribution[]" value="'.$pub_distribution.'" type="checkbox"><span class="mat">'.$pub_distribution.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="distribution[]" placeholder="Other Distribution" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- License -->
+                <div class="form-group">
+                  <label class="control-label col-sm-12">How is the content currently licensed?</label>
+                  <p class="col-sm-12">Unsure of licensing? See <a href="https://creativecommons.org/licenses/" target="_blank">creativecommons.org/licenses</a> for various Creative Commons licensing definitions.</p>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <?php foreach($pub_options['license'] as $pub_license) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="license[]" value="'.$pub_license.'" type="checkbox"><span class="mat">'.$pub_license.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="license[]" placeholder="Other License" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Language -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Language(s)</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['language'] as $pub_language) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="language[]" value="'.$pub_language.'" type="checkbox"><span class="mat">'.$pub_language.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- MSA -->
+                <div class="form-group">
+                  <label class="control-label col-sm-12">Currently available in Modern Standard Arabic (MSA) or a particular dialect</label>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <?php foreach($pub_options['msa'] as $pub_msa) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="msa[]" value="'.$pub_msa.'" type="checkbox"><span class="mat">'.$pub_msa.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="msa[]" placeholder="Other MSA" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- WCAG -->
+                <div class="form-group">
+                  <label class="control-label col-sm-12">What is the accessibility level of the content according to the Web Content Accessibility Guidelines (WCAG)?</label>
+                  <p class="col-sm-12">Learn more about levels here: <a href="https://www.w3.org/TR/WCAG21/#cc1" target="_blank">https://www.w3.org/TR/WCAG21/#cc1</a>
+                  </p>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <?php foreach($pub_options['wcag'] as $pub_wcag) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="wcag[]" value="'.$pub_wcag.'" type="checkbox"><span class="mat">'.$pub_wcag.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <p class="col-sm-12">Huh? What are these levels? I'm not sure (if so, put how you think the content may be accessible in "other')
+                      </p>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="wcag[]" placeholder="Other WCAG" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Status -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Status</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_options['pub_available'] as $pub_status) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="pub_available[]" value="'.$pub_status.'" type="checkbox"><span class="mat">'.$pub_status.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- Educational Content -->
+                <div class="form-group">
+                  <label class="control-label col-sm-12">Usage, Geographies and Standards</label>
+                  <p class="col-sm-12"><small><em>Optional, but valuable.</em></small></p>
+                  <p class="col-sm-12">Has this content been aligned to curricular standards and/or approved by a curricular body?</p>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="curriculum" placeholder=""></textarea>
+                  </div>
+                  <p class="col-sm-12">What is the educational function of the content (how it fits into a particular learning pathway)?
+                  <br/><small>Note: The content doesn't need to have a particular educational focus (e.g., it could be a book, news program, etc. that initially wasn't intended for an educational use).</small>
+                  <p>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="edu_usage" placeholder=""></textarea>
+                  </div>
+                  <p class="col-sm-12">Standard educational pathway (i.e. progressing through grade levels or a degree program)
+                  </p>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <?php foreach($pub_options['edu_content'] as $pub_content) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="edu_content[]" value="'.$pub_content.'" type="checkbox"><span class="mat">'.$pub_content.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="edu_content[]" placeholder="Other Content" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Assessment Mechanism -->
+                <div class="form-group">
+                  <label class="control-label col-sm-12">Does the content include any type of assessment mechanism?</label>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <?php foreach($pub_options['assessment'] as $pub_assessment) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="assessment[]" value="'.$pub_assessment.'" type="checkbox"><span class="mat">'.$pub_assessment.'</span>
+                        </label>
+                      </div>';
+                      } ?>
+                      <div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="assessment[]" placeholder="Other Assessment Mechanism" class="form-control" autofocus="" type="text">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-12">Where is the content being used (if known) and at what scale?</label>
+                  <p class="col-sm-12">Please include geographic contexts, programmatic organizations, number of users (if known), etc.</p>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="content_usage" placeholder=""></textarea>
+                  </div>
+                  <p class="col-sm-12">Is there anything else you would like to note about this content?</p>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="content_other" placeholder=""></textarea>
+                  </div>
+                  <p class="col-sm-12">Do you know whether the content has gone through any process for quality control, and if so, by who?</p>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="content_quality" placeholder=""></textarea>
+                  </div>
+                </div>
+                <!-- Confirmation -->
+                <div class="form-group">
+                  <div class="col-sm-12">
                     <div class="checkbox go">
                       <label>
                         <input required name="confirm" type="checkbox"><a href="#">I have read and, on behalf of my organization, accept the policies and terms of the Field Guide to the Democracy Movement.   </a>
                       </label>
                     </div>
                   </div>
-                </div> <!-- /.form-group -->
+                </div>
+                <!-- Buttons -->
                 <div class="form-group">
                   <div class="col-sm-2  marg-5 ">
                     <input name="submit" type="submit" onclick="document.pressed=this.value" value="Submit" class="btn btn-primary btn-block cwid">
                   </div>
-                  <div class="col-sm-2 ">
+                  <!--<div class="col-sm-2 ">
                     <input type="submit" name="preview" onclick="document.pressed=this.value" value="Preview" id="preview"  class="btn btn-primary btn-block cwid-1">
                   </div>
                   <div class="col-sm-4  ">
                     <input name="save_without" id="save_without" onclick="document.pressed=this.value" type="submit" class="btn btn-primary btn-block wth" value="Save without Submitting">
-                  </div>
+                  </div>-->
                 </div>
-                <script type="text/javascript">
-                var config = {
-                  '.chosen-select'           : {},
-                  '.chosen-select-deselect'  : {allow_single_deselect:true},
-                  '.chosen-select-no-single' : {disable_search_threshold:10},
-                  '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-                  '.chosen-select-width'     : {width:"95%"}
-                }
-                for (var selector in config) {
-                  $(selector).chosen(config[selector]);
-                }
-                </script>
               </form>
             </div>
           </div>
@@ -756,6 +585,27 @@ if(isset($_SESSION['org']))
     </div>
   </div>
 </section>
+<script type="text/javascript">
+var config = {
+  '.chosen-select'           : {},
+  '.chosen-select-deselect'  : {allow_single_deselect:true},
+  '.chosen-select-no-single' : {disable_search_threshold:10},
+  '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+  '.chosen-select-width'     : {width:"95%"}
+}
+for (var selector in config) {
+  $(selector).chosen(config[selector]);
+}
+</script>
+<script type="text/javascript">
+$('[name="mission"]').textareaCounter({limit: 100, ref: "mission"});
+$('[name="m_info"]').textareaCounter({limit: 100, ref: "m_info"});
+$('[name="curriculum"]').textareaCounter({limit: 100, ref: "curriculum"});
+$('[name="edu_usage"]').textareaCounter({limit: 100, ref: "edu_usage"});
+$('[name="content_usage"]').textareaCounter({limit: 100, ref: "content_usage"});
+$('[name="content_other"]').textareaCounter({limit: 100, ref: "content_other"});
+$('[name="content_quality"]').textareaCounter({limit: 100, ref: "content_quality"});
+</script>
 <!-- contact end -->
 <?php include('include/footer.php');?>
 </body>

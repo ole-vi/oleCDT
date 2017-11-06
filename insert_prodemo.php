@@ -10,42 +10,38 @@ if(isset($_POST['submit']))
 {
   //$state=	array();
 
-  $name = $_REQUEST['name'];
-  $web = $_REQUEST['web'];
-  $year = $_REQUEST['year'];
-  @$tax = $_REQUEST['tax'];
-  $lstatus = $_REQUEST['lstatus'];
-  $location = !empty($_REQUEST['location']) ? implode(',',$_REQUEST['location']) : '';
-  $l_other = !empty($_REQUEST['l_other']) ? $_REQUEST['l_other'] : '';
-  $mission = implode(',', $_REQUEST['mission']);
-  $priorities = implode(',', $_REQUEST['priorities']);
-  //$action = $_REQUEST['action'];
-  $achievements = implode(',', $_REQUEST['achievements']);
-  $org = implode(',', $_REQUEST['org']);
-  $m_info = implode(',', $_REQUEST['m_info']);
-  //$state = $_REQUEST['state'];
-  @$state1 = implode(',',$_REQUEST['state']);
- 
-  //$Volunteers = implode(',',$_REQUEST['Volunteers']);
-  //$budget = $_REQUEST['budget'];
-  $c_name = $_REQUEST['c_name'];
-  $address = $_REQUEST['address'];
-  $phone = !empty($_REQUEST['phone']) ? $_REQUEST['phone'] : 0;
-  $email = $_REQUEST['email'];
-  $skype = $_REQUEST['skype'];
-  $c_other = $_REQUEST['c_other'];
-  $o_name = $_REQUEST['o_name'];
-  $o_address = $_REQUEST['o_address'];
-  $o_phone = $_REQUEST['o_phone'];
-  $o_email = $_REQUEST['o_email'];
-  $o_skype = $_REQUEST['o_skype'];
-  $o_other = $_REQUEST['o_other'];
-  $confirm = $_REQUEST['confirm'];
-  $w_other = $_REQUEST['w_other'];
-  @$seeking = implode(',', $_REQUEST['seeking']);
-  @$w_type = implode(',', $_REQUEST['w_type']);
-  @$strategie = implode(',', $_REQUEST['strategie']);
-  //$service = implode(',', $_REQUEST['service']);
+  $dt_name = $_REQUEST['name'];
+  $dt_web = isset($_REQUEST['web']) ? $_REQUEST['web'] : '';
+  $dt_mission = isset($_REQUEST['mission']) ? $_REQUEST['mission'] : '';
+  $dt_m_info = isset($_REQUEST['m_info']) ? $_REQUEST['m_info'] : '';
+  $dt_c_name = isset($_REQUEST['c_name']) ? $_REQUEST['c_name'] : '';
+  $dt_c_email = isset($_REQUEST['c_email']) ? $_REQUEST['c_email'] : '';
+  $dt_c_phone = isset($_REQUEST['c_phone']) ? $_REQUEST['c_phone'] : '';
+  $dt_c_url = isset($_REQUEST['c_url']) ? $_REQUEST['c_url'] : '';
+  $dt_c_address = isset($_REQUEST['c_address']) ? $_REQUEST['c_address'] : '';
+  $dt_o_name = isset($_REQUEST['o_name']) ? $_REQUEST['o_name'] : '';
+  $dt_o_address = isset($_REQUEST['o_address']) ? $_REQUEST['o_address'] : '';
+  $dt_o_phone = isset($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : '';
+  $dt_o_email = isset($_REQUEST['o_email']) ? $_REQUEST['o_email'] : '';
+  $dt_o_skype = isset($_REQUEST['o_skype']) ? $_REQUEST['o_skype'] : '';
+  $dt_o_other = isset($_REQUEST['o_other']) ? $_REQUEST['o_other'] : '';
+  $dt_grade = isset($_REQUEST['grade']) ? implode('::', $_REQUEST['grade']): '';
+  $dt_subject = isset($_REQUEST['subject']) ? implode('::', $_REQUEST['subject']): '';
+  $dt_format = isset($_REQUEST['format']) ? implode('::', $_REQUEST['format']): '';
+  $dt_distribution = isset($_REQUEST['distribution']) ? implode('::', $_REQUEST['distribution']): '';
+  $dt_license = isset($_REQUEST['license']) ? implode('::', $_REQUEST['license']): '';
+  $dt_language = isset($_REQUEST['language']) ? implode('::', $_REQUEST['language']): '';
+  $dt_msa = isset($_REQUEST['msa']) ? implode('::', $_REQUEST['msa']): '';
+  $dt_wcag = isset($_REQUEST['wcag']) ? implode('::', $_REQUEST['wcag']): '';
+  $dt_pub_available = isset($_REQUEST['pub_available']) ? implode('::', $_REQUEST['pub_available']): '';
+  $dt_curriculum = isset($_REQUEST['curriculum']) ? $_REQUEST['curriculum'] : '';
+  $dt_edu_usage = isset($_REQUEST['edu_usage']) ? $_REQUEST['edu_usage'] : '';
+  $dt_edu_content = isset($_REQUEST['edu_content']) ? implode('::', $_REQUEST['edu_content']): '';
+  $dt_assessment = isset($_REQUEST['assessment']) ? implode('::', $_REQUEST['assessment']): '';
+  $dt_content_usage = isset($_REQUEST['content_usage']) ? $_REQUEST['content_usage'] : '';
+  $dt_content_other = isset($_REQUEST['content_other']) ? $_REQUEST['content_other'] : '';
+  $dt_content_quality = isset($_REQUEST['content_quality']) ? $_REQUEST['content_quality'] : '';
+
   $status= 'Active';
   $date = date("Y-m-d");
 
@@ -61,17 +57,17 @@ if(isset($_POST['submit']))
   $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
 
   // rename uploading image
-  $pic = rand(1000,1000000).".".$imgExt;
+  $dt_pic = rand(1000,1000000).".".$imgExt;
 
   // allow valid image file formats
   if(in_array($imgExt, $valid_extensions)){
     // Check file size '5MB'
     if($imgSize < 5000000) {
-      move_uploaded_file($tmp_dir,$upload_dir.$pic);
+      move_uploaded_file($tmp_dir,$upload_dir.$dt_pic);
     }
     else
     {
-      $_SESSION['org']="Sorry, your file is large than 5MB";
+      $_SESSION['msg']="Sorry, your file is large than 5MB";
       header('location:'.$site_url.'add_publisher');
     }
   }
@@ -79,52 +75,51 @@ if(isset($_POST['submit']))
   //$path="uploaded_doc/" .$pic;
 
 
-  $sql = "select * from pro_democracy where email=:email";
+  $sql = "select * from `tbl_publishers` where o_email=:o_email";
   $query = $conn->prepare($sql);
-  $query->bindParam(':email', $o_email, PDO::PARAM_STR);
+  $query->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
   $query->execute();
   $count = $query->rowCount();
   if($count>0)
   {
-    $_SESSION['org']="Email Already Exist";
+    $_SESSION['msg']="Email Already Exist";
     header('location:'.$site_url.'add_publisher');
   }
   else
   {
-    $sql1 = "insert into `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, l_other=:l_other, curr_priorities=:priorities, achievements=:achievements, associated_org=:org, more_info=:m_info, logo=:pic, seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission, strategies=:strategie,  state=:state, c_name=:c_name, address=:address, phone=:phone, email=:email, skype=:skype, other=:c_other, o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, add_date=:date, last_update=:date, status=:status";
+    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, add_date=:date, last_update=:date, status=:status";
     $query1 = $conn->prepare($sql1);
-    $query1->bindParam(':name', $name, PDO::PARAM_STR);
-    $query1->bindParam(':web', $web, PDO::PARAM_STR);
-    $query1->bindParam(':year', $year, PDO::PARAM_STR);
-    $query1->bindParam(':tax', $tax, PDO::PARAM_STR);
-    $query1->bindParam(':lstatus', $lstatus, PDO::PARAM_STR);
-    $query1->bindParam(':location', $location, PDO::PARAM_STR);
-    $query1->bindParam(':l_other', $l_other, PDO::PARAM_STR);
-    $query1->bindParam(':w_other', $w_other, PDO::PARAM_STR);
-    $query1->bindParam(':mission', $mission, PDO::PARAM_STR);
-    $query1->bindParam(':priorities', $priorities, PDO::PARAM_STR);
-    //$query1->bindParam(':action', $action, PDO::PARAM_STR);
-    $query1->bindParam(':achievements', $achievements, PDO::PARAM_STR);
-    $query1->bindParam(':org', $org, PDO::PARAM_STR);
-    $query1->bindParam(':m_info', $m_info, PDO::PARAM_STR);
-    $query1->bindParam(':seeking', $seeking, PDO::PARAM_STR);
-    $query1->bindParam(':w_type', $w_type, PDO::PARAM_STR);
-    $query1->bindParam(':strategie', $strategie, PDO::PARAM_STR);
-    $query1->bindParam(':state', $state1, PDO::PARAM_STR);
-    //$query1->bindParam(':Volunteers', $Volunteers, PDO::PARAM_STR);
-    //$query1->bindParam(':budget', $budget, PDO::PARAM_STR);
-    $query1->bindParam(':address', $address, PDO::PARAM_STR);
-    $query1->bindParam(':phone', $phone, PDO::PARAM_STR);
-    $query1->bindParam(':email', $email, PDO::PARAM_STR);
-    $query1->bindParam(':skype', $skype, PDO::PARAM_STR);
-    $query1->bindParam(':c_other', $c_other, PDO::PARAM_STR);
-    $query1->bindParam(':o_address', $o_address, PDO::PARAM_STR);
-    $query1->bindParam(':o_phone', $o_phone, PDO::PARAM_STR);
-    $query1->bindParam(':o_email', $o_email, PDO::PARAM_STR);
-    $query1->bindParam(':o_skype', $o_skype, PDO::PARAM_STR);
-    $query1->bindParam(':o_other', $o_other, PDO::PARAM_STR);
-    $query1->bindParam(':c_name', $c_name, PDO::PARAM_STR);
-    $query1->bindParam(':o_name', $o_name, PDO::PARAM_STR);
+    $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
+    $query1->bindParam(':web', $dt_web, PDO::PARAM_STR);
+    $query1->bindParam(':mission', $dt_mission, PDO::PARAM_STR);
+    $query1->bindParam(':m_info', $dt_m_info, PDO::PARAM_STR);
+    $query1->bindParam(':c_name', $dt_c_name, PDO::PARAM_STR);
+    $query1->bindParam(':c_email', $dt_c_email, PDO::PARAM_STR);
+    $query1->bindParam(':c_phone', $dt_c_phone, PDO::PARAM_STR);
+    $query1->bindParam(':c_url', $dt_c_url, PDO::PARAM_STR);
+    $query1->bindParam(':c_address', $dt_c_address, PDO::PARAM_STR);
+    $query1->bindParam(':o_name', $dt_o_name, PDO::PARAM_STR);
+    $query1->bindParam(':o_address', $dt_o_address, PDO::PARAM_STR);
+    $query1->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+    $query1->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
+    $query1->bindParam(':o_skype', $dt_o_skype, PDO::PARAM_STR);
+    $query1->bindParam(':o_other', $dt_o_other, PDO::PARAM_STR);
+    $query1->bindParam(':grade', $dt_grade, PDO::PARAM_STR);
+    $query1->bindParam(':subject', $dt_subject, PDO::PARAM_STR);
+    $query1->bindParam(':format', $dt_format, PDO::PARAM_STR);
+    $query1->bindParam(':distribution', $dt_distribution, PDO::PARAM_STR);
+    $query1->bindParam(':license', $dt_license, PDO::PARAM_STR);
+    $query1->bindParam(':language', $dt_language, PDO::PARAM_STR);
+    $query1->bindParam(':msa', $dt_msa, PDO::PARAM_STR);
+    $query1->bindParam(':wcag', $dt_wcag, PDO::PARAM_STR);
+    $query1->bindParam(':pub_available', $dt_pub_available, PDO::PARAM_STR);
+    $query1->bindParam(':curriculum', $dt_curriculum, PDO::PARAM_STR);
+    $query1->bindParam(':edu_usage', $dt_edu_usage, PDO::PARAM_STR);
+    $query1->bindParam(':edu_content', $dt_edu_content, PDO::PARAM_STR);
+    $query1->bindParam(':assessment', $dt_assessment, PDO::PARAM_STR);
+    $query1->bindParam(':content_usage', $dt_content_usage, PDO::PARAM_STR);
+    $query1->bindParam(':content_other', $dt_content_other, PDO::PARAM_STR);
+    $query1->bindParam(':content_quality', $dt_content_quality, PDO::PARAM_STR);
     $query1->bindParam(':date', $date, PDO::PARAM_STR);
     $query1->bindParam(':status', $status, PDO::PARAM_STR);
 
@@ -195,18 +190,18 @@ if(isset($_POST['submit']))
 
       if ($res)
       {
-        $_SESSION['org']="Registration Email has been send at your email address";
-        header('location:'.$site_url.'add_publisher');
+        $_SESSION['msg']="Registration Email has been send at your email address";
+        header('location:'.$site_url.'detailpage?id='.base64_encode($pubId));
       }
       else
       {
-        $_SESSION['org']="Registration Email has not been send";
-        header('location:'.$site_url.'add_publisher');
+        $_SESSION['msg']="Registration Email has not been send";
+        header('location:'.$site_url.'detailpage?id='.base64_encode($pubId));
       }
     }
     else
     {
-      $_SESSION['org']="Registration is not sucessful";
+      $_SESSION['msg']="Registration is not sucessful";
       header('location:'.$site_url.'add_publisher');
     }
   }

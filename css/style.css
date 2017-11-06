@@ -2386,13 +2386,6 @@ footer .color-overlay {
     margin-left: 16px;
     margin-top: -56px;
 }
-.koi-po label {
-    background-color: hsl(21, 100%, 64%) !important;
-    border-color: hsl(0, 0%, 0%) !important;
-    border-radius: 2px !important;
-    color: hsl(0, 0%, 100%);
-    padding: 4px 10px !important;
-}
 .active .full-box-1 {
     background-color: hsl(21, 100%, 64%) !important;
     border-radius: 0;
@@ -2483,25 +2476,44 @@ footer .color-overlay {
   width: auto;
 }
 .koi-po-1 label {
-    background-color: hsl(192, 51%, 72%) !important;
+    background-color: hsl(21, 100%, 64%) !important;
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
 }
 .koi-po-2 label {
-    background-color: hsl(120, 100%, 90%) !important;
+    background-color: hsl(192, 51%, 72%) !important;
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
 }
 .koi-po-3 label {
+    background-color: hsl(120, 100%, 90%) !important;
+    border-color: hsl(0, 0%, 0%) !important;
+    border-radius: 2px !important;
+    color: hsl(0, 0%, 100%);
+    padding: 4px 10px !important;
+}
+.koi-po-4 label {
     background-color: hsl(60, 100%, 50%) !important;
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
+}
+.slant-group-1 {
+  background-color: hsl(21, 100%, 64%) !important;
+}
+.slant-group-2 {
+  background-color: hsl(192, 51%, 72%) !important;
+}
+.slant-group-3 {
+  background-color: hsl(120, 100%, 90%) !important;
+}
+.slant-group-4 {
+  background-color: hsl(60, 100%, 50%) !important;
 }
 .menu-bar-fixed {
     margin-top:152px ;

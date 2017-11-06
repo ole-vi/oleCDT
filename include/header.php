@@ -56,6 +56,16 @@
   <script type="text/javascript" charset="UTF-8" src="<?php echo $site_url;?>js/onion.js"></script>
   <script type="text/javascript" charset="UTF-8" src="<?php echo $site_url;?>js/controls.js"></script></head>
   <script type="text/javascript" src="<?php echo $site_url;?>js/jquery-1.8.0.min.js"></script>
+  <?php
+  if(isset($_SESSION['msg']))
+  {
+    $msg=$_SESSION['msg'];
+    echo '<script language="javascript">';
+    echo 'alert("'.$msg.'")';
+    echo '</script>';
+    unset($_SESSION['msg']);
+  }
+  ?>
   <script type="text/javascript">
   $(function(){
     $(".search").keyup(function() 
