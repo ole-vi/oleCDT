@@ -208,9 +208,9 @@ function onsubmitform()
                 <h2 class="text-center marg"></h2>
                 <!-- Name -->
                 <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Name</label>
+                  <label for="firstName" class="col-sm-3 control-label">Publisher Name</label>
                   <div class="col-sm-9">
-                    <input  name="name" id="firstName" placeholder="Full Name" class="form-control" autofocus="" type="text">
+                    <input  name="name" id="firstName" placeholder="Publisher Name" class="form-control" autofocus="" type="text">
                   </div>
                 </div>
                 <!-- Website -->
@@ -312,6 +312,24 @@ function onsubmitform()
                     <span class="custom-file-control"></span>
                   </div>
                 </div>
+                <!-- Interest -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Interest</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                        foreach($filter_lbl as $lbl) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="'.$filter_type.'[]" value="'.$lbl.'" type="checkbox"><span class="mat">'.$lbl.'</span>
+                          </label>
+                          </div>';
+                        }
+                      } ?>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Grade Level -->
                 <div class="form-group">
                   <label class="control-label col-sm-3">Grade Levels</label>
@@ -556,6 +574,7 @@ function onsubmitform()
                   </div>
                 </div>
                 <!-- Confirmation -->
+                <!--
                 <div class="form-group">
                   <div class="col-sm-12">
                     <div class="checkbox go">
@@ -565,6 +584,7 @@ function onsubmitform()
                     </div>
                   </div>
                 </div>
+                -->
                 <!-- Buttons -->
                 <div class="form-group">
                   <div class="col-sm-2  marg-5 ">

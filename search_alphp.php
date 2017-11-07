@@ -41,9 +41,6 @@ if($count > 0)
             <p><?php echo $row['name'];?></p>
           </div>
         </div>
-        <?php $var=array();
-        $var= explode(',', $row['strategies']);
-        ?>
         <div class="col-sm-7">
           <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
             foreach($filter_lbl as $k => $lbl) { ?>

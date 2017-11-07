@@ -33,32 +33,31 @@
           <a href="individual-details">
             <span class="menu-text">Individual Details</span>
           </a>
-				</li>
+        </li>
       </ul>
     </li>
-		<li>
+    <li>
       <a href="#" class="menu-dropdown">
         <i class="menu-icon fa fa-table"></i>
-        <span class="menu-text">Manage Organizations </span>
-
+        <span class="menu-text">Manage Publishers </span>
         <i class="menu-expand"></i>
       </a>
 
       <ul class="submenu">
         <li>
           <a href="add_organization">
-            <span class="menu-text">Add Organization</span>
+            <span class="menu-text">Add Publisher</span>
           </a>
         </li>
         <li>
           <a href="org_details">
-            <span class="menu-text">Organizations Details</span>
+            <span class="menu-text">Publishers Details</span>
           </a>
         </li>
       </ul>
     </li>
     <!--Widgets-->
-                    
+
     <!--Profile
     <li>
       <a href="#">
@@ -66,15 +65,12 @@
         <span class="menu-text">Abc</span>
       </a>
     </li>
-                   
     <li>
       <a href="#">
         <i class="menu-icon fa fa-picture-o"></i>
         <span class="menu-text">Abc</span>
       </a>
     </li>-->
-                    
-                   
   </ul>
   <!-- /Sidebar Menu -->
 </div>

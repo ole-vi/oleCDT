@@ -42,6 +42,11 @@ if(isset($_POST['submit']))
   $dt_content_other = isset($_REQUEST['content_other']) ? $_REQUEST['content_other'] : '';
   $dt_content_quality = isset($_REQUEST['content_quality']) ? $_REQUEST['content_quality'] : '';
 
+  $dt_interest1 = isset($_REQUEST['interest1']) ? implode('::', $_REQUEST['interest1']): '';
+  $dt_interest2 = isset($_REQUEST['interest2']) ? implode('::', $_REQUEST['interest2']): '';
+  $dt_interest3 = isset($_REQUEST['interest3']) ? implode('::', $_REQUEST['interest3']): '';
+  $dt_interest4 = isset($_REQUEST['interest4']) ? implode('::', $_REQUEST['interest4']): '';
+
   $status= 'Active';
   $date = date("Y-m-d");
 
@@ -63,7 +68,7 @@ if(isset($_POST['submit']))
   if(in_array($imgExt, $valid_extensions)){
     // Check file size '5MB'
     if($imgSize < 5000000) {
-      move_uploaded_file($tmp_dir,$upload_dir.$dt_pic);
+      move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
     }
     else
     {
@@ -87,7 +92,7 @@ if(isset($_POST['submit']))
   }
   else
   {
-    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, add_date=:date, last_update=:date, status=:status";
+    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:date, status=:status, mem_id=:mem_id";
     $query1 = $conn->prepare($sql1);
     $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
     $query1->bindParam(':web', $dt_web, PDO::PARAM_STR);
@@ -120,19 +125,24 @@ if(isset($_POST['submit']))
     $query1->bindParam(':content_usage', $dt_content_usage, PDO::PARAM_STR);
     $query1->bindParam(':content_other', $dt_content_other, PDO::PARAM_STR);
     $query1->bindParam(':content_quality', $dt_content_quality, PDO::PARAM_STR);
+    $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+    $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+    $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+    $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
     $query1->bindParam(':date', $date, PDO::PARAM_STR);
     $query1->bindParam(':status', $status, PDO::PARAM_STR);
+    $query1->bindParam(':mem_id', $_SESSION['id'], PDO::PARAM_STR);
 
     $query1->bindParam(':pic', $pic, PDO::PARAM_STR);
     $run=$query1->execute();
     if($run)
     {
-      $pubId = $conn->lastInsertId();
+      /*$pubId = $conn->lastInsertId();
       $link_publisher = 'update tbl_individual_member set publisher=:pid where id = :indId';
       $query1 = $conn->prepare($link_publisher);
       $query1->bindParam(':pid', $pubId, PDO::PARAM_STR);
       $query1->bindParam(':indId', $_SESSION['id'], PDO::PARAM_STR);
-      $query1->execute();
+      $query1->execute();*/
 
       $to = $o_email;
       $from = $mail_send_from;

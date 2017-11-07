@@ -1,10 +1,10 @@
 <?php
-$site_url = 'http://localhost:8000/fieldguide/';
+$site_url = 'http://localhost/oleCDT/';
 $mail_send_from = 'test@dppms.com';
 $host = 'localhost';
 $dbname = 'dppms_fieldguide';
-$username = 'dppms';
-$password = 'dfHGf$3987Jgf';
+$username = 'root';
+$password = 'lams';
 
 date_default_timezone_set("Asia/Kolkata");
 

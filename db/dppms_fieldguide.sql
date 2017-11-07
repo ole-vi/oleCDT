@@ -59,6 +59,10 @@ CREATE TABLE `tbl_publishers` (
   `content_usage` text,
   `content_other` text,
   `content_quality` text,
+  `interest1` text,
+  `interest2` text,
+  `interest3` text,
+  `interest4` text,
   `add_date` date NOT NULL,
   `last_update` date NOT NULL,
   `status` varchar(255) NOT NULL

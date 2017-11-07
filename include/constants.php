@@ -109,11 +109,11 @@ $pub_options = array(
   )
 );
 $pub_filter = array(
-  'grade' => array(
+  'interest1' => array(
     'PrePrimary',
     'Primary',
     'Secondary'),
-  'subject' => array(
+  'interest2' => array(
     'Leadership',
     'Language Learning',
     'Literature',
@@ -129,15 +129,15 @@ $pub_filter = array(
     'Sports, games, entertainment',
     'Arabic culture & Religion',
     'Accessible (Disabilities)'),
-  'msa' => array('MSA'),
-  'format' => array('...') // Any value
+  'interest3' => array('Modern Standard Arabic'),
+  'interest4' => array('Multimedia') // Any value will be ...
 );
 $pub_filter_lbl = array(
-  'grade' => array(
+  'interest1' => array(
     'PrePrimary',
     'Primary',
     'Secondary'),
-  'subject' => array(
+  'interest2' => array(
     'Leadership',
     'Language Learning',
     'Literature',
@@ -153,80 +153,13 @@ $pub_filter_lbl = array(
     'Sports, games, entertainment',
     'Arabic culture & Religion',
     'Accessible (Disabilities)'),
-  'msa' => array('MSA'),
-  'format' => array('Multimedia')
+  'interest3' => array('Modern Standard Arabic'),
+  'interest4' => array('Multimedia')
 );
 $pub_filter_group = array(
-  'grade' => 1,
-  'subject' => 2,
-  'msa' => 3,
-  'format' => 4
-);
-
-$strategy_short = array(
-  'PrePrimary',
-  'Primary',
-  'Secondary',
-  'Leadership',
-  'Language Learning',
-  'Literature',
-  'Math',
-  'Science',
-  'Technology',
-  'Business',
-  'History & Culture',
-  'Health',
-  'Food Nutrition',
-  'Politics & Government',
-  'Art and Music',
-  'Sports, games, entertainment',
-  'Arabic culture & Religion',
-  'Accessible (Disabilities)',
-  'MSA',
-  'Multimedia'
-);
-$strategy_list = array(
-  'PrePrimary',
-  'Primary',
-  'Secondary',
-  'Leadership',
-  'Language Learning',
-  'Literature',
-  'Math',
-  'Science',
-  'Technology',
-  'Business',
-  'History & Culture',
-  'Health',
-  'Food Nutrition',
-  'Politics & Government',
-  'Art and Music',
-  'Sports, games, entertainment',
-  'Arabic culture & Religion',
-  'Accessible (Disabilities)',
-  'MSA',
-  'Multimedia'
-);
-$strategy_class = array(
-  '1',
-  '1',
-  '1',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '2',
-  '3',
-  '3',
-  '3'
+  'interest1' => 1,
+  'interest2' => 2,
+  'interest3' => 3,
+  'interest4' => 4
 );
 ?>

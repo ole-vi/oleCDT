@@ -5,17 +5,14 @@ include('include/config.php');
 include('include/header.php');
 
 $id=base64_decode($_REQUEST['id']);
-$is_owner = false;
-
-if(!empty($_SESSION['publisher']) && $_SESSION['publisher'] == $id) {
-  $is_owner = true;
-}
 
 $sql = "select * from pro_democracy where pro_id=:id";
 $query = $conn->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
 $row = $query->fetch(PDO::FETCH_ASSOC);
+
+$is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 ?>
 
 <section id="contact" class=" background-img-uplod" style="padding: 156px 0 5%;">
@@ -30,10 +27,10 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
       </div>
       <?php if($is_owner) { ?>
       <div class="col-sm-4 pull-right">
-        <a href="update_publisher">
+        <a href="update_publisher?id=<?php echo base64_encode($row['id']); ?>">
           <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
         </a>
-        <a href="javascript:void(0);" onclick="" id="delPub">
+        <a href="javascript:void(0);" id="delPub">
           <button type="button" class="default btn-lg bun-1">Delete Publisher <i class="fa fa-trash" aria-hidden="true"></i></button>
         </a>
       </div>
@@ -176,7 +173,7 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
 <script>
 $('#delPub').on('click', function() {
   if (confirm("Are you sure? Deleting publisher will delete related resources as well.") == true) {
-    window.location.href="<?php echo $site_url.'delete_publisher' ?>";
+    window.location.href="<?php echo $site_url.'delete_publisher?id='.base64_encode($row['id']) ?>";
   }
 })
 $( "#dateofplay" ).datepicker({
