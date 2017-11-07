@@ -423,7 +423,7 @@ class ADMIN
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("update `tbl_individual_member` set name=:name, location=:location, work_type=:worktype, education=:education, work_history=:history, hours_perweak=:hours, email=:email, mob=:mob, phone=:phone ,  office_phone=:phone2, other_phone=:phone3, skype=:skype , facebook=:facebook ,street=:street , city=:city , state=:state , zip=:zip , dob=:dob1 , citizenship=:citizenship ,w_other=:w_other, last_update=:date where id=:id ");
-			$stmt->bindParam(':id', $id);									  
+			$stmt->bindParam(':id', $id);
 			$stmt->bindParam(':name', $name);
 			$stmt->bindParam(':location', $location);
 			$stmt->bindParam(':education', $education);
@@ -491,8 +491,8 @@ class ADMIN
       $status='Active';
       $date = date('Y/m/d');
       //$new_password = password_hash($upass, PASSWORD_DEFAULT);
+      $stmt = $this->conn->prepare("insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:add_date, last_update=:last_update, status=:status, pic=:pic");
 
-      $stmt = $this->conn->prepare("insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:date, status=:status");
       $stmt->bindParam(':name', $dt_name, PDO::PARAM_STR);
       $stmt->bindParam(':web', $dt_web, PDO::PARAM_STR);
       $stmt->bindParam(':mission', $dt_mission, PDO::PARAM_STR);
@@ -528,11 +528,11 @@ class ADMIN
       $stmt->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
       $stmt->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
       $stmt->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
-      $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':add_date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':last_update', $date, PDO::PARAM_STR);
       $stmt->bindParam(':status', $status, PDO::PARAM_STR);
 
       $stmt->bindParam(':pic', $dt_pic, PDO::PARAM_STR);
-
       $stmt->execute();
       return $stmt;
     }
@@ -589,7 +589,7 @@ class ADMIN
     {
       $date = date('Y/m/d');
 
-      $stmt = $this->conn->prepare("update `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, last_update=:date where `pub_id`=:id");
+      $stmt = $this->conn->prepare("update `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, last_update=:date where `pub_id`=:id");
       $stmt->bindParam(':id', $id);
       $stmt->bindParam(':name', $dt_name, PDO::PARAM_STR);
       $stmt->bindParam(':web', $dt_web, PDO::PARAM_STR);

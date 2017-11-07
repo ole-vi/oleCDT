@@ -2,11 +2,12 @@
 ob_start();
 session_start();
 include('include/config.php');
+include('include/constants.php');
 include('include/header.php');
 
 $id=base64_decode($_REQUEST['id']);
 
-$sql = "select * from pro_democracy where pro_id=:id";
+$sql = "select * from tbl_publishers where pub_id=:id";
 $query = $conn->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
@@ -26,33 +27,37 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
         <!-- /.intro-block end -->
       </div>
       <?php if($is_owner) { ?>
-      <div class="col-sm-4 pull-right">
-        <a href="update_publisher?id=<?php echo base64_encode($row['id']); ?>">
-          <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
-        </a>
-        <a href="javascript:void(0);" id="delPub">
-          <button type="button" class="default btn-lg bun-1">Delete Publisher <i class="fa fa-trash" aria-hidden="true"></i></button>
-        </a>
-      </div>
+        <div class="col-sm-4 pull-right">
+          <a href="update_publisher?id=<?php echo base64_encode($row['id']); ?>">
+            <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
+          </a>
+          <a href="javascript:void(0);" id="delPub">
+            <button type="button" class="default btn-lg bun-1">Delete Publisher <i class="fa fa-trash" aria-hidden="true"></i></button>
+          </a>
+        </div>
       <?php } ?>
-      <!--	<div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
+      <!-- <div class="col-sm-12 jal mar-left-12 pad-ouar new-img pull-right">
         <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
           <a href="update_publisher"><p class=" jal-2 jal-4"><span><b>Update Profile</b></span><br>
-          </p></a>					
-        </div>	
+          </p></a>
+        </div>
       </div>-->
       <div class="text-pera last">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
         
         <div class="col-sm-9">
+          <p><?php echo ($row['c_phone'] != 0) ? '• '.$row['c_phone'] : '';
+          echo (!empty($row['c_email'])) ? ' • '.$row['c_email'] : '';
+          echo (!empty($row['web'])) ? ' • '.'<a href="'.$row['web'].'">'.$row['web'].'</a>' : '';
+          ?></p>
           <p><b style="color:#000;">Mission:</b><?php echo $row['mission'];?></p>
-          <p>Year Founded: <?php echo $row['establish_year']; ?> • <?php echo $row['o_phone'];?> • <?php echo $row['o_email'];?>  •   <a href="<?php echo $row['weblink'];?>"><?php echo $row['weblink'];?></a></p>
+          <p><b style="color:#000;">About:</b><?php echo $row['m_info'];?></p>
         </div>
-               
+
         <div class="col-sm-3">
-        <?php if($row['logo']!=''){ ?>
-          <img src="publisher/<?php echo $row['logo'];?>" height="150px" width="150px">
+        <?php if($row['pic']!=''){ ?>
+          <img src="publisher/<?php echo $row['pic'];?>" height="150px" width="150px">
         <?php } else { ?>
           <img src="img/ole_logo.png" height="150px" width="150px">
         <?php } ?>
@@ -62,18 +67,17 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 
       <div class="col-sm-12">
         <div class="new-1-pera">
-          <h1>Current Democracy Work</h1>
-          <p><?php echo $row['work_type'];?></p>
-        </div> 
-      </div>
-
-      <div class="w-line-2"></div>
-
-      <div class="col-sm-12">
-        <div class="new-1-pera">
-          <h1>Recent Successes</h1>
-          <p><?php echo $row['achievements'];?></p>
-        </div> 
+          <h1>Interests</h1>
+          <p><?php foreach($pub_filter_group as $filter_type => $group) {
+            if(!empty($row[$filter_type])) {
+              $filters = explode('::', $row[$filter_type]);
+              foreach($filters as $interest) {
+                echo '<div class="col-sm-3">• '.$interest.'</div>';
+              }
+            }
+          }
+          ?></p>
+        </div>
       </div>
 
       <div class="w-line-2"></div>
@@ -91,7 +95,8 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
            the country and in many different fields.</span></p>
         </div>
       </div>
-          
+
+      <div class="w-line-2"></div>
       <div class="col-sm-12">
         <div class="piy-p">
           <div class="col-sm-6 butten">
@@ -155,9 +160,11 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
             </div>
           </div>
           <?php } ?>
+          <!--
           <div class="col-sm-6 butten le">
             <button class="w3-btn w3-ripple w3-green mat-12">Volunteer</button>
           </div>
+          -->
         </div>
       </div>
     </div>

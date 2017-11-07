@@ -50,7 +50,7 @@ CREATE TABLE `tbl_publishers` (
   `license` text,
   `language` text,
   `msa` text,
-  `wcag` int(11) DEFAULT NULL,
+  `wcag` text,
   `pub_available` text,
   `curriculum` text,
   `edu_usage` text,
