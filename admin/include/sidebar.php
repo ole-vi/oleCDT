@@ -51,7 +51,27 @@
         </li>
         <li>
           <a href="org_details">
-            <span class="menu-text">Publishers Details</span>
+            <span class="menu-text">Publisher Details</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" class="menu-dropdown">
+        <i class="menu-icon fa fa-table"></i>
+        <span class="menu-text">Manage Resources </span>
+        <i class="menu-expand"></i>
+      </a>
+
+      <ul class="submenu">
+        <li>
+          <a href="add_resource">
+            <span class="menu-text">Add Resource</span>
+          </a>
+        </li>
+        <li>
+          <a href="resource_details">
+            <span class="menu-text">Resource Details</span>
           </a>
         </li>
       </ul>

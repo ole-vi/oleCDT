@@ -92,7 +92,7 @@ if(isset($_POST['submit']))
   }
   else
   {
-    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:date, status=:status, mem_id=:mem_id";
+    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:update, status=:status, mem_id=:mem_id";
     $query1 = $conn->prepare($sql1);
     $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
     $query1->bindParam(':web', $dt_web, PDO::PARAM_STR);
@@ -130,6 +130,7 @@ if(isset($_POST['submit']))
     $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
     $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
     $query1->bindParam(':date', $date, PDO::PARAM_STR);
+    $query1->bindParam(':update', $date, PDO::PARAM_STR);
     $query1->bindParam(':status', $status, PDO::PARAM_STR);
     $query1->bindParam(':mem_id', $_SESSION['id'], PDO::PARAM_STR);
 
@@ -137,8 +138,8 @@ if(isset($_POST['submit']))
     $run=$query1->execute();
     if($run)
     {
-      /*$pubId = $conn->lastInsertId();
-      $link_publisher = 'update tbl_individual_member set publisher=:pid where id = :indId';
+      $pubId = $conn->lastInsertId();
+      /*$link_publisher = 'update tbl_individual_member set publisher=:pid where id = :indId';
       $query1 = $conn->prepare($link_publisher);
       $query1->bindParam(':pid', $pubId, PDO::PARAM_STR);
       $query1->bindParam(':indId', $_SESSION['id'], PDO::PARAM_STR);
