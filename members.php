@@ -15,7 +15,7 @@ foreach($pub_filter_group as $filter_type => $group_no) {
 $_SESSION['list'] = $checkboxes;
 if(isset($_POST['submit']))
 {
-  $sql1 = "SELECT * from `tbl_publishers` ";
+  $sql1 = "SELECT * from `tbl_individual_member` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
@@ -30,13 +30,13 @@ if(isset($_POST['submit']))
         }
       }
     }
-    if($match) $found[] = $rowdata['pub_id'];
+    if($match) $found[] = $rowdata['id'];
   }
   $found = array_unique($found);
 }
 else
 {
-  $sql1 = "SELECT `pub_id` from `tbl_publishers` order by `name` ";
+  $sql1 = "SELECT `id` from `tbl_individual_member` order by `name` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   $found = $query1->fetchAll(PDO::FETCH_COLUMN);
@@ -225,14 +225,14 @@ input.big {
         <?php
         foreach($found as $id)
         {
-          $sql = "SELECT * from `tbl_publishers` where `pub_id`='".$id."' ";
+          $sql = "SELECT * from `tbl_individual_member` where `id`='".$id."' ";
           $query = $conn->prepare($sql);
           //$query->bindParam(':email', $email, PDO::PARAM_STR);
           $query->execute();
           $row = $query->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($row as $row) { ?>
-            <a href="detailpage?id=<?php echo base64_encode($row['pub_id']);?>">
+            <a href="detailpage?id=<?php echo base64_encode($row['id']);?>">
               <div class="col-sm-12 no-background" >
                 <div class="col-sm-3 na-color">
                   <div class="texippo">

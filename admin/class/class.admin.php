@@ -260,22 +260,35 @@ class ADMIN
 			echo $e->getMessage();
 		}
 	}
-	
-	
-	public function hide_org($id)
-	{
-		try
-		{
-			$stmt = $this->conn->prepare("Update `pro_democracy` set `status`='Inactive' where `pro_id`=:id ");
-			$stmt->execute(array(':id'=>$id));
-			return $stmt;
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}
-	
+
+  public function hide_org($id)
+  {
+    try
+    {
+      $stmt = $this->conn->prepare("Update `tbl_publishers` set `status`='Inactive' where `pub_id`=:id ");
+      $stmt->execute(array(':id'=>$id));
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  public function show_org($id)
+  {
+    try
+    {
+      $stmt = $this->conn->prepare("Update `tbl_publishers` set `status`='Active' where `pub_id`=:id ");
+      $stmt->execute(array(':id'=>$id));
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
 	public function hide_ind($id)
 	{
 		try
@@ -294,7 +307,7 @@ class ADMIN
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("Delete from `pro_democracy` where pro_id=:id ");
+			$stmt = $this->conn->prepare("Delete from `tbl_publishers` where pub_id=:id ");
 			$stmt->execute(array(':id'=>$id));
 			return $stmt;
 		}
@@ -346,7 +359,7 @@ class ADMIN
 			
 			if($stmt->execute())
 			{
-				$successMSG = "new record succesfully inserted ...";				 
+				$successMSG = "new record succesfully inserted ...";
 			}
 			else
 			{
@@ -410,7 +423,7 @@ class ADMIN
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("update `tbl_individual_member` set name=:name, location=:location, work_type=:worktype, education=:education, work_history=:history, hours_perweak=:hours, email=:email, mob=:mob, phone=:phone ,  office_phone=:phone2, other_phone=:phone3, skype=:skype , facebook=:facebook ,street=:street , city=:city , state=:state , zip=:zip , dob=:dob1 , citizenship=:citizenship ,w_other=:w_other, last_update=:date where id=:id ");
-			$stmt->bindParam(':id', $id);									  
+			$stmt->bindParam(':id', $id);
 			$stmt->bindParam(':name', $name);
 			$stmt->bindParam(':location', $location);
 			$stmt->bindParam(':education', $education);
@@ -444,192 +457,185 @@ class ADMIN
 		}				
 	}
 	
-  public function adorg($name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
+  public function adorg($dt_name, $dt_web, $dt_mission, $dt_m_info, $dt_c_name, $dt_c_email, $dt_c_phone, $dt_c_url, $dt_c_address, $dt_o_name, $dt_o_address, $dt_o_phone, $dt_o_email, $dt_o_skype, $dt_o_other, $dt_grade, $dt_subject, $dt_format, $dt_distribution, $dt_license, $dt_language, $dt_msa, $dt_wcag, $dt_pub_available, $dt_curriculum, $dt_edu_usage, $dt_edu_content, $dt_assessment, $dt_content_usage, $dt_content_other, $dt_content_quality, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize)
   {
-		
-		if($imgFile!='') 
-		{
-			
-			
-		
-		
-			$upload_dir = '../img/'; // upload directory
-	
-			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
-		
-			// rename uploading image
-			$pic1 = rand(1000,1000000).".".$imgExt;
-				
-			// allow valid image file formats
-			if(in_array($imgExt, $valid_extensions)){			
-				// Check file size '10KB'
-				if($imgSize < 10240)				{
-					move_uploaded_file($tmp_dir,$upload_dir.$pic1);
-				}
-				else{
-					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-		
-		// if no error occured, continue ....
-    }
-		
-		try
-		{
-			$status='Active';
-			$joindate = date('Y/m/d');
-			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
-			
-			$stmt = $this->conn->prepare("insert into `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, curr_priorities=:priorities, achievements=:achievements, associated_org=:org, more_info=:m_info,  seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission,logo=:pic, strategies=:strategie,  state=:state,  phone=:phone, email=:email, skype=:skype,  o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, add_date=:date, status=:status, last_update=:date");
-      $stmt->bindParam(':name', $name);
-      $stmt->bindParam(':web', $web);
-      $stmt->bindParam(':year', $year);
-      $stmt->bindParam(':tax', $tax);
-      $stmt->bindParam(':lstatus', $lstatus);
-      $stmt->bindParam(':location', $location);
-      $stmt->bindParam(':w_other', $w_other);
-      $stmt->bindParam(':mission', $mission);
-      $stmt->bindParam(':priorities', $priorities);
-      //$stmt->bindParam(':action', $action);
-      $stmt->bindParam(':achievements', $achievements);
-      $stmt->bindParam(':org', $org);
-      $stmt->bindParam(':m_info', $m_info);
-      $stmt->bindParam(':seeking', $seeking);
-      $stmt->bindParam(':w_type', $w_type);
-      $stmt->bindParam(':strategie', $strategie);
-      $stmt->bindParam(':state', $state1);
-      //$stmt->bindParam(':Volunteers', $Volunteers);
-      //$stmt->bindParam(':budget', $budget);
-      //$stmt->bindParam(':address', $address);
-      $stmt->bindParam(':phone', $phone);
-      $stmt->bindParam(':email', $email);
-      $stmt->bindParam(':skype', $skype);
-      //$stmt->bindParam(':c_other', $c_other);
-      $stmt->bindParam(':o_address', $e_address);
-      $stmt->bindParam(':o_phone', $e_phone);
-      $stmt->bindParam(':o_email', $e_email);
-      $stmt->bindParam(':o_skype', $e_skype);
-      $stmt->bindParam(':o_other', $e_other);
-      //$stmt->bindParam(':c_name', $c_name);
-      $stmt->bindParam(':o_name', $e_name);
-      $stmt->bindParam(':date', $joindate );
-      $stmt->bindParam(':status', $status);
-      $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
-      //$stmt->bindParam(':pic', $pic,);
-			//$stmt->bindParam(':worktype', $worktype);
-											  
-				
-			$stmt->execute();	
-			
-			return $stmt;	
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}				
-	}
-	
-  public function editorg($id,$name,$web,$year,$tax,$lstatus,$location,$mission,$priorities,$action,$achievements,$org,$m_info,$email,$phone,$skype,$e_name,$e_address,$e_phone,$e_email,$e_skype,$e_other,$seeking,$strategie,$state1,$w_type,$w_other,$imgFile,$tmp_dir,$imgSize)
-  {
-		
-		if($imgFile!='') 
-		{
-			$upload_dir = '../img/'; // upload directory
-	
-			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
-		
-			// rename uploading image
-			$pic1 = rand(1000,1000000).".".$imgExt;
-				
-			// allow valid image file formats
-			if(in_array($imgExt, $valid_extensions)){			
-				// Check file size '10KB'
-				if($imgSize < 10240)				{
-					move_uploaded_file($tmp_dir,$upload_dir.$pic1);
-				}
-				else{
-					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-			
-		  // if no error occured, continue ....
-		  if(!isset($msg))
-		  {
-		    $stmt = $this->conn->prepare('update `pro_democracy` SET  logo=:pic where `pro_id`=:id');
-			  $stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
-			  $stmt->bindParam(':id',$id , PDO::PARAM_STR);			
-			
-			  if($stmt->execute())
-			  {
-				  $successMSG = "new record succesfully inserted ...";				 
-			  }
-			  else
-			  {
-				  $errMSG = "error while inserting....";
-			  }
-		  }
-	  }
-		
-		try
-		{
-			$joindate = date('Y/m/d');
-			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
-			
-			$stmt = $this->conn->prepare("update `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, curr_priorities=:priorities, curr_action=:action, achievements=:achievements, associated_org=:org, more_info=:m_info,  seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission, strategies=:strategie,  state=:state,  phone=:phone, email=:email, skype=:skype,  o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, last_update=:date where `pro_id`=:id");
-      $stmt->bindParam(':id', $id);
-      $stmt->bindParam(':name', $name);
-      $stmt->bindParam(':web', $web);
-      $stmt->bindParam(':year', $year);
-      $stmt->bindParam(':tax', $tax);
-      $stmt->bindParam(':lstatus', $lstatus);
-      $stmt->bindParam(':location', $location);
-      $stmt->bindParam(':w_other', $w_other);
-      $stmt->bindParam(':mission', $mission);
-      $stmt->bindParam(':priorities', $priorities);
-      $stmt->bindParam(':action', $action);
-      $stmt->bindParam(':achievements', $achievements);
-      $stmt->bindParam(':org', $org);
-      $stmt->bindParam(':m_info', $m_info);
-      $stmt->bindParam(':seeking', $seeking);
-      $stmt->bindParam(':w_type', $w_type);
-      $stmt->bindParam(':strategie', $strategie);
-      $stmt->bindParam(':state', $state1);
-      //$stmt->bindParam(':Volunteers', $Volunteers);
-      //$stmt->bindParam(':budget', $budget);
-      //$stmt->bindParam(':address', $address);
-      $stmt->bindParam(':phone', $phone);
-      $stmt->bindParam(':email', $email);
-      $stmt->bindParam(':skype', $skype);
-      //$stmt->bindParam(':c_other', $c_other);
-      $stmt->bindParam(':o_address', $e_address);
-      $stmt->bindParam(':o_phone', $e_phone);
-      $stmt->bindParam(':o_email', $e_email);
-      $stmt->bindParam(':o_skype', $e_skype);
-      $stmt->bindParam(':o_other', $e_other);
-      //$stmt->bindParam(':c_name', $c_name);
-      $stmt->bindParam(':o_name', $e_name);
-      $stmt->bindParam(':date', $joindate );
-      //$stmt->bindParam(':confirm', $confirm,);
 
-      //$stmt->bindParam(':pic', $pic,);
-			//$stmt->bindParam(':worktype', $worktype);
-											  	
-			$stmt->execute();	
-			
-			return $stmt;	
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}	
-	}
+    if($imgFile != '')
+    {
+      $upload_dir = '../publisher/'; // upload directory
+
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+    
+      // rename uploading image
+      $dt_pic = rand(1000,1000000).".".$imgExt;
+        
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)){
+        // Check file size '5MB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+    // if no error occured, continue ....
+    }
+    
+    try
+    {
+      $status='Active';
+      $date = date('Y/m/d');
+      //$new_password = password_hash($upass, PASSWORD_DEFAULT);
+      $stmt = $this->conn->prepare("insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:add_date, last_update=:last_update, status=:status, pic=:pic");
+
+      $stmt->bindParam(':name', $dt_name, PDO::PARAM_STR);
+      $stmt->bindParam(':web', $dt_web, PDO::PARAM_STR);
+      $stmt->bindParam(':mission', $dt_mission, PDO::PARAM_STR);
+      $stmt->bindParam(':m_info', $dt_m_info, PDO::PARAM_STR);
+      $stmt->bindParam(':c_name', $dt_c_name, PDO::PARAM_STR);
+      $stmt->bindParam(':c_email', $dt_c_email, PDO::PARAM_STR);
+      $stmt->bindParam(':c_phone', $dt_c_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':c_url', $dt_c_url, PDO::PARAM_STR);
+      $stmt->bindParam(':c_address', $dt_c_address, PDO::PARAM_STR);
+      $stmt->bindParam(':o_name', $dt_o_name, PDO::PARAM_STR);
+      $stmt->bindParam(':o_address', $dt_o_address, PDO::PARAM_STR);
+      $stmt->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
+      $stmt->bindParam(':o_skype', $dt_o_skype, PDO::PARAM_STR);
+      $stmt->bindParam(':o_other', $dt_o_other, PDO::PARAM_STR);
+      $stmt->bindParam(':grade', $dt_grade, PDO::PARAM_STR);
+      $stmt->bindParam(':subject', $dt_subject, PDO::PARAM_STR);
+      $stmt->bindParam(':format', $dt_format, PDO::PARAM_STR);
+      $stmt->bindParam(':distribution', $dt_distribution, PDO::PARAM_STR);
+      $stmt->bindParam(':license', $dt_license, PDO::PARAM_STR);
+      $stmt->bindParam(':language', $dt_language, PDO::PARAM_STR);
+      $stmt->bindParam(':msa', $dt_msa, PDO::PARAM_STR);
+      $stmt->bindParam(':wcag', $dt_wcag, PDO::PARAM_STR);
+      $stmt->bindParam(':pub_available', $dt_pub_available, PDO::PARAM_STR);
+      $stmt->bindParam(':curriculum', $dt_curriculum, PDO::PARAM_STR);
+      $stmt->bindParam(':edu_usage', $dt_edu_usage, PDO::PARAM_STR);
+      $stmt->bindParam(':edu_content', $dt_edu_content, PDO::PARAM_STR);
+      $stmt->bindParam(':assessment', $dt_assessment, PDO::PARAM_STR);
+      $stmt->bindParam(':content_usage', $dt_content_usage, PDO::PARAM_STR);
+      $stmt->bindParam(':content_other', $dt_content_other, PDO::PARAM_STR);
+      $stmt->bindParam(':content_quality', $dt_content_quality, PDO::PARAM_STR);
+      $stmt->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $stmt->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $stmt->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $stmt->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+      $stmt->bindParam(':add_date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':last_update', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+
+      $stmt->bindParam(':pic', $dt_pic, PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  public function editorg($id, $dt_name, $dt_web, $dt_mission, $dt_m_info, $dt_c_name, $dt_c_email, $dt_c_phone, $dt_c_url, $dt_c_address, $dt_o_name, $dt_o_address, $dt_o_phone, $dt_o_email, $dt_o_skype, $dt_o_other, $dt_grade, $dt_subject, $dt_format, $dt_distribution, $dt_license, $dt_language, $dt_msa, $dt_wcag, $dt_pub_available, $dt_curriculum, $dt_edu_usage, $dt_edu_content, $dt_assessment, $dt_content_usage, $dt_content_other, $dt_content_quality, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize)
+  {
+    if($imgFile != '')
+    {
+      $upload_dir = '../publisher/'; // upload directory
+
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+
+      // rename uploading image
+      $dt_pic = rand(1000,1000000).".".$imgExt;
+
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)){
+        // Check file size '5MB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+      // if no error occured, continue ....
+      if(!isset($msg))
+      {
+        $stmt = $this->conn->prepare('update `tbl_publishers` SET pic=:pic where `pub_id`=:id');
+        $stmt->bindParam(':pic',$dt_pic, PDO::PARAM_STR);
+        $stmt->bindParam(':id',$id , PDO::PARAM_STR);
+      
+        if($stmt->execute())
+        {
+          $successMSG = "new record succesfully inserted ...";
+        }
+        else
+        {
+          $errMSG = "error while inserting....";
+        }
+      }
+    }
+
+    try
+    {
+      $date = date('Y/m/d');
+
+      $stmt = $this->conn->prepare("update `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, last_update=:date where `pub_id`=:id");
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':name', $dt_name, PDO::PARAM_STR);
+      $stmt->bindParam(':web', $dt_web, PDO::PARAM_STR);
+      $stmt->bindParam(':mission', $dt_mission, PDO::PARAM_STR);
+      $stmt->bindParam(':m_info', $dt_m_info, PDO::PARAM_STR);
+      $stmt->bindParam(':c_name', $dt_c_name, PDO::PARAM_STR);
+      $stmt->bindParam(':c_email', $dt_c_email, PDO::PARAM_STR);
+      $stmt->bindParam(':c_phone', $dt_c_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':c_url', $dt_c_url, PDO::PARAM_STR);
+      $stmt->bindParam(':c_address', $dt_c_address, PDO::PARAM_STR);
+      $stmt->bindParam(':o_name', $dt_o_name, PDO::PARAM_STR);
+      $stmt->bindParam(':o_address', $dt_o_address, PDO::PARAM_STR);
+      $stmt->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
+      $stmt->bindParam(':o_skype', $dt_o_skype, PDO::PARAM_STR);
+      $stmt->bindParam(':o_other', $dt_o_other, PDO::PARAM_STR);
+      $stmt->bindParam(':grade', $dt_grade, PDO::PARAM_STR);
+      $stmt->bindParam(':subject', $dt_subject, PDO::PARAM_STR);
+      $stmt->bindParam(':format', $dt_format, PDO::PARAM_STR);
+      $stmt->bindParam(':distribution', $dt_distribution, PDO::PARAM_STR);
+      $stmt->bindParam(':license', $dt_license, PDO::PARAM_STR);
+      $stmt->bindParam(':language', $dt_language, PDO::PARAM_STR);
+      $stmt->bindParam(':msa', $dt_msa, PDO::PARAM_STR);
+      $stmt->bindParam(':wcag', $dt_wcag, PDO::PARAM_STR);
+      $stmt->bindParam(':pub_available', $dt_pub_available, PDO::PARAM_STR);
+      $stmt->bindParam(':curriculum', $dt_curriculum, PDO::PARAM_STR);
+      $stmt->bindParam(':edu_usage', $dt_edu_usage, PDO::PARAM_STR);
+      $stmt->bindParam(':edu_content', $dt_edu_content, PDO::PARAM_STR);
+      $stmt->bindParam(':assessment', $dt_assessment, PDO::PARAM_STR);
+      $stmt->bindParam(':content_usage', $dt_content_usage, PDO::PARAM_STR);
+      $stmt->bindParam(':content_other', $dt_content_other, PDO::PARAM_STR);
+      $stmt->bindParam(':content_quality', $dt_content_quality, PDO::PARAM_STR);
+      $stmt->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $stmt->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $stmt->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $stmt->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+      $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+
+      $stmt->execute();
+
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
 }
 ?>

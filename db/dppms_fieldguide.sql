@@ -22,6 +22,75 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_publishers`
+--
+
+CREATE TABLE `tbl_publishers` (
+  `pub_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `web` varchar(255) DEFAULT NULL,
+  `mission` text,
+  `m_info` text,
+  `c_name` varchar(255) DEFAULT NULL,
+  `c_email` varchar(200) DEFAULT NULL,
+  `c_phone` int(12) DEFAULT NULL,
+  `c_url` varchar(255) DEFAULT NULL,
+  `c_address` varchar(255) DEFAULT NULL,
+  `o_name` varchar(255) DEFAULT NULL,
+  `o_address` varchar(255) DEFAULT NULL,
+  `o_phone` int(12) DEFAULT NULL,
+  `o_email` varchar(255) DEFAULT NULL,
+  `o_skype` varchar(255) DEFAULT NULL,
+  `o_other` varchar(255) DEFAULT NULL,
+  `pic` varchar(255) DEFAULT NULL,
+  `grade` text,
+  `subject` text,
+  `format` text,
+  `distribution` text,
+  `license` text,
+  `language` text,
+  `msa` text,
+  `wcag` text,
+  `pub_available` text,
+  `curriculum` text,
+  `edu_usage` text,
+  `edu_content` text,
+  `assessment` text,
+  `content_usage` text,
+  `content_other` text,
+  `content_quality` text,
+  `interest1` text,
+  `interest2` text,
+  `interest3` text,
+  `interest4` text,
+  `add_date` date NOT NULL,
+  `last_update` date NOT NULL,
+  `status` varchar(255) NOT NULL
+);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_publishers`
+--
+ALTER TABLE `tbl_publishers`
+  ADD PRIMARY KEY (`pub_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_publishers`
+--
+ALTER TABLE `tbl_publishers`
+  MODIFY `pub_id` int(11) NOT NULL AUTO_INCREMENT;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pro_democracy`
 --
 
@@ -69,7 +138,9 @@ CREATE TABLE `pro_democracy` (
   `o_other` varchar(250) NOT NULL,
   `add_date` date NOT NULL,
   `status` varchar(200) NOT NULL,
-  `last_update` date NOT NULL
+  `last_update` date NOT NULL,
+  `grade` VARCHAR(255) NOT NULL,
+  `format` VARCHAR(255) NOT NULL
 ) ;
 
 --

@@ -10,10 +10,10 @@ if(isset($_POST["search"]))
 }
 if($search=='ALL')
 {
-  $sql = " SELECT * FROM  `pro_democracy`  ORDER BY name ASC ";
+  $sql = " SELECT * FROM  `tbl_publishers`  ORDER BY name ASC ";
 }
 else{
-  $sql = " SELECT * FROM  `pro_democracy`  
+  $sql = " SELECT * FROM  `tbl_publishers`  
   WHERE `name` LIKE '$search%' ORDER BY name ASC ";
 }
 
@@ -27,7 +27,7 @@ if($count > 0)
   {
  
     $username=$row['name'];
-    $id=$row['pro_id'];
+    $id=$row['pub_id'];
     $b_username='<strong>'.$search.'</strong>';
     //$b_email='<strong>'.$q.'</strong>';
     $final_username = str_ireplace($search, $b_username, $username);
@@ -41,160 +41,26 @@ if($count > 0)
             <p><?php echo $row['name'];?></p>
           </div>
         </div>
-        <?php $var=array();
-        $var= explode(',', $row['strategies']);
-        ?>
         <div class="col-sm-7">
-          <div class="box-po">
-            <div class="btn-group koi-po" data-toggle="buttons">
-              <?php if(in_array('Get Money out of Politics',$var)) { ?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po" data-toggle="buttons">
-              <?php if(in_array('Guarantee Voting Rights',$var)) { ?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;"> 
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Advocate and Educate',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Dig into Data',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Take Legal Action',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                  padding: 3px 5px;
-                  width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Activate Citizens',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Fund the Movement',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-1" data-toggle="buttons">
-              <?php if(in_array('Political Action Committee',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-2" data-toggle="buttons">
-              <?php if(in_array('Fund the Movement',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="box-po">
-            <div class="btn-group koi-po-3" data-toggle="buttons">
-              <?php if(in_array('Fund the Movement',$var)) { ?>
-                <label class="btn btn-success ban" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px;">
-                </label>
-              <?php } else {?>
-                <label class="btn btn-success  mao-po" style="   height: 30px;
-                padding: 3px 5px;
-                width: 40px; background-color:#fff !  important;">
-                </label>
-              <?php } ?>
-            </div>
-          </div>
+          <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+            foreach($filter_lbl as $k => $lbl) { ?>
+              <div class="box-po">
+                <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type] ?>" data-toggle="buttons">
+                  <?php if(in_array($lbl, explode('::', $row[$filter_type]))) { ?>
+                    <label class="btn btn-success  mao-po" style="height: 30px;
+                    padding: 3px 5px;
+                    width: 40px;">
+                    </label>
+                  <?php } else { ?>
+                    <label class="btn btn-success  mao-po" style="height: 30px;
+                    padding: 3px 5px;
+                    width: 40px; background-color:#fff !important;">
+                    </label>
+                  <?php } ?>
+                </div>
+              </div>
+            <?php }
+          } ?>
         </div>
       </div>
     </a>

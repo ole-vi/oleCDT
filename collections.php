@@ -5,107 +5,13 @@ include('include/config.php');
 include('include/constants.php');
 include('include/header.php');
 
-/*$value1 = isset($_SESSION['list']) ? $_SESSION['list'] : array();
-$final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
   $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
 }
-$_SESSION['list'] = $checkboxes;
-if(isset($_POST['submit']))
-{
-  $sql1 = "SELECT * from `tbl_publishers` ";
-  $query1 = $conn->prepare($sql1);
-  $query1->execute();
-  while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
-  {
-    $match = true;
-    foreach($filter_params as $filter_type => $filter) {
-      if(!empty($filter)) {
-        $filter_data[$filter_type] = explode('::', $rowdata[$filter_type]);
-        if($filter[0] != '...') {
-          $var = array_intersect($filter, $filter_data[$filter_type]);
-          if($var != $filter) $match = false;
-        }
-      }
-    }
-    if($match) $found[] = $rowdata['pub_id'];
-  }
-  $found = array_unique($found);
-}
-else
-{
-  $sql1 = "SELECT `pub_id` from `tbl_publishers` order by `name` ";
-  $query1 = $conn->prepare($sql1);
-  $query1->execute();
-  $found = $query1->fetchAll(PDO::FETCH_COLUMN);
-}
 ?>
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function()
-{
-  $("#mob").keypress(function (e) {
-    //if the letter is not digit then display error and don't type anything
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-      //display error message
-      $("#errmsg").html("Digits Only").show().fadeOut("slow");
-      return false;
-    }
-  });
-  $("#mob1").keypress(function (e) {
-    //if the letter is not digit then display error and don't type anything
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-      //display error message
-      $("#errmsg1").html("Digits Only").show().fadeOut("slow");
-      return false;
-    }
-  });
-
-  /* $("#mob").change(function()
-  {
-    var no = $("#mob").val();
-    if(no.length!=10){
-      //$("#errmsg").html("Ten Digits Only").show().fadeOut("slow"); 
-      $("#errmsg").addClass("red11"); 
-      msgbox.html("Ten Digits Only");
-    }
-  });*/
-  $("#mail1").change(function()
-  {
-    var username = $("#mail1").val();
-    var msgbox = $("#status1");
-
-    $("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
-
-    $.ajax({
-      type: "POST",
-      url: "check_ajax",
-      data: "email="+ username,
-      success: function(msg){
-        $("#status1").html(function(event, request){
-          if(msg == 'OK')
-          {
-            $("#mail1").removeClass("red11"); // remove red color
-            $("#mail1").addClass("green11"); // add green color
-            msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
-          }
-          else
-          {
-            // if you don't want background color remove these following two lines
-            $("#mail1").removeClass("green11"); // remove green color
-            $("#mail1").addClass("red11"); // add red  color
-            msgbox.html(msg);
-          }
-        });
-      }
-    });
-  });
-});
-</script>
-
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 <style>
@@ -135,6 +41,7 @@ input.big {
   position: relative;
 }
 .slant-filter h3 {
+  background: hsl(21, 100%, 64%) !important;
   color: black;
   transform: rotate(-75deg);
   width: 300px;
@@ -165,10 +72,10 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr ">
-              <a href="#"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-              <a href="#"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button>
-              <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button>
+              <a href="searching"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
+              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
             </div>
           </div>
 
@@ -222,52 +129,6 @@ input.big {
     <div class="row">
 
       <div class="maty-op" id="masterdiv">
-        <?php
-        foreach($found as $id)
-        {
-          $sql = "SELECT * from `tbl_publishers` where `pub_id`='".$id."' ";
-          $query = $conn->prepare($sql);
-          //$query->bindParam(':email', $email, PDO::PARAM_STR);
-          $query->execute();
-          $row = $query->fetchAll(PDO::FETCH_ASSOC);
-
-          foreach ($row as $row) { ?>
-            <a href="detailpage?id=<?php echo base64_encode($row['pub_id']);?>">
-              <div class="col-sm-12 no-background" >
-                <div class="col-sm-3 na-color">
-                  <div class="texippo">
-                    <p><?php echo $row['name'];?></p>
-                  </div>
-                </div>
-                <div class="col-sm-9">
-                  <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
-                    foreach($filter_lbl as $k => $lbl) { ?>
-                      <div class="box-po">
-                        <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type] ?>" data-toggle="buttons">
-                          <?php if($pub_filter[$filter_type][$k] == '...' || in_array($lbl, explode('::', $row[$filter_type]))) { ?>
-                            <label class="btn btn-success  mao-po" style="padding: 3px 11px !important;
-                            margin-left: 15px;
-                            margin-right: 15px;">&nbsp;
-                            </label>
-                          <?php } else { ?>
-                            <label class="btn btn-success  mao-po" style="padding: 3px 11px !important;
-                            margin-left: 15px;
-                            margin-right: 15px;
-                            background-color: #fff !important;">&nbsp;
-                            </label>
-                          <?php } ?>
-                        </div>
-                      </div>
-                    <?php }
-                  } ?>
-                </div>
-              </div>
-            </a>
-
-        <?php } }?>
-        <?php if(isset($_POST['submit'])) {?>
-          <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
-        <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>
 
