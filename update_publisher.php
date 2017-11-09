@@ -205,7 +205,7 @@ if(isset($_POST['update']))
   }
 }
 
-$sql = "select * from pro_democracy where pro_id=:id";
+$sql = "select * from tbl_publishers where pub_id=:id";
 $query = $conn->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();

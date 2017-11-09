@@ -1,4 +1,11 @@
 <?php
+$member_purpose = array(
+  'Creator',
+  'Collector',
+  'Publisher',
+  'Researcher',
+  'Supporter'
+);
 $pub_options = array(
   'grade' => array(
     'All ages',
@@ -126,10 +133,10 @@ $pub_filter = array(
     'Food Nutrition',
     'Politics & Government',
     'Art and Music',
-    'Sports, games, entertainment',
+    'Sports & Entertainment',
     'Arabic culture & Religion',
     'Accessible (Disabilities)'),
-  'interest3' => array('Modern Standard Arabic'),
+  'interest3' => array('Arabic'),
   'interest4' => array('Multimedia') // Any value will be ...
 );
 $pub_filter_lbl = array(
@@ -150,10 +157,10 @@ $pub_filter_lbl = array(
     'Food Nutrition',
     'Politics & Government',
     'Art and Music',
-    'Sports, games, entertainment',
+    'Sports & Entertainment',
     'Arabic culture & Religion',
     'Accessible (Disabilities)'),
-  'interest3' => array('Modern Standard Arabic'),
+  'interest3' => array('Arabic'),
   'interest4' => array('Multimedia')
 );
 $pub_filter_group = array(

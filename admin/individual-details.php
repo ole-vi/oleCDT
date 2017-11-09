@@ -21,7 +21,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <i class="fa fa-home"></i>
                             <a href="dashboard">Home</a>
                         </li>
-                        <li class="active">Individual Members Details</li>
+                        <li class="active">Members Details</li>
                     </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -29,7 +29,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <div class="page-header position-relative page-header-fixed">
                     <div class="header-title">
                         <h1>
-                            Individual Members Details
+                            Members Details
 
                         </h1>
 						<script type="text/javascript">
@@ -62,7 +62,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                                    <div class="widget">
                                 <div class="widget-header ">
                                     <div class="widget-caption">
-                                  Individual Members Details</div>
+                                  Members Details</div>
                                     <!--<div class="widget-caption pull-right"><a class="btn btn-link shiny" data-toggle="modal" data-target="#stream" data-keyboard="false" data-backdrop="static" rel=""><i class="fa fa-plus"></i> Add Subject</a></div>-->
                                     
                                 </div>
@@ -86,9 +86,6 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                                                 Mobile No
                                             </th>
 											<th>
-                                                Education
-                                            </th>
-											<th>
 											Status
 											</th>
 											
@@ -106,7 +103,7 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                                                 <?php echo $count++; ?>
                                             </td>
                                             <td width="8%">
-                                                <?php echo $row['name']; ?>
+                                                <?php echo $row['fname']; ?>
                                             </td>
 											<td>
                                                 <?php echo $row['email']; ?>
@@ -114,9 +111,6 @@ $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 											<td width="8%">
                                                 <?php echo $row['mob'];?>
 												
-                                            </td>
-											<td width="5%">
-                                                <?php echo $row['education']; ?> 
                                             </td>
 											<td>
 											 <a href="javascript:void(0);"  class="btn btn-sm btn-warning shiny hides" id="<?php echo $row['id'];?>"><i class="fa fa-warning right"></i>Hide</a>

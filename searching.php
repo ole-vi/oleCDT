@@ -148,7 +148,14 @@ input.big {
 </style>
 
 <div class="menu-bar-fixed" id="" >
-
+  <div class="col-sm-12" style="z-index: 50;">
+    <div class="sdfr pull-right">
+      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+      <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
+      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Publishers</button>
+      <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+    </div>
+  </div>
   <div class="col-sm-12 ">
     <div class="ads fgh">
       <ul>
@@ -157,18 +164,15 @@ input.big {
     </div>
   </div>
 
-  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:0px ! important;">
+  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:40px ! important;">
     <form method="post" action="">
       <div class="container">
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
-            <div class="sdfr ">
-              <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-              <a href="#"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
+            <div class="sdfr " style="text-align: center;">
               <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button>
-              <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
             </div>
           </div>
 

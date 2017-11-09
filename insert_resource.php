@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
   $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 
   // valid image extensions
-  $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+  $valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg"); // valid extensions
 
   // rename uploading image
   $dt_pic = rand(1000,1000000).".".$imgExt;

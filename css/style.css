@@ -1932,8 +1932,9 @@ footer .color-overlay {
     max-width: 100%;
 }
 .lok-lo {
-    margin-top: -50px;
+    margin-top: -85px;
     text-align: center;
+    margin-bottom: 0px;
 }
 .ads li {
     color: hsl(222, 100%, 34%);
@@ -2516,7 +2517,7 @@ footer .color-overlay {
   background-color: hsl(60, 100%, 50%) !important;
 }
 .menu-bar-fixed {
-    margin-top:152px ;
+    margin-top:140px ;
     position: fixed;
     z-index: 900;
 	width:100%;

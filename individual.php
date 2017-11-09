@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 include('include/config.php');
+include('include/constants.php');
 include('include/header.php');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
@@ -186,13 +187,13 @@ if(isset($_SESSION['ind']))
 <section id="contact" class="" style="padding: 139px 0 1500px;">
   <div class="container">
     <div class="row">
-      <h2 class="text-center flo">Individual Member Signup</h2>
+      <h2 class="text-center flo">Member Signup</h2>
       <div class="full-form" style=" margin-top: 57px;">
         <div class="bor-1">
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
               <div class="form-menu bor">
-                <form class="form-horizontal" role="form" method="POST" action="insert_individual">
+                <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="insert_individual">
                   <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Name*</label>
                     <div class="col-sm-9">
@@ -211,8 +212,8 @@ if(isset($_SESSION['ind']))
                   <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label"></label>
                     <div class="col-sm-9">
-                      <label for="firstName" class=" control-label">Login Name*</label>
-                      <input id="Citizenship" required name="lname" placeholder="Name" class="form-control" autofocus="" type="text">
+                      <label for="firstName" class=" control-label">User Name*</label>
+                      <input id="Citizenship" required name="l_name" placeholder="Name" class="form-control" autofocus="" type="text">
                     </div>
                   </div>
 
@@ -233,111 +234,11 @@ if(isset($_SESSION['ind']))
                     <span id="status2"></span>
                   </div>
 
-                  <div class="form-group">
-                    <label class="control-label col-sm-3">Type of Work</label>
-                    <div class="col-sm-6">
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="administrativeCheckbox" value="Administrative" name="worktype[]" type="checkbox"><span class="mat">Administrative</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="accountingCheckbox" value="Accounting" type="checkbox" name="worktype[]"><span class="mat">Accounting</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline pad">
-                            <input id="canvasing door-to-doorCheckbox" value="Canvasing door-to-door" type="checkbox" name="worktype[]"><span class="mat">Canvasing door-to-door</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="legalCheckbox" value="Legal" name="worktype[]" type="checkbox"><span class="mat">Legal</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="LegislationCheckbox" value="Legislation" name="worktype[]" type="checkbox"> <span class="mat">Legislation</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="MediaCheckbox" value="Media" type="checkbox" name="worktype[]"><span class="mat">Media</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="Phone BankCheckbox" name="worktype[]" value="Phone Bank" type="checkbox"><span class="mat">Phone Bank</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="Web ManagementCheckbox" value="Web Management" name="worktype[]" type="checkbox"><span class="mat">Web Management</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="writingCheckbox" value="Writing" value="worktype[]" type="checkbox"><span class="mat">Writing</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="writingCheckbox" value="Fund Raising" name="worktype[]" type="checkbox"><span class="mat">Fund Raising</span>
-                          </label>
-                        </div>
-                        <div class="col-sm-4">
-                          <label class="radio-inline">
-                            <input id="Other" placeholder="Other" class="form-control hrt" name="worktype[]" autofocus="" type="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Possible Work Locations</label>
-                  <div class="col-sm-9">
-                    <select data-placeholder="Select Work Locations" class="chosen-select" multiple name="location[]" style="width:350px;" tabindex="4">
-                        <option value="Office">Office</option>
-                        <option value="Online">Online</option>
-                        <option value="Field">Field</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="country" class="col-sm-3 control-label">Possible Hours of Work per Week*</label>
-                  <div class="col-sm-9">
-                    <input type="text" name="hours" required id="country" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Education" class="col-sm-3 control-label">Education*</label>
-                  <div class="col-sm-9">
-                    <input id="Education" required name="education" placeholder="Education" class="form-control" autofocus="" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label">Work History*</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" required name="work_history" placeholder="Work History"></textarea>
-                  </div>
-                </div>
-
                 <div class="form-group">
                   <label for="firstName"  class="col-sm-3 control-label">Mobile phone*</label>
                   <div class="col-sm-9">
                     <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" required name="mob" type="text">
                       <span id="errmsg"></span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Home phone</label>
-                  <div class="col-sm-9">
-                    <input id="mob1"  placeholder="Home phone" maxlength="10" class="form-control" autofocus=""  name="phone" type="text">
-                    <span id="errmsg1"></span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -474,10 +375,36 @@ if(isset($_SESSION['ind']))
                   </div>
                 </div>
 
+                <!-- Interest -->
                 <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Attach Resume</label>
-                  <div class="col-sm-3">
-                    <input id="pic1" name="pic1" class="custom-file-input" autofocus="" type="file">
+                  <label class="control-label col-sm-3">Interest</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                        foreach($filter_lbl as $lbl) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="'.$filter_type.'[]" value="'.$lbl.'" type="checkbox"><span class="mat">'.$lbl.'</span>
+                          </label>
+                          </div>';
+                        }
+                      } ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- Purpose -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Purpose</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php foreach($member_purpose as $purpose) {
+                      echo '<div class="col-sm-4">
+                        <label class="radio-inline">
+                          <input name="purpose[]" value="'.$purpose.'" type="checkbox"><span class="mat">'.$purpose.'</span>
+                        </label>
+                        </div>';
+                      } ?>
+                    </div>
                   </div>
                 </div>
 

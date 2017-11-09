@@ -1,73 +1,43 @@
 <?php
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(0);
 ob_start();
 session_start();
 include('include/config.php');
 
 if(isset($_POST['submit']))
 {
-  $name = $_REQUEST['fname'];
-  $location = implode(',',$_REQUEST['location']);
-  $education = $_REQUEST['education'];
-  $history = $_REQUEST['work_history'];
-  $hours = $_REQUEST['hours'];
-  $email = $_REQUEST['email'];
-  $mob = $_REQUEST['mob'];
-  $phone = $_REQUEST['phone'];
-  $phone2 = $_REQUEST['off_phone'];
-  $phone3 = $_REQUEST['o_phone'];
-  $skype = $_REQUEST['skype'];
-  $facebook = $_REQUEST['facebook'];
-  $street = $_REQUEST['street'];
-  $city = $_REQUEST['city'];
-  $state = implode(',', $_REQUEST['state']);
-  $zip = $_REQUEST['zip'];
-  $dob1 = $_POST['dob'];
-  $dob = date('Y-m-d ', strtotime($dob1));
-  $citizenship = $_REQUEST['citizenship'];
-  $lname = $_REQUEST['lname'];
+  $dt_fname = $_REQUEST['fname'];
+  $dt_email = isset($_REQUEST['email']) ? $_REQUEST['email'] : '';
+  $dt_mob = !empty($_REQUEST['mob']) ? $_REQUEST['mob'] : '';
+  $dt_off_phone = !empty($_REQUEST['off_phone']) ? $_REQUEST['off_phone'] : 0;
+  $dt_o_phone = !empty($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : 0;
+  $dt_skype = isset($_REQUEST['skype']) ? $_REQUEST['skype'] : '';
+  $dt_facebook = isset($_REQUEST['facebook']) ? $_REQUEST['facebook'] : '';
+  $dt_street = isset($_REQUEST['street']) ? $_REQUEST['street'] : '';
+  $dt_city = isset($_REQUEST['city']) ? $_REQUEST['city'] : '';
+  $dt_state = isset($_REQUEST['state']) ? implode('::', $_REQUEST['state']): '';
+  $dt_zip = isset($_REQUEST['zip']) ? $_REQUEST['zip'] : '';
+  $dt_dob = isset($_REQUEST['dob']) ? date('Y-m-d ', strtotime($_REQUEST['dob'])) : '';
+  $dt_citizenship = isset($_REQUEST['citizenship']) ? $_REQUEST['citizenship'] : '';
+  $dt_lname = isset($_REQUEST['l_name']) ? $_REQUEST['l_name'] : '';
   $pass1 = $_REQUEST['password'];
   $pass2 = $_REQUEST['repassword'];
   $pass3 = md5($pass1);
 
-  $worktype = implode(',', $_POST['worktype']);
+  $dt_interest1 = isset($_REQUEST['interest1']) ? implode('::', $_REQUEST['interest1']): '';
+  $dt_interest2 = isset($_REQUEST['interest2']) ? implode('::', $_REQUEST['interest2']): '';
+  $dt_interest3 = isset($_REQUEST['interest3']) ? implode('::', $_REQUEST['interest3']): '';
+  $dt_interest4 = isset($_REQUEST['interest4']) ? implode('::', $_REQUEST['interest4']): '';
+
+  $dt_purpose = isset($_REQUEST['purpose']) ? implode('::', $_REQUEST['purpose']): '';
+
   $date = date("Y-m-d H:i:s");
-  $status='inactive';
-
-  $imgFile = $_FILES['pic1']['name'];
-  $tmp_dir = $_FILES['pic1']['tmp_name'];
-  $imgSize = $_FILES['pic1']['size'];
-
-  $upload_dir = 'img/'; // upload directory
-
-  $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-
-  // valid image extensions
-  $valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg"); // valid extensions
-
-  // rename uploading image
-  $pic1 = rand(1000,1000000).".".$imgExt;
-
-  // allow valid image file formats
-  if(in_array($imgExt, $valid_extensions)){			
-    // Check file size '5MB'
-    if($imgSize < 5000000)				{
-      move_uploaded_file($tmp_dir,$upload_dir.$pic1);
-    }
-    else
-    {
-      $_SESSION['org']="Sorry, your file is large than 5MB";
-      header('location:'.$site_url.'organization');
-    }
-  }
+  $status='Active';
 
   $imgFile = $_FILES['pic']['name'];
   $tmp_dir = $_FILES['pic']['tmp_name'];
-  $imgSize = $_FILES['pic']['size'];		
+  $imgSize = $_FILES['pic']['size'];
 
-  $upload_dir = 'img/'; // upload directory
+  $upload_dir = 'profile/'; // upload directory
 
   $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 
@@ -86,7 +56,7 @@ if(isset($_POST['submit']))
     else
     {
       $_SESSION['org']="Sorry, your file is large than 5MB";
-      header('location:'.$site_url.'organization');
+      header('location:'.$site_url.'profile');
     }
   }
 
@@ -97,43 +67,43 @@ if(isset($_POST['submit']))
   $count = $query->rowCount();
   if($count>0)
   {
-    $_SESSION['ind']="Email Already Exist";
+    $_SESSION['ind'] = "Email Already Exist";
     header('location:'.$site_url.'individual');
   }
   elseif($pass1!=$pass2)
   {
-    $_SESSION['ind']="Please Enter Same Password";
+    $_SESSION['ind'] = "Please Enter Same Password";
     header('location:'.$site_url.'individual');
   }
   else
   {
-    $sql1 = "insert into `tbl_individual_member` set name=:name, location=:location, work_type=:worktype, education=:education, work_history=:history, hours_perweak=:hours, email=:email, mob=:mob, phone=:phone, office_phone=:phone2,other_phone=:phone3, skype=:skype , facebook=:facebook , pic=:pic, resume=:pic1,street=:street , city=:city , state=:state , zip=:zip , dob=:dob , citizenship=:citizenship , l_name=:lname , pass=:pass, last_update=:date, add_date=:date, status=:status";
+    $sql1 = "insert into `tbl_individual_member` set fname=:fname, email=:email, mob=:mob, off_phone=:off_phone, o_phone=:o_phone, skype=:skype , facebook=:facebook , pic=:pic, street=:street , city=:city , state=:state , zip=:zip , dob=:dob , citizenship=:citizenship, l_name=:l_name , pass=:pass, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, purpose=:purpose, last_update=:update_date, add_date=:date, status=:status";
     $query1 = $conn->prepare($sql1);
-    $query1->bindParam(':name', $name, PDO::PARAM_STR);
-    $query1->bindParam(':location', $location, PDO::PARAM_STR);
-    $query1->bindParam(':education', $education, PDO::PARAM_STR);
-    $query1->bindParam(':history', $history, PDO::PARAM_STR);
-    $query1->bindParam(':hours', $hours, PDO::PARAM_STR);
-    $query1->bindParam(':email', $email, PDO::PARAM_STR);
-    $query1->bindParam(':mob', $mob, PDO::PARAM_STR);
-    $query1->bindParam(':phone', $phone, PDO::PARAM_STR);
-    $query1->bindParam(':phone2', $phone2, PDO::PARAM_STR);
-    $query1->bindParam(':phone3', $phone3, PDO::PARAM_STR);
-    $query1->bindParam(':skype', $skype, PDO::PARAM_STR);
-    $query1->bindParam(':facebook', $facebook, PDO::PARAM_STR);
-    $query1->bindParam(':street', $street, PDO::PARAM_STR);
-    $query1->bindParam(':city', $city, PDO::PARAM_STR);
-    $query1->bindParam(':state', $state, PDO::PARAM_STR);
-    $query1->bindParam(':zip', $zip, PDO::PARAM_STR);
-    $query1->bindParam(':dob', $dob, PDO::PARAM_STR);
-    $query1->bindParam(':citizenship', $citizenship, PDO::PARAM_STR);
-    $query1->bindParam(':lname', $lname, PDO::PARAM_STR);
+    $query1->bindParam(':fname', $dt_fname, PDO::PARAM_STR);
+    $query1->bindParam(':email', $dt_email, PDO::PARAM_STR);
+    $query1->bindParam(':mob', $dt_mob, PDO::PARAM_STR);
+    $query1->bindParam(':off_phone', $dt_off_phone, PDO::PARAM_STR);
+    $query1->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+    $query1->bindParam(':skype', $dt_skype, PDO::PARAM_STR);
+    $query1->bindParam(':facebook', $dt_facebook, PDO::PARAM_STR);
+    $query1->bindParam(':street', $dt_street, PDO::PARAM_STR);
+    $query1->bindParam(':city', $dt_city, PDO::PARAM_STR);
+    $query1->bindParam(':state', $dt_state, PDO::PARAM_STR);
+    $query1->bindParam(':zip', $dt_zip, PDO::PARAM_STR);
+    $query1->bindParam(':dob', $dt_dob, PDO::PARAM_STR);
+    $query1->bindParam(':citizenship', $dt_citizenship, PDO::PARAM_STR);
+    $query1->bindParam(':l_name', $dt_lname, PDO::PARAM_STR);
     $query1->bindParam(':pass', $pass3, PDO::PARAM_STR);
-    $query1->bindParam(':worktype', $worktype, PDO::PARAM_STR);
+    $query1->bindParam(':update_date', $date, PDO::PARAM_STR);
     $query1->bindParam(':date', $date, PDO::PARAM_STR);
     $query1->bindParam(':status', $status, PDO::PARAM_STR);
+    $query1->bindParam(':purpose', $dt_purpose, PDO::PARAM_STR);
+    $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+    $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+    $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+    $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+
     $query1->bindParam(':pic', $pic, PDO::PARAM_STR);
-    $query1->bindParam(':pic1', $pic1, PDO::PARAM_STR);
     $run=$query1->execute();
     if($run)
     {
@@ -198,18 +168,18 @@ if(isset($_POST['submit']))
       {
         echo '<script>alert("Thank You for your registration! verification link has been send to your corresponding email check it.")</script>';
         echo '<script>window.location.href="'.$site_url.'"</script>';
-        //$_SESSION['ind']="Thank You for your registration! verification link has been send to your corresponding email check it.";	
+        //$_SESSION['ind']="Thank You for your registration! verification link has been send to your corresponding email check it.";
         //header('location:'.$site_url);
       }
       else
       {
-        $_SESSION['ind1']="Login details has not been send";	
+        $_SESSION['ind1']="Login details has not been send";
         header('location:'.$site_url.'individual');
       }
     }
     else
     {
-      $_SESSION['ind']="Record is not Inserted";	
+      $_SESSION['ind']="Record is not Inserted";
       header('location:'.$site_url.'individual');
     }
   }
