@@ -142,13 +142,11 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
                 <span class="tp-lo">1 star</span><div id="myBar" style="width:<?php echo round($rcnt[1]*100/$count2);?>%"></div><span class="rto-lo"><?php echo round($rcnt[1]*100/$count2);?>%</span>
               </div>
             </div>
-          </div>
           <?php } ?>
-          <!--
-          <div class="col-sm-6 butten le">
-            <button class="w3-btn w3-ripple w3-green mat-12">Volunteer</button>
           </div>
-          -->
+          <div class="col-sm-6 butten le">
+            <button class="default btn-lg bun-1 mat-12">Detail</button>
+          </div>
         </div>
       </div>
     </div>

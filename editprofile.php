@@ -498,7 +498,7 @@ background-color:#FFD9D9;
 
                 <!-- Interest -->
                 <div class="form-group">
-                  <label class="control-label col-sm-3">Interest</label>
+                  <label class="control-label col-sm-3">Interests</label>
                   <div class="col-sm-9">
                     <div class="row">
                       <?php
@@ -522,7 +522,7 @@ background-color:#FFD9D9;
                 </div>
                 <!-- Purpose -->
                 <div class="form-group">
-                  <label class="control-label col-sm-3">Purpose</label>
+                  <label class="control-label col-sm-3">Purposes</label>
                   <div class="col-sm-9">
                     <div class="row">
                       <?php $purposes = explode('::', $row['purpose']);
