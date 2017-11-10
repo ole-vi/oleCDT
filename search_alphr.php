@@ -11,10 +11,10 @@ if(isset($_POST["search"]))
 }
 if($search=='ALL')
 {
-  $sql = " SELECT * FROM  `tbl_publishers`  ORDER BY name ASC ";
+  $sql = " SELECT * FROM  `tbl_resources`  ORDER BY name ASC ";
 }
 else{
-  $sql = " SELECT * FROM  `tbl_publishers`  
+  $sql = " SELECT * FROM  `tbl_resources`  
   WHERE `name` LIKE '$search%' ORDER BY name ASC ";
 }
 
@@ -28,13 +28,13 @@ if($count > 0)
   {
  
     $username=$row['name'];
-    $id=$row['pub_id'];
+    $id=$row['id'];
     $b_username='<strong>'.$search.'</strong>';
     //$b_email='<strong>'.$q.'</strong>';
     $final_username = str_ireplace($search, $b_username, $username);
     //$final_email = str_ireplace($q, $b_email, $email);
     ?>
-    <a href="<?php echo $site_url;?>detailpage?id=<?php echo base64_encode($id);?>">
+    <a href="<?php echo $site_url;?>resourcepage?id=<?php echo base64_encode($id);?>">
 
       <div class="col-sm-12 no-background">
         <div class="col-sm-3 na-color">
@@ -67,13 +67,13 @@ if($count > 0)
       </div>
     </a>
   <?php } ?>
-  <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+  <a href="<?php echo $site_url;?>resources" class="lastupdate1">Return to Directory</a>
 <?php }
 else
 {
   echo 'Data Not Found';
   ?>
-  <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+  <a href="<?php echo $site_url;?>resources" class="lastupdate1">Return to Directory</a>
 <?php
 }
 ?>

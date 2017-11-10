@@ -10,16 +10,15 @@ $final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
- $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
+  $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
 }
 $_SESSION['list'] = $checkboxes;
-//print_r($_POST); exit;
 if(isset($_POST['submit']))
 {
   foreach($pub_filter_group as $filter_type => $group_no) {
    $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
   }
-  $sql1 = "SELECT * from `tbl_publishers` ";
+  $sql1 = "SELECT * from `tbl_resources` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   while($rowdata = $query1->fetch(PDO::FETCH_ASSOC))
@@ -34,13 +33,13 @@ if(isset($_POST['submit']))
         }
       }
     }
-    if($match) $found[] = $rowdata['pub_id'];
+    if($match) $found[] = $rowdata['id'];
   }
   $found = array_unique($found);
 }
 else
 {
-  $sql1 = "SELECT `pub_id` from `tbl_publishers` order by `name` ";
+  $sql1 = "SELECT `id` from `tbl_resources` order by `name` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   $found = $query1->fetchAll(PDO::FETCH_COLUMN);
@@ -66,46 +65,6 @@ $(document).ready(function()
       $("#errmsg1").html("Digits Only").show().fadeOut("slow");
       return false;
     }
-  });
-
-  /* $("#mob").change(function()
-  {
-    var no = $("#mob").val();
-    if(no.length!=10){
-      //$("#errmsg").html("Ten Digits Only").show().fadeOut("slow"); 
-      $("#errmsg").addClass("red11"); 
-      msgbox.html("Ten Digits Only");
-    }
-  });*/
-  $("#mail1").change(function()
-  {
-    var username = $("#mail1").val();
-    var msgbox = $("#status1");
-
-    $("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
-
-    $.ajax({
-      type: "POST",
-      url: "check_ajax",
-      data: "email="+ username,
-      success: function(msg){
-        $("#status1").html(function(event, request){
-          if(msg == 'OK')
-          {
-            $("#mail1").removeClass("red11"); // remove red color
-            $("#mail1").addClass("green11"); // add green color
-            msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
-          }
-          else
-          {
-            // if you don't want background color remove these following two lines
-            $("#mail1").removeClass("green11"); // remove green color
-            $("#mail1").addClass("red11"); // add red  color
-            msgbox.html(msg);
-          }
-        });
-      }
-    });
   });
 });
 </script>
@@ -154,9 +113,9 @@ input.big {
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12" style="z-index: 50;">
     <div class="sdfr pull-right">
-      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Resources</button>
       <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Publishers</button>
+      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
       <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
     </div>
   </div>
@@ -176,7 +135,7 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher (<?php echo count($found); ?>)</button>
+              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Researcher (<?php echo count($found); ?>)</button>
               <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All</button>
             </div>
           </div>
@@ -197,7 +156,7 @@ input.big {
                       <div class="box-po">
                         <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type];?>">
                           <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
-                            <input style="margin:0px; " type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
+                            <input style="margin:0px; "  type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
                               <?php if(in_array($pub_filter[$filter_type][$k], $filter_params[$filter_type])) { ?> checked="checked"
                               style='background-color:#333; color:#FFF;' <?php } ?> >
                           </label>
@@ -207,8 +166,8 @@ input.big {
                   } ?>
 
                   <div class=" lo-po-12 " >
-                    <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
-                    <a href="add_publisher">
+                    <?php if(isset($_SESSION['id'])) { ?>
+                    <a href="add_resource">
                       <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
                       </button>
                     </a>
@@ -234,14 +193,14 @@ input.big {
         <?php
         foreach($found as $id)
         {
-          $sql = "SELECT * from `tbl_publishers` where `pub_id`='".$id."' ";
+          $sql = "SELECT * from `tbl_resources` where `id`='".$id."' ";
           $query = $conn->prepare($sql);
           //$query->bindParam(':email', $email, PDO::PARAM_STR);
           $query->execute();
           $row = $query->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($row as $row) { ?>
-            <a href="detailpage?id=<?php echo base64_encode($row['pub_id']);?>">
+            <a href="resourcepage?id=<?php echo base64_encode($row['id']);?>">
               <div class="col-sm-12 no-background" >
                 <div class="col-sm-3 na-color">
                   <div class="texippo">
@@ -275,7 +234,7 @@ input.big {
 
         <?php } }?>
         <?php if(isset($_POST['submit'])) {?>
-          <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+          <a href="<?php echo $site_url;?>resources" class="lastupdate1">Return to Resources</a>
         <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>
@@ -298,7 +257,7 @@ $(document).ready(function(){
     {
       $.ajax({
         type: "POST",
-        url: "search_alphp",
+        url: "search_alphr",
         data: "search=" + search,
         success:function(html){
           $('#masterdiv').remove();

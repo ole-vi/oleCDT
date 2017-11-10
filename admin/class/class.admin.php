@@ -456,7 +456,14 @@ class ADMIN
 			echo $e->getMessage();
 		}				
 	}
-	
+
+  public function pub_list() {
+    $stmt = $this->conn->prepare("SELECT pub_id, name from `tbl_publishers`");
+    $stmt->execute();
+    $publishers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $publishers;
+  }
+
   public function adorg($dt_name, $dt_web, $dt_mission, $dt_m_info, $dt_c_name, $dt_c_email, $dt_c_phone, $dt_c_url, $dt_c_address, $dt_o_name, $dt_o_address, $dt_o_phone, $dt_o_email, $dt_o_skype, $dt_o_other, $dt_grade, $dt_subject, $dt_format, $dt_distribution, $dt_license, $dt_language, $dt_msa, $dt_wcag, $dt_pub_available, $dt_curriculum, $dt_edu_usage, $dt_edu_content, $dt_assessment, $dt_content_usage, $dt_content_other, $dt_content_quality, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize)
   {
 
@@ -484,6 +491,8 @@ class ADMIN
         }
       }
     // if no error occured, continue ....
+    } else {
+      $dt_pic = '';
     }
     
     try
@@ -630,6 +639,160 @@ class ADMIN
 
       $stmt->execute();
 
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  public function adresource($dt_name, $dt_pub_id, $dt_pub_date, $dt_a_fname, $dt_a_lname, $dt_url, $dt_description, $dt_availability, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize)
+  {
+
+    if($imgFile != '')
+    {
+      $upload_dir = '../resource/'; // upload directory
+
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+    
+      // rename uploading image
+      $dt_pic = rand(1000,1000000).".".$imgExt;
+        
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)){
+        // Check file size '5MB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+    // if no error occured, continue ....
+    }
+    
+    try
+    {
+      $status='Active';
+      $date = date('Y/m/d');
+      //$new_password = password_hash($upass, PASSWORD_DEFAULT);
+      $stmt = $this->conn->prepare("insert into `tbl_resources` set name=:name, pub_id=:pub_id, pub_date=:pub_date, a_fname=:a_fname, a_lname=:a_lname, url=:url, description=:description, availability=:availability, add_date=:add, last_update=:update, publication=:publication, mem_id=:mem_id");
+
+      $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
+      $query1->bindParam(':pub_id', $dt_pub_id, PDO::PARAM_STR);
+      $query1->bindParam(':pub_date', $dt_pub_date, PDO::PARAM_STR);
+      $query1->bindParam(':a_fname', $dt_a_fname, PDO::PARAM_STR);
+      $query1->bindParam(':a_lname', $dt_a_lname, PDO::PARAM_STR);
+      $query1->bindParam(':url', $dt_url, PDO::PARAM_STR);
+      $query1->bindParam(':description', $dt_description, PDO::PARAM_STR);
+      $query1->bindParam(':availability', $dt_availability, PDO::PARAM_STR);
+
+
+      $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+      $query1->bindParam(':add', $date, PDO::PARAM_STR);
+      $query1->bindParam(':update', $date, PDO::PARAM_STR);
+      $query1->bindParam(':mem_id', $_SESSION['id'], PDO::PARAM_STR);
+
+      $query1->bindParam(':publication', $dt_pic, PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  public function editresource($id, $dt_name, $dt_mem_id, $dt_pub_id, $dt_pub_date, $dt_a_fname, $dt_a_lname, $dt_url, $dt_description, $dt_availability, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize)
+  {
+    if($imgFile != '')
+    {
+      $upload_dir = '../resource/'; // upload directory
+
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+
+      // rename uploading image
+      $dt_pic = rand(1000,1000000).".".$imgExt;
+
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)){
+        // Check file size '5MB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+      // if no error occured, continue ....
+      if(!isset($msg))
+      {
+        $stmt = $this->conn->prepare('update `tbl_resources` SET publication=:publication where `id`=:id');
+        $stmt->bindParam(':publication',$dt_pic, PDO::PARAM_STR);
+        $stmt->bindParam(':id',$id , PDO::PARAM_STR);
+      
+        if($stmt->execute())
+        {
+          $successMSG = "new record succesfully inserted ...";
+        }
+        else
+        {
+          $errMSG = "error while inserting....";
+        }
+      }
+    }
+
+    try
+    {
+      $date = date('Y/m/d');
+
+      $stmt = $this->conn->prepare("update `tbl_resources` set name=:name, pub_id=:pub_id, pub_date=:pub_date, a_fname=:a_fname, a_lname=:a_lname, url=:url, description=:description, availability=:availability, mem_id=:mem_id, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, last_update=:date where `id`=:id");
+      $stmt->bindParam(':id', $id);
+      $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
+      $query1->bindParam(':mem_id', $dt_mem_id, PDO::PARAM_STR);
+      $query1->bindParam(':pub_id', $dt_pub_id, PDO::PARAM_STR);
+      $query1->bindParam(':pub_date', $dt_pub_date, PDO::PARAM_STR);
+      $query1->bindParam(':a_fname', $dt_a_fname, PDO::PARAM_STR);
+      $query1->bindParam(':a_lname', $dt_a_lname, PDO::PARAM_STR);
+      $query1->bindParam(':url', $dt_url, PDO::PARAM_STR);
+      $query1->bindParam(':description', $dt_description, PDO::PARAM_STR);
+      $query1->bindParam(':availability', $dt_availability, PDO::PARAM_STR);
+
+      $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+
+      $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+
+      $stmt->execute();
+
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+  public function delete_resource($id)
+  {
+    try
+    {
+      $stmt = $this->conn->prepare("Delete from `tbl_resources` where id=:id ");
+      $stmt->execute(array(':id'=>$id));
       return $stmt;
     }
     catch(PDOException $e)

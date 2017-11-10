@@ -10,11 +10,17 @@ $final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
-  $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
 }
+$checkboxes['purpose'] = $filter_params['purpose'] = array();
 $_SESSION['list'] = $checkboxes;
 if(isset($_POST['submit']))
 {
+  foreach($pub_filter_group as $filter_type => $group_no) {
+    $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  }
+  $checkboxes['purpose'] = $filter_params['purpose'] = isset($_POST['purpose']) ? $_POST['purpose'] : array();
+
   $sql1 = "SELECT * from `tbl_individual_member` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
@@ -36,7 +42,7 @@ if(isset($_POST['submit']))
 }
 else
 {
-  $sql1 = "SELECT `id` from `tbl_individual_member` order by `name` ";
+  $sql1 = "SELECT `id` from `tbl_individual_member` order by `fname` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
   $found = $query1->fetchAll(PDO::FETCH_COLUMN);
@@ -148,7 +154,14 @@ input.big {
 </style>
 
 <div class="menu-bar-fixed" id="" >
-
+  <div class="col-sm-12" style="z-index: 50;">
+    <div class="sdfr pull-right">
+      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+      <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
+      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
+      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Members</button>
+    </div>
+  </div>
   <div class="col-sm-12 ">
     <div class="ads fgh">
       <ul>
@@ -157,18 +170,20 @@ input.big {
     </div>
   </div>
 
-  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:0px ! important;">
+  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:40px ! important;">
     <form method="post" action="">
       <div class="container">
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
-            <div class="sdfr ">
-              <a href="#"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-              <a href="#"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button>
-              <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-align:center;"><b>Collections Development Toolkit</b></span></h1>
+            <div class="sdfr" style="text-align: center;">
+              <?php foreach($member_purpose as $pur) {
+                echo '<label class="button button2" type="button" style="background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;"><input style="margin:0px; " type="checkbox" name="purpose[]" value="'.$pur.'" ';
+                if(in_array($pur, $filter_params['purpose'])) { echo 'checked="checked"'; }
+                echo ' >'.$pur.'</label>';
+              } ?>
+              <a href="members"><label class="button button2" type="button" style="background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;">All</label></a>
             </div>
           </div>
 
@@ -232,11 +247,11 @@ input.big {
           $row = $query->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($row as $row) { ?>
-            <a href="detailpage?id=<?php echo base64_encode($row['id']);?>">
+            <a href="bio?id=<?php echo base64_encode($row['id']);?>">
               <div class="col-sm-12 no-background" >
                 <div class="col-sm-3 na-color">
                   <div class="texippo">
-                    <p><?php echo $row['name'];?></p>
+                    <p><?php echo $row['fname'];?></p>
                   </div>
                 </div>
                 <div class="col-sm-9">
@@ -266,7 +281,7 @@ input.big {
 
         <?php } }?>
         <?php if(isset($_POST['submit'])) {?>
-          <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+          <a href="<?php echo $site_url;?>members" class="lastupdate1">Return to Members</a>
         <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>
@@ -289,7 +304,7 @@ $(document).ready(function(){
     {
       $.ajax({
         type: "POST",
-        url: "search_alphp",
+        url: "search_alphm",
         data: "search=" + search,
         success:function(html){
           $('#masterdiv').remove();

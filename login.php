@@ -11,10 +11,8 @@ if(isset($_POST['submit1']))
   $pass= trim($_POST['password']);
 	$pass1= md5($pass);
 
-  $sql = "select * from tbl_individual_member where name='".$user."' and pass='".$pass1."' and status='Active'";
+  $sql = "select * from tbl_individual_member where l_name='".$user."' and pass='".$pass1."' and status='Active'";
   $query = $conn->prepare($sql);
-  $query->bindParam(':email', $user, PDO::PARAM_STR);
-  $query->bindParam(':pass', $pass, PDO::PARAM_STR);
   $query->execute();
   $count = $query->rowCount();
   $count;
@@ -22,7 +20,7 @@ if(isset($_POST['submit1']))
   if($count>0)
   {
 	  $_SESSION['id']=$row['id'];
-	  echo $_SESSION['name']=$row['name'];
+	  echo $_SESSION['name']=$row['fname'];
 	  echo $_SESSION['email']=$row['email'];
     echo $_SESSION['publisher']=$row['publisher'];
 	

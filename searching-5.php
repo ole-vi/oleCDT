@@ -194,7 +194,7 @@ $(document).ready(function()
       <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo" ><span style="color:#fff; font-size:55px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>FieldGuide Directory</b></span></h1>
+            <h1 class="lok-lo" ><span style="color:#fff; font-size:55px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
           </div>
          
           <div class="col-sm-9">

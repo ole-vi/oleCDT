@@ -11,11 +11,11 @@ if(isset($_POST["search"]))
 }
 if($search=='ALL')
 {
-  $sql = " SELECT * FROM  `tbl_publishers`  ORDER BY name ASC ";
+  $sql = " SELECT * FROM  `tbl_individual_member`  ORDER BY fname ASC ";
 }
 else{
-  $sql = " SELECT * FROM  `tbl_publishers`  
-  WHERE `name` LIKE '$search%' ORDER BY name ASC ";
+  $sql = " SELECT * FROM  `tbl_individual_member` 
+  WHERE `fname` LIKE '$search%' ORDER BY fname ASC ";
 }
 
 $query = $conn->prepare($sql);
@@ -27,19 +27,19 @@ if($count > 0)
   while($row = $query->fetch(PDO::FETCH_ASSOC))
   {
  
-    $username=$row['name'];
-    $id=$row['pub_id'];
+    $username=$row['fname'];
+    $id=$row['id'];
     $b_username='<strong>'.$search.'</strong>';
     //$b_email='<strong>'.$q.'</strong>';
     $final_username = str_ireplace($search, $b_username, $username);
     //$final_email = str_ireplace($q, $b_email, $email);
     ?>
-    <a href="<?php echo $site_url;?>detailpage?id=<?php echo base64_encode($id);?>">
+    <a href="<?php echo $site_url;?>bio?id=<?php echo base64_encode($id);?>">
 
       <div class="col-sm-12 no-background">
         <div class="col-sm-3 na-color">
           <div class="texippo">
-            <p><?php echo $row['name'];?></p>
+            <p><?php echo $row['fname'];?></p>
           </div>
         </div>
         <div class="col-sm-9">
@@ -67,13 +67,13 @@ if($count > 0)
       </div>
     </a>
   <?php } ?>
-  <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+  <a href="<?php echo $site_url;?>members" class="lastupdate1">Return to Directory</a>
 <?php }
 else
 {
   echo 'Data Not Found';
   ?>
-  <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+  <a href="<?php echo $site_url;?>members" class="lastupdate1">Return to Directory</a>
 <?php
 }
 ?>

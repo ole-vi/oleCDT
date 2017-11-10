@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 include('include/config.php');
+include('include/constants.php');
 include('include/header.php');
 
 //$id = base64_decode($_REQUEST['id']);
@@ -15,15 +16,170 @@ $count = $query->rowCount();
 $count;
 $row = $query->fetch(PDO::FETCH_ASSOC);
 
-
-$work_type = explode(',',($row['work_type']));
-$location = explode(',',($row['location']));
 $state1 = array('Alaska','Alabama','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming');
-$state = explode(',',($row['state']));
 
-$work = array('Administrative','Accounting','Canvasing door-to-door','Legal','Legislation','Media','Phone Bank','Web Management','Writing','Fund Raising');
-$loc = array('Office','Online','Field');
-echo $row['name'];		
+if(isset($_POST['submit']))
+{
+  $dt_fname = $_REQUEST['fname'];
+  $dt_mob = !empty($_REQUEST['mob']) ? $_REQUEST['mob'] : 0;
+  $dt_off_phone = !empty($_REQUEST['off_phone']) ? $_REQUEST['off_phone'] : 0;
+  $dt_o_phone = !empty($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : 0;
+  $dt_skype = isset($_REQUEST['skype']) ? $_REQUEST['skype'] : '';
+  $dt_facebook = isset($_REQUEST['facebook']) ? $_REQUEST['facebook'] : '';
+  $dt_street = isset($_REQUEST['street']) ? $_REQUEST['street'] : '';
+  $dt_city = isset($_REQUEST['city']) ? $_REQUEST['city'] : '';
+  $dt_state = isset($_REQUEST['state']) ? implode('::', $_REQUEST['state']): '';
+  $dt_zip = isset($_REQUEST['zip']) ? $_REQUEST['zip'] : '';
+  $dt_dob = isset($_REQUEST['dob']) ? date('Y-m-d ', strtotime($_REQUEST['dob'])) : '';
+  $dt_citizenship = isset($_REQUEST['citizenship']) ? $_REQUEST['citizenship'] : '';
+
+  $dt_interest1 = isset($_REQUEST['interest1']) ? implode('::', $_REQUEST['interest1']): '';
+  $dt_interest2 = isset($_REQUEST['interest2']) ? implode('::', $_REQUEST['interest2']): '';
+  $dt_interest3 = isset($_REQUEST['interest3']) ? implode('::', $_REQUEST['interest3']): '';
+  $dt_interest4 = isset($_REQUEST['interest4']) ? implode('::', $_REQUEST['interest4']): '';
+
+  $dt_purpose = isset($_REQUEST['purpose']) ? implode('::', $_REQUEST['purpose']): '';
+
+  $date = date("Y-m-d H:i:s");
+  $status='Active';
+
+  $imgFile = $_FILES['pic']['name'];
+  $tmp_dir = $_FILES['pic']['tmp_name'];
+  $imgSize = $_FILES['pic']['size'];
+
+  if($imgFile!='') 
+  {
+    $upload_dir = 'profile/'; // upload directory
+  
+    $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+    
+    // valid image extensions
+    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+    
+    // rename uploading image
+    $pic1 = rand(1000,1000000).".".$imgExt;
+        
+    // allow valid image file formats
+    if(in_array($imgExt, $valid_extensions)){
+      // Check file size '10KB'
+      if($imgSize < 5000000) {
+        move_uploaded_file($tmp_dir,$upload_dir.$pic1);
+      }
+      else{
+        $msg = "Sorry, your file is too large.";
+        //header("location:stream-details");
+      }
+    }
+
+    // if no error occured, continue ....
+    if(!isset($msg))
+    {
+      $stmt = "update `tbl_individual_member` SET pic=:pic where `id`=:id";
+      $query = $conn->prepare($stmt);
+      $query->bindParam(':pic',$pic1, PDO::PARAM_STR);
+      $query->bindParam(':id',$id , PDO::PARAM_STR);
+      $query->execute();
+    }
+  }
+
+  $sql1 = "update `tbl_individual_member` set fname=:fname, mob=:mob, off_phone=:off_phone, o_phone=:o_phone, skype=:skype , facebook=:facebook , street=:street , city=:city , state=:state , zip=:zip , dob=:dob , citizenship=:citizenship, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, purpose=:purpose, last_update=:update_date where id=:id";
+  $query1 = $conn->prepare($sql1);
+  $query1->bindParam(':id', $id, PDO::PARAM_STR);
+  $query1->bindParam(':fname', $dt_fname, PDO::PARAM_STR);
+  $query1->bindParam(':mob', $dt_mob, PDO::PARAM_STR);
+  $query1->bindParam(':off_phone', $dt_off_phone, PDO::PARAM_STR);
+  $query1->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+  $query1->bindParam(':skype', $dt_skype, PDO::PARAM_STR);
+  $query1->bindParam(':facebook', $dt_facebook, PDO::PARAM_STR);
+  $query1->bindParam(':street', $dt_street, PDO::PARAM_STR);
+  $query1->bindParam(':city', $dt_city, PDO::PARAM_STR);
+  $query1->bindParam(':state', $dt_state, PDO::PARAM_STR);
+  $query1->bindParam(':zip', $dt_zip, PDO::PARAM_STR);
+  $query1->bindParam(':dob', $dt_dob, PDO::PARAM_STR);
+  $query1->bindParam(':citizenship', $dt_citizenship, PDO::PARAM_STR);
+  $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+  $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+  $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+  $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+  $query1->bindParam(':purpose', $dt_purpose, PDO::PARAM_STR);
+  $query1->bindParam(':update_date', $date, PDO::PARAM_STR);
+
+  $run=$query1->execute();
+  if($run)
+  {
+    $to=$o_email;
+    $from = $mail_send_from;
+
+    $subject ='Account Updation Sucessfully';
+
+    $message='<table align="center" border="1" bordercolor="#caecf7" cellpadding="0" cellspacing="0" style="width: 804px;">
+      <tbody>
+        <tr align="center">
+          <td class="area" height="19">
+            <table border="0" cellpadding="0" cellspacing="0" style="height: 246px; width: 800px;">
+              <tbody>
+                <tr>
+                  <td align="center" bgcolor="#caecf7" class="smallgreylink" height="32">
+                    &nbsp;</td>
+                  <td align="left" bgcolor="#caecf7" class="style1 smallgreylink" height="32" style="padding-right: 5px;" valign="middle" width="97%">
+                    <strong>Organization Updation</strong></td>
+                </tr>
+                <tr>
+                  <td align="center" class="smallgreylink" height="81" width="3%">
+                    &nbsp;</td>
+                  <td align="center" class="smallgreylink style1" height="81" style="padding-right: 5px;" valign="top">
+                    <p align="left" class="style2">
+                      Dear '.$name.'</p>
+                    <p align="justify" class="style2">
+                      Thank you for Updating in Pro-Democracy Organization</p>
+                    <p align="justify" class="style2">
+                      Your &nbsp;Employer Account has been successfully Updated.</p>
+                  
+                      <strong>Thank You</strong></p>
+                    <p align="justify" class="style2">
+                      <strong>fieldguide Team</strong></p>
+                    <p align="justify" class="style2">
+                      &nbsp;</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" bgcolor="#caecf7" class="smallgreylink" height="20">
+                    &nbsp;</td>
+                  <td align="left" bgcolor="#caecf7" class="smallgreylink style1" height="32" valign="middle">
+                    <br />
+                    &nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>';
+
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From:'.$from."\r\n";
+
+    $res = mail ( $to, $subject, $message, $headers );
+
+    if ($res)
+    {
+      header('location:'.$site_url.'myaccount');
+      echo '<script language="javascript">';
+      echo 'alert("Updated Record Sucessfully")';
+      echo '</script>';
+    }
+  }
+  else
+  {
+    header('location:'.$site_url.'myaccount');
+
+    echo '<script language="javascript">';
+    echo 'alert("Record is not Updated")';
+    echo '</script>';
+  }
+}
+
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
@@ -201,294 +357,111 @@ background-color:#FFD9D9;
   display:none;
 }
 </style>
-<?php
-if(isset($_SESSION['ind']))
-{
-  $msg=$_SESSION['ind'];
-  echo '<script language="javascript">';
-  echo 'alert("'.$msg.'")';
-  echo '</script>';
-  unset($_SESSION['ind']);
-}
-?>
 <section id="contact" class="" style="padding: 139px 0 1500px;">
   <div class="container">
     <div class="row">
 
-      <h2 class="text-center flo">Individual Member Signup</h2>
+      <h2 class="text-center flo">Update Profile</h2>
         <div class="full-form" style=" margin-top: 57px;">
           <div class="bor-1">
             <div class="tab-content">
               <div id="home" class="tab-pane fade in active">
                 <div class="form-menu bor">
-                  <form class="form-horizontal" role="form" method="POST" action="insert_individual">
+                  <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" >
 
                     <div class="form-group">
-                      <label for="firstName" class="col-sm-3 control-label">Name</label>
-                      <div class="col-sm-9">
-                        <input id="firstName" required placeholder="Full Name" name="fname" value="<?php echo $row['name'];?>" class="form-control keyup-char" autofocus="" type="text">
-                        <span class="warning">characters only.</span>
-                      </div>
+                    <label for="firstName" class="col-sm-3 control-label">Name*</label>
+                    <div class="col-sm-9">
+                      <input id="firstName" required placeholder="Full Name" name="fname" class="form-control keyup-char" autofocus="" type="text" value="<?php echo $row['fname'];?>">
+                      <span class="warning">characters only.</span>
                     </div>
-
-                    <!--    <div class="form-group">
-                      <label for="firstName" class="col-sm-3 control-label">Email</label>
-                      <div class="col-sm-9">
-                        <input id="mail1" required name="email" placeholder="Email" class="form-control" autofocus="" type="text">
-                       <span id="status1"></span>
-                      </div>
-                    </div>-->
-
-                    <div class="form-group">
-                      <label for="firstName" class="col-sm-3 control-label"></label>
-                      <div class="col-sm-9">
-                        <label for="firstName" class=" control-label">Login Name</label>
-                          <input id="Citizenship" required name="lname" placeholder="Name" class="form-control" autofocus="" type="text">
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                      <?php echo $row['email']; ?>
+                      <span id="status1"></span>
                     </div>
-
-                    <!--<div class="form-group">
-                      <label for="firstName" class="col-sm-3 control-label"></label>
-                      <div class="col-sm-9">
-                        <label for="firstName" class=" control-label">Password</label>
-                        <input id="password"   required name="password" placeholder="Enter Password" class="form-control bal-color" autofocus="" type="password">
-                      </div>
-                    </div>-->
-
-                    <!--<div class="form-group">
-                      <label for="firstName" class="col-sm-3 control-label"></label>
-                      <div class="col-sm-9">
-                        <label for="firstName" class=" control-label">Re Enter Password</label>
-                        <input    required name="repassword" id="repassword" placeholder="Re Enter Password" class="form-control bal-color" autofocus="" type="password">
-                      </div>
-                      <span id="status2"></span>
-                    </div>-->
-
-                    <div class="form-group">
-                      <label class="control-label col-sm-3">Type of Work</label>
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="administrativeCheckbox" value="Administrative" name="worktype[]" type="checkbox"><span class="mat">Administrative</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="accountingCheckbox" value="Accounting" type="checkbox" name="worktype[]"><span class="mat">Accounting</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline pad">
-                              <input id="canvasing door-to-doorCheckbox" value="Canvasing door-to-door" type="checkbox" name="worktype[]"><span class="mat">Canvasing door-to-door</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="legalCheckbox" value="Legal" name="worktype[]" type="checkbox"><span class="mat">Legal</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="LegislationCheckbox" value="Legislation" name="worktype[]" type="checkbox"> <span class="mat">Legislation</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="MediaCheckbox" value="Media" type="checkbox" name="worktype[]"><span class="mat">Media</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="Phone BankCheckbox" name="worktype[]" value="Phone Bank" type="checkbox"><span class="mat">Phone Bank</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="Web ManagementCheckbox" value="Web Management" name="worktype[]" type="checkbox"><span class="mat">Web Management</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="writingCheckbox" value="Writing" value="worktype[]" type="checkbox"><span class="mat">Writing</span>
-                            </label>
-                          </div>
-                            <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="writingCheckbox" value="Fund Raising" name="worktype[]" type="checkbox"><span class="mat">Fund Raising</span>
-                            </label>
-                          </div>
-                          <div class="col-sm-4">
-                            <label class="radio-inline">
-                              <input id="Other" placeholder="Other" class="form-control hrt" name="worktype[]" autofocus="" type="text">
-                            </label>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-sm-3">Possible Work Locations</label>
-                  <div class="col-sm-9">
-                    <select data-placeholder="Select Work Locations" class="chosen-select" multiple name="location[]" style="width:350px;" tabindex="4">
-                      <option value="Office">Office</option>
-                      <option value="Online">Online</option>
-                      <option value="Field">Field</option>
-                    </select>
                   </div>
 
-                  <!--<div class="col-sm-6 margt">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="location" value="Office" type="radio"><span class="mat">Office</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline">
-                          <input name="location"  value="Online" type="radio"><span class="mat">Online</span>
-                        </label>
-                      </div>
-                      <div class="col-sm-4">
-                        <label class="radio-inline pad">
-                          <input name="location" value="Field " type="radio"><span class="mat">Field </span>
-                        </label>
-                      </div>
+                  <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9">
+                      <label for="firstName" class=" control-label">User Name</label>
+                      <?php echo $row['l_name']; ?>
                     </div>
-                  </div>-->
-                </div>
-                <div class="form-group">
-                  <label for="country" class="col-sm-3 control-label">Possible Hours of Work per Week</label>
-                  <div class="col-sm-9">
-                    <input type="text" name="hours" required id="country" class="form-control">
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="Education" class="col-sm-3 control-label">Education</label>
-                  <div class="col-sm-9">
-                    <input id="Education" required name="education" placeholder="Education" class="form-control" autofocus="" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label">Work History</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" required name="work_history" placeholder="Work History"></textarea>
-                  </div>
-                </div>
 
                 <div class="form-group">
                   <label for="firstName"  class="col-sm-3 control-label">Mobile phone</label>
                   <div class="col-sm-9">
-                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" value="<?php echo $row['mob'];?>" required name="mob" type="text">
-                    <span id="errmsg"></span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Home phone</label>
-                  <div class="col-sm-9">
-                    <input id="mob1"  placeholder="Home phone" maxlength="10" class="form-control" autofocus=""  value="<?php echo $row['phone'];?>" name="phone" type="text">
-                    <span id="errmsg1"></span>
+                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" name="mob" type="text" value="<?php echo $row['mob'];?>">
+                      <span id="errmsg"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Office phone</label>
                   <div class="col-sm-9">
-                    <input id="mob2"  placeholder="Office phone" maxlength="10" class="form-control" autofocus="" value="<?php echo $row['office_phone'];?>" name="off_phone" type="text">
+                    <input id="mob2"  placeholder="Office phone" maxlength="10" class="form-control" autofocus=""  name="off_phone" type="text" value="<?php echo $row['off_phone'];?>">
                     <span id="errmsg2"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Other phone</label>
                   <div class="col-sm-9">
-                    <input id="mob3"  placeholder="Other phone" maxlength="10" class="form-control" autofocus="" value="<?php echo $row['other_phone'];?>"  name="o_phone" type="text">
+                    <input id="mob3"  placeholder="Other phone" maxlength="10" class="form-control" autofocus="" name="o_phone" type="text" value="<?php echo $row['o_phone'];?>">
                     <span id="errmsg3"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Skype</label>
                   <div class="col-sm-9">
-                    <input id="Skype"  name="skype" placeholder="Skype" value="<?php echo $row['skype'];?>" class="form-control" autofocus="" type="text">
+                    <input id="Skype"  name="skype" placeholder="Skype" class="form-control" autofocus="" type="text" value="<?php echo $row['skype'];?>">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Facebook</label>
                   <div class="col-sm-9">
-                    <input id="Face-book"  name="facebook" placeholder="Face-book" value="<?php echo $row['facebook'];?>" class="form-control" autofocus="" type="text">
+                    <input id="Face-book"  name="facebook" placeholder="Face-book" class="form-control" autofocus="" type="text" value="<?php echo $row['facebook'];?>">
                   </div>
                 </div>
 
                 <div class="form-group col-sm-12">
-                  <label class="control-label col-sm-3 pada">Address</label>
+                  <label class="control-label col-sm-3 pada">Address*</label>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input id="Street" placeholder="Street" required class="form-control" autofocus="" name="street" value="<?php echo $row['street'];?>" type="text">
+                      <input id="Street" placeholder="Street" required class="form-control" autofocus="" name="street" type="text" value="<?php echo $row['street'];?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input id="City" name="city" required placeholder="City" class="form-control" autofocus="" value="<?php echo $row['city'];?>" type="text">
+                      <input id="City" name="city" required placeholder="City" class="form-control" autofocus="" type="text" value="<?php echo $row['city'];?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input id="Zip" placeholder="Zip" required name="zip" class="form-control" autofocus="" value="<?php echo $row['zip'];?>" type="text">
+                      <input id="Zip" placeholder="Zip" required name="zip" class="form-control" autofocus="" type="text" value="<?php echo $row['zip'];?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
                   </div>
                   <div class="col-sm-3">
                     <div class="mar">
+                    
+
                       <select data-placeholder="Select State" class="chosen-select" name="state[]" multiple style="width:350px;" tabindex="4">
-                        <option value="Alaska">Alaska</option>
-                        <option value="Alabama">Alabama</option>
-                        <option value="Arizona">Arizona</option>
-                        <option value="Arkansas">Arkansas</option>
-                        <option value="California">California</option>
-                        <option value="Colorado">Colorado</option>
-                        <option value="Connecticut">Connecticut</option>
-                        <option value="Delaware">Delaware</option>
-                        <option value="Florida">Florida</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Hawaii">Hawaii</option>
-                        <option value="Idaho">Idaho</option>
-                        <option value="Illinois">Illinois</option>
-                        <option value="Indiana">Indiana</option>
-                        <option value="Iowa">Iowa</option>
-                        <option value="Kansas">Kansas</option>
-                        <option value="Kentucky">Kentucky</option>
-                        <option value="Louisiana">Louisiana</option>
-                        <option value="Maine">Maine</option>
-                        <option value="Maryland">Maryland</option>
-                        <option value="Massachusetts">Massachusetts</option>
-                        <option value="Michigan">Michigan</option>
-                        <option value="Minnesota">Minnesota</option>
-                        <option value="Mississippi">Mississippi</option>
-                        <option value="Missouri">Missouri</option>
-                        <option value="Montana">Montana</option>
-                        <option value="Nebraska">Nebraska</option>
-                        <option value="Nevada">Nevada</option>
-                        <option value="New Hampshire">New Hampshire</option>
-                        <option value="New Jersey">New Jersey</option>
-                        <option value="New Mexico">New Mexico</option>
-                        <option value="New York">New York</option>
-                        <option value="North Carolina">North Carolina</option>
-                        <option value="North Dakota">North Dakota</option>
-                        <option value="Ohio">Ohio</option>
-                        <option value="Oklahoma">Oklahoma</option>
-                        <option value="Oregon">Oregon</option>
-                        <option value="Pennsylvania">Pennsylvania</option>
-                        <option value="Rhode Island">Rhode Island</option>
-                        <option value="South Carolina">South Carolina</option>
-                        <option value="South Dakota">South Dakota</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texas">Texas</option>
-                        <option value="Utah">Utah</option>
-                        <option value="Vermont">Vermont</option>
-                        <option value="Virginia">Virginia</option>
-                        <option value="Washington">Washington</option>
-                        <option value="West Virginia">West Virginia</option>
-                        <option value="Wisconsin">Wisconsin</option>
-                        <option value="Wyoming">Wyoming</option>
+                        <?php
+                        $state = explode('::', $row['state']);
+                        foreach($state1 as $st){
+                          if(in_array($state, $state1))
+                          {
+                        ?>
+                            <option value="<?php echo $st; ?>" selected><?php echo ucfirst($st); ?></option>
+                          <?php }
+                          else { ?>
+                            <option value="<?php echo $st; ?>"><?php echo ucfirst($st); ?></option>
+                      <?php }} ?>
                       </select>
                     </div>
                   </div>
@@ -507,21 +480,15 @@ if(isset($_SESSION['ind']))
                 </div>
 
                 <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label"> Birth Date</label>
+                  <label for="firstName"  class="col-sm-3 control-label"> Birth Date*</label>
                   <div class="col-sm-4">
-                    <input id="dateofplay" name="dob" required placeholder=" Birth Date" class="form-control" autofocus="" type="text">
+                    <input id="dateofplay" name="dob" placeholder=" Birth Date" class="form-control" autofocus="" type="text" value="<?php echo $row['dob'];?>">
                   </div>
                   <div class="col-sm-5">
-                    <input id="Citizenship" required name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text">
+                    <input id="Citizenship" name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text" value="<?php echo $row['citizenship'];?>">
                   </div>
                 </div>
 
-                <!-- <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Propose a New Organization</label>
-                  <div class="col-sm-6">
-                    <input id="org" required name="org" placeholder="Name of Organization" class="form-control" autofocus="" type="text">
-                  </div>
-                </div>-->
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Photo</label>
                   <div class="col-sm-3">
@@ -529,10 +496,49 @@ if(isset($_SESSION['ind']))
                   </div>
                 </div>
 
+                <!-- Interest -->
                 <div class="form-group">
-                  <label for="firstName" class="col-sm-3 control-label">Attach Resume</label>
-                  <div class="col-sm-3">
-                    <input id="pic1" name="pic1" class="custom-file-input" autofocus="" type="file">
+                  <label class="control-label col-sm-3">Interest</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php
+                      foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
+                        foreach($filter_lbl as $lbl) {
+                          $interests = explode('::', $row[$filter_type]);
+                          echo '<div class="col-sm-4">
+                            <label class="radio-inline">';
+                          if(in_array($lbl, $interests)) {
+                            echo '<input name="'.$filter_type.'[]" value="'.$lbl.'" type="checkbox" checked>';
+                          } else {
+                            echo '<input name="'.$filter_type.'[]" value="'.$lbl.'" type="checkbox">';
+                          }
+                          echo '<span class="mat">'.$lbl.'</span>
+                        </label>
+                        </div>';
+                        }
+                      } ?>
+                    </div>
+                  </div>
+                </div>
+                <!-- Purpose -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3">Purpose</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <?php $purposes = explode('::', $row['purpose']);
+                      foreach($member_purpose as $purpose) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">';
+                        if(in_array($purpose, $purposes)) {
+                            echo '<input name="purpose[]" value="'.$purpose.'" type="checkbox" checked>';
+                          } else {
+                            echo '<input name="purpose[]" value="'.$purpose.'" type="checkbox">';
+                          }
+                          echo '<span class="mat">'.$purpose.'</span>
+                        </label>
+                        </div>';
+                      } ?>
+                    </div>
                   </div>
                 </div>
 
@@ -540,12 +546,6 @@ if(isset($_SESSION['ind']))
                   <div class="col-sm-2 ">
                     <input type="submit" name="submit" value="Submit" class="btn btn-primary btn-block">
                   </div>
-                  <!-- <div class="col-sm-2 ">
-                    <button type="reset" class="btn btn-primary btn-block">Reset</button>
-                  </div>
-                  <div class="col-sm-2 ">
-                    <a href="<?php echo $site_url;?>organization" class="btn btn-primary btn-block">Organization Sign up </a>
-                  </div>-->
                 </div>
 
                 </form>

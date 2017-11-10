@@ -55,7 +55,14 @@ input.big {
 </style>
 
 <div class="menu-bar-fixed" id="" >
-
+  <div class="col-sm-12" style="z-index: 50;">
+    <div class="sdfr pull-right">
+      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Collections</button>
+      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
+      <a href="members"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+    </div>
+  </div>
   <div class="col-sm-12 ">
     <div class="ads fgh">
       <ul>
@@ -64,18 +71,15 @@ input.big {
     </div>
   </div>
 
-  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:0px ! important;">
+  <section id="contact" class=" background-uplod-2" style="padding: 112px 0 5%; margin-top:40px ! important;">
     <form method="post" action="">
       <div class="container">
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
-            <div class="sdfr ">
-              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
+            <div class="sdfr " style="text-align: center;">
               <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button>
-              <a href="searching"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
-              <a href="#"><button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
             </div>
           </div>
 
@@ -105,12 +109,6 @@ input.big {
                   } ?>
 
                   <div class=" lo-po-12 " >
-                    <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
-                    <a href="add_publisher">
-                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
-                      </button>
-                    </a>
-                    <?php } ?>
                     <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>
@@ -129,6 +127,7 @@ input.big {
     <div class="row">
 
       <div class="maty-op" id="masterdiv">
+      <h1>PAGE UNDER CONSTRUCTION</h1>
       </div>
       <div id="result1" class="maty-op"></div>
 

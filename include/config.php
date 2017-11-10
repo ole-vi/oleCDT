@@ -1,5 +1,5 @@
 <?php
-$site_url = 'http://localhost:8000/fieldguide/';
+$site_url = 'http://cdt.ole.org/';
 $mail_send_from = 'test@dppms.com';
 $host = 'localhost';
 $dbname = 'dppms_fieldguide';

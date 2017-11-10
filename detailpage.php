@@ -28,7 +28,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
       </div>
       <?php if($is_owner) { ?>
         <div class="col-sm-4 pull-right">
-          <a href="update_publisher?id=<?php echo base64_encode($row['id']); ?>">
+          <a href="update_publisher?id=<?php echo base64_encode($row['pub_id']); ?>">
             <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
           </a>
           <a href="javascript:void(0);" id="delPub">
@@ -42,7 +42,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           </p></a>
         </div>
       </div>-->
-      <div class="text-pera last">
+      <div class="text-pera last col-sm-12">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
         
@@ -51,12 +51,12 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           echo (!empty($row['c_email'])) ? ' • '.$row['c_email'] : '';
           echo (!empty($row['web'])) ? ' • '.'<a href="'.$row['web'].'">'.$row['web'].'</a>' : '';
           ?></p>
-          <p><b style="color:#000;">Mission:</b><?php echo $row['mission'];?></p>
-          <p><b style="color:#000;">About:</b><?php echo $row['m_info'];?></p>
+          <p><b style="color:#000;">Mission: </b><?php echo $row['mission'];?></p>
+          <p><b style="color:#000;">About: </b><?php echo $row['m_info'];?></p>
         </div>
 
         <div class="col-sm-3">
-        <?php if($row['pic']!=''){ ?>
+        <?php if($row['pic'] != ''){ ?>
           <img src="publisher/<?php echo $row['pic'];?>" height="150px" width="150px">
         <?php } else { ?>
           <img src="img/ole_logo.png" height="150px" width="150px">
@@ -77,22 +77,6 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
             }
           }
           ?></p>
-        </div>
-      </div>
-
-      <div class="w-line-2"></div>
-
-      <div class="col-sm-12">
-        <div class="new-1-pera">
-          <h1>Your Entry Points</h1>
-          <p class="font_9"><span style="color:#666666;">Attend the Brennan Center’s&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">events</span></a></span><span style="color:#666666;">&nbsp;and explore its detailed&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">policy proposals</span></a></span><span style="color:#666666;">,&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">expert analysis</span></a></span><span style="color:#666666;">, and easy-to-read&nbsp;</span><span style="font-weight:bold;"><a href="http://www.brennancenter.org/press" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">articles</span></a></span><span style="color:#666666;">&nbsp;online. Want to get more involved? Apply for one of the Brennan Center’s many&nbsp;</span><span style="font-weight:bold;"><a href="#" 
-          target="_blank" data-content="#" data-type="external">
-          <span style="color:#0957a2;">fellowship opportunities</span></a></span><span style="color:#666666;">
-          &nbsp;or, if you are a legal professional,&nbsp;</span><span style="font-weight:bold;"><a href="#" 
-          target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">volunteer</span>
-          </a></span><span style="color:#666666;">&nbsp;with the Center on litigation, policy research, 
-          and public advocacy. While based in New York City, the Brennan Center works with people across
-           the country and in many different fields.</span></p>
         </div>
       </div>
 

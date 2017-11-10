@@ -53,23 +53,10 @@ if(isset($_POST['submit']))
   $tmp_dir = $_FILES['pic']['tmp_name'];
   $imgSize = $_FILES['pic']['size'];
 
-  $stmt = $admin->runQuery("select * from tbl_publishers where c_email=:c_email");
-  $stmt->execute(array(':c_email' => $dt_c_email));
-
-  //$row=$stmt->fetch(PDO::FETCH_ASSOC);
-  $rowcount = $stmt->rowCount();
-  if($rowcount > 0)
+  if($admin->adorg($dt_name, $dt_web, $dt_mission, $dt_m_info, $dt_c_name, $dt_c_email, $dt_c_phone, $dt_c_url, $dt_c_address, $dt_o_name, $dt_o_address, $dt_o_phone, $dt_o_email, $dt_o_skype, $dt_o_other, $dt_grade, $dt_subject, $dt_format, $dt_distribution, $dt_license, $dt_language, $dt_msa, $dt_wcag, $dt_pub_available, $dt_curriculum, $dt_edu_usage, $dt_edu_content, $dt_assessment, $dt_content_usage, $dt_content_other, $dt_content_quality, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize))
   {
-    $_SESSION['org'] = "This Record Already Inserted";
-    // $admin->redirect('add_organization');
-  }
-  else
-  {
-    if($admin->adorg($dt_name, $dt_web, $dt_mission, $dt_m_info, $dt_c_name, $dt_c_email, $dt_c_phone, $dt_c_url, $dt_c_address, $dt_o_name, $dt_o_address, $dt_o_phone, $dt_o_email, $dt_o_skype, $dt_o_other, $dt_grade, $dt_subject, $dt_format, $dt_distribution, $dt_license, $dt_language, $dt_msa, $dt_wcag, $dt_pub_available, $dt_curriculum, $dt_edu_usage, $dt_edu_content, $dt_assessment, $dt_content_usage, $dt_content_other, $dt_content_quality, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $imgFile, $tmp_dir, $imgSize))
-    {
-      $_SESSION['org1'] = 'Record Inserted Successfully';
-      header("location:org_details");
-    }
+    $_SESSION['org1'] = 'Record Inserted Successfully';
+    header("location:org_details");
   }
 }
 ?>
@@ -157,7 +144,7 @@ if(isset($_POST['submit']))
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label>Email</label>
-                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email" required>
+                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email">
                           <span class="help-block" id="error"></span>
                         </div>
                       </div>
@@ -187,7 +174,7 @@ if(isset($_POST['submit']))
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label>Logo</label>
-                          <input type="file" class="form-control"  name="pic" required>
+                          <input type="file" class="form-control"  name="pic">
                         </div>
                       </div>
                     </div>
