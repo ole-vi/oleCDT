@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					<div class="adres">
-						<h1>Field Guide to the Democracy Movement</h1>
+						<h1>Collections Development Toolkit</h1>
             <p>One Broadway Street, Cambridge MA 02142, ole.org</p>
 					</div>
 				</div>

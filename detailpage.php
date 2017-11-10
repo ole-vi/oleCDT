@@ -28,7 +28,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
       </div>
       <?php if($is_owner) { ?>
         <div class="col-sm-4 pull-right">
-          <a href="update_publisher?id=<?php echo base64_encode($row['id']); ?>">
+          <a href="update_publisher?id=<?php echo base64_encode($row['pub_id']); ?>">
             <button type="button" class="default btn-lg bun-1">Update Publisher <i class="fa fa-edit" aria-hidden="true"></i></button>
           </a>
           <a href="javascript:void(0);" id="delPub">
@@ -42,7 +42,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           </p></a>
         </div>
       </div>-->
-      <div class="text-pera last">
+      <div class="text-pera last col-sm-12">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
         
@@ -67,7 +67,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 
       <div class="col-sm-12">
         <div class="new-1-pera">
-          <h1>Context Areas</h1>
+          <h1>Interests</h1>
           <p><?php foreach($pub_filter_group as $filter_type => $group) {
             if(!empty($row[$filter_type])) {
               $filters = explode('::', $row[$filter_type]);

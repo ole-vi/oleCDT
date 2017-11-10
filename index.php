@@ -1,207 +1,158 @@
-<!DOCTYPE html>
-<html>
-<?php
+<?php 
 ob_start();
 session_start();
+include('include/config.php');
 include('include/header.php');
-?>	    
-    <!-- banner start --> 
-		<?php 
-					
-					if(isset($_SESSION['ind1']))
-					{
-						$msg=$_SESSION['ind1'];
-					echo '<script language="javascript">';
-					echo 'alert("'.$msg.'")';
-					echo '</script>';
-						unset($_SESSION['ind1']);
-					}
-					?>
-		<section id="banner" class="banner-area">
-			<div class="color-overlay">
-				<div class="container">
-					<div class="col-sm-4 " >
-					</div>
-					<div class="col-sm-4 " >
-					</div>
-					
-						<div class="col-sm-4 bac" >
-							<h2 >​
-Field Guide to the Democracy Movement
-​</h2>
-<div class="co">
+?>
 
-</div>
-<h2>​
- 
-THE MOVEMENT IS HERE, ARE YOU IN?
-
-​</h2>
-<div class="co">
-
-</div>
-							
-							
-                            <!--/.apps-icon end-->
-							<div class="download-block">
-							<p>First Time Here?</p>
-						
-								<a class="btn ban" href="#">Get Started</a>
-								
-								
-							</div>
-							
-							<div class="download-block">
-							<p>First Time Here?</p>
-								<a class="btn ban" href="#">Go to the Field Guide </a>
-								
-							</div>
-						</div>
-				
-				</div>
-				<!-- /.container end -->
-			</div>
-			<!-- /.color-overlay end -->
-		</section>
-	<!-- banner end -->
-
-	<!-- trial start -->
-		
-	<!-- trial end -->
-
-	<!-- intro start -->
-		<section id="intro" class="intro-area white">
-			<div class="container">
-				
-				<div class="row">
-				
-					<div class="col-sm-12 jal">
-						<div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-							<p class=" jal-2"><span><b>OUR</b></span><br>
-                                           MISSION
-</p>					
-						</div>
-						<!-- /.intro-block end -->
-					</div>
-					
-					
-						<div class="col-sm-6 mart">
-						<div class="text" data-wow-delay="0s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeInRight;">
-							
-							
-							<p>To build power and momentum strong enough to create historic
-							change, a social movement must be conscious of itself and 
-							visible to others. To succeed, we each must see a welcoming 
-							place for ourselves in the potentially transformative Democracy 
-							Movement. So in this <span style="font-style:italic;">Field Guide</span>, we strive to make connection easy
-							and to generate excitement about the vast scope and diverse aspects
-							of the rising Democracy Movement. Courage is contagious.
-							As we connect with others already standing up boldly for democracy,
-							we spark confidence in ourselves and others.</p>
-						</div>
-						
-						<!-- /.intro-block end -->
-					</div>
-					<!-- /.intro-block end -->
-				</div>
-			</div>
-		</section>
-    <!-- /.intro end -->
-
-    <!-- feature start -->
-		
-	<!-- feature end -->
-	
-	<!-- more_feature start -->
-		
-	<!-- more_feature end -->
-
-	<!-- counter start --> 
-		
-	<!-- counter end --> 
-
-	<!-- description start --> 
-		
-	<!-- description end -->
-
-	<!-- how it work start -->
-		
-    <!-- howitwork end -->
-
-    <!-- screenshot start -->
-	    
-    <!-- /.screenshot end -->
-	
-	<!-- review start -->
-		<section id="review" class="review">
-			<div class="color-overlay">
-				
-				
-				<!-- /.review-slider -->
-			</div> 
-			<!-- transpharent background -->      
-		</section>
-	<!-- /.review end -->
-
-	<!-- price start -->
-		
-	<!-- /.price end -->
-
-	<!-- download start -->
-		
-    <!-- /.download end -->
-
-    <!-- team start --> 
-		
-	<!-- team end --> 
-
-	<!-- purchase start --> 
-		
-	<!-- purchase end -->
-
-	<!-- faq start --> 
-		
-	<!-- faq end -->
-
-	<!-- subscribe start --> 
-		
-	<!-- subscribe end -->
-
-	<!-- contact start --> 
-		<section id="contact" class="contact-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12 text-center pera-12" style="visibility: visible; animation-name: fadeInUp;">
-						<h2 class="pera">WHAT'S HAPPENING <b>NOW?</b></h2>
-						<div class="sub-heading">
-						
-						</div>						
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 divider">
-						<h3>(Twitter Feeds from the organizations in this Field Guide)</h3>
-						<iframe width="100%" height="488px" src="http://www-fieldguidetodemocracy-org.usrfiles.com/html/45eb90_7f7777553b95a17ff58f2ac9ade431f8.html" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c1537.1.$comp-ifwfibx7.1.$mediairc1npsu1/=1$mediairc1npsu1.1.$comp-isag1taw.1.$comp-isafnpvc.0.0"></iframe>
-					
-				</div>
-				<div class="col-sm-6">
-						<div class="contact-block">
-							<h3>(News and blogs from the organizations in this Field Guide)</h3>
-							<iframe width="100%" height="488px" src="http://www-fieldguidetodemocracy-org.usrfiles.com/html/45eb90_783347b3ace44903bd1ef35347ea1526.html" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$c1537.1.$comp-ifwfibx7.1.$mediairc1npsu1/=1$mediairc1npsu1.1.$comp-isag5fsw.1.$comp-isafkegm.0.0"></iframe>
-						</div>
-						<!-- /.contact-block end -->
-					</div>
-			</div>
-		</section>
-	<!-- contact end -->
-
-	
-
-	<!-- footer start -->
-	
-
-<?php include('include/footer.php');?>	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+  $("#mob").keypress(function (e) {
+    //if the letter is not digit then display error and don't type anything
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      //display error message
+      $("#errmsg").html("Digits Only").show().fadeOut("slow");
+      return false;
+    }
+  });
+  $("#mob1").keypress(function (e) {
+    //if the letter is not digit then display error and don't type anything
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      //display error message
+      $("#errmsg1").html("Digits Only").show().fadeOut("slow");
+      return false;
+    }
+  });
    
-          
-  
-</body></html>
+  /* $("#mob").change(function()
+  {
+    var no = $("#mob").val();
+    if(no.length!=10){
+     //$("#errmsg").html("Ten Digits Only").show().fadeOut("slow");
+     $("#errmsg").addClass("red11");
+     msgbox.html("Ten Digits Only");
+    }
+  });*/
+  $("#mail1").change(function()
+  {
+    var username = $("#mail1").val();
+    var msgbox = $("#status1");
+    $("#status1").html('<img src="img/loader.gif">&nbsp;Checking availability.');
+
+    $.ajax({
+      type: "POST",
+      url: "check_ajax",
+      data: "email="+ username,
+      success: function(msg){
+        $("#status1").html(function(event, request){
+          if(msg == 'OK')
+          {
+            $("#mail1").removeClass("red11"); // remove red color
+            $("#mail1").addClass("green11"); // add green color
+            msgbox.html('<img src="img/yes.png"> <font color="Green"> Available </font>');
+          }
+          else
+          {
+            // if you don't want background color remove these following two lines
+            $("#mail1").removeClass("green11"); // remove green color
+            $("#mail1").addClass("red11"); // add red  color
+            msgbox.html(msg);
+          }
+        });
+      }
+    });
+  });
+});
+</script>
+<style>
+#status1
+{
+  font-size:11px;
+  margin-left:10px;
+}
+.green11
+{
+  background-color:#CEFFCE;
+}
+.red11
+{
+  background-color:#FFD9D9;
+}
+</style>
+<section id="contact" class=" background-img-uplod" style="padding: 156px 0 5%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 jal mar-left-12 pad-ouar">
+        <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
+          <p class=" jal-2"><span><h1>Welcome</h1></span><br>
+          </p>
+        </div>
+        <!-- /.intro-block end -->
+      </div>
+      <div class="text-pera">
+        <h2>Welcome to the Collections Development Toolkit</h2>
+        <p><b>Our Goals.</b> The Collections Development Toolkit is designed to help you find, learn about, 
+        and join organizations that are addressing issues and strategies concerning
+        democracy that are important for you, including those working in locations close to you. It providesdescription of organizations that are committed 
+        to strengthening democracy and makes it easy for you to connect with them.</p>
+        <p>As a Member of the Collections Development Toolkit you can create your personal profile of interests, skills, the types of work and locations that interests you.  You can choose toshare your profile with those organizations that match some or all of the features of your profile. Your personal profile will be shared only with those organizations that you choose to contact through the Guide. 
+        We also make it easy for you, as a Member, to identify and sign up additional organizations 
+        that share our commitment to wor
+        k together in the Democracy Movement.</p>
+
+        <div class="men-div">
+          <div id="flip" class="mean-clas"><h1> Read Collections Development Toolkit Policies</h1>
+          </div>
+          <div id="panel" class="wor">
+            <h3>As a Member of the Collections Development Toolkit you agree:</h3>
+            <h3> Our Basic Policies.</h3>
+            <p>a) to always be respectful in your contributions to the Guide and not use language that is hateful or disparaging of individuals 
+               or organizations, even regarding those you with which you strongly disagree;</p>
+            <p>b) to accurately and honestly describe yourself, other individuals and organizations, not misrepresenting 
+               facts, or shading the truth in ways that can mislead others, </p>
+            <p>c) to cite credible sources that support controversial statements, and</p>
+            <p>d) to notify the Editor of the Collections Development Toolkit immediately,using the Guide’s Feedback form, whenever you experience anything in the Guide that violates these basic policies,.</p>
+
+            <h4>Thank you and Welcome to the Collections Development Toolkit.</h4>
+            <h4><input required="" name="confirm" type="checkbox">
+               I have read,endorse the Purpose and accept Basic Policies of the Collections Development Toolkit.</h4>
+            <div class="col-sm-12 voli">
+              <a href="individual"><button type="submit" class="btn btn-primary btn-block belpo">Accept</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function(){
+    $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
+    });
+  });
+</script>
+<!-- contact end -->
+
+<!-- map start -->
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/cupertino/jquery-ui.css">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script>
+$( "#dateofplay" ).datepicker({
+  altField: "#alternate1",
+  altFormat: "DD, d MM, yy",
+  showWeek: true,
+  maxDate: 0,         
+  changeMonth: true,
+  changeYear: true,
+  yearRange: "-5:+0"
+});
+</script>	
+<!-- map end -->
+
+<?php include('include/footer.php');?>

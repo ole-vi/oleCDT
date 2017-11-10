@@ -11,7 +11,7 @@ if($admin->is_loggedin()=="")
 <!-- Head -->
 <head>
     <meta charset="utf-8" />
-    <title>Fieldguidetodemocracy.org</title>
+    <title>Collections Development Toolkit</title>
 
     <meta name="description" content="form layouts" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

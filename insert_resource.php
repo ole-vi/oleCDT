@@ -1,7 +1,4 @@
 <?php
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
 ob_start();
 session_start();
 include('include/config.php');
@@ -12,7 +9,7 @@ if(isset($_POST['submit']))
 
   $dt_name = $_REQUEST['name'];
   $dt_pub_id = isset($_REQUEST['pub_id']) ? $_REQUEST['pub_id'] : '';
-  $dt_pub_date = isset($_REQUEST['pub_date']) ? $_REQUEST['pub_date'] : '';
+  $dt_pub_date = isset($_REQUEST['pub_date']) ? date("Y-m-d", strtotime($_REQUEST['pub_date'])) : '';
   $dt_a_fname = isset($_REQUEST['a_fname']) ? $_REQUEST['a_fname'] : '';
   $dt_a_lname = isset($_REQUEST['a_lname']) ? $_REQUEST['a_lname'] : '';
   $dt_url = isset($_REQUEST['url']) ? $_REQUEST['url'] : '';
@@ -32,30 +29,33 @@ if(isset($_POST['submit']))
   $imgSize = $_FILES['publication']['size'];
 
   $upload_dir = 'resource/'; // upload directory
-  
-  $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 
-  // valid image extensions
-  $valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg"); // valid extensions
+  if($imgFile != '') {
+    $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 
-  // rename uploading image
-  $dt_pic = rand(1000,1000000).".".$imgExt;
+    // valid image extensions
+    $valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg", "xlsx", "xls", "png"); // valid extensions
 
-  // allow valid image file formats
-  if(in_array($imgExt, $valid_extensions)){
-    // Check file size '5MB'
-    if($imgSize < 5000000) {
-      move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+    // rename uploading image
+    $dt_pic = rand(1000,1000000).".".$imgExt;
+
+    // allow valid image file formats
+    if(in_array($imgExt, $valid_extensions)){
+      // Check file size '5MB'
+      if($imgSize < 5000000) {
+        move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+      }
+      else
+      {
+        $_SESSION['msg']="Sorry, your file is large than 5MB";
+        header('location:'.$site_url.'add_resource');
+      }
     }
-    else
-    {
-      $_SESSION['msg']="Sorry, your file is large than 5MB";
-      header('location:'.$site_url.'add_resource');
-    }
+  } else {
+    $dt_pic = '';
   }
-
   //$path="uploaded_doc/" .$pic;
-  $sql1 = "insert into `tbl_resources` set name=:name, pub_id=:pub_id, pub_date=:pub_date, a_fname=:a_fname, a_lname=:a_lname, url=:url, description=:description, availability=:availability, add_date=:add, last_update=:update, publication=:publication, mem_id=:mem_id";
+  $sql1 = "insert into `tbl_resources` set name=:name, pub_id=:pub_id, pub_date=:pub_date, a_fname=:a_fname, a_lname=:a_lname, url=:url, description=:description, availability=:availability, add_date=:add, last_update=:update, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, publication=:publication, mem_id=:mem_id";
   $query1 = $conn->prepare($sql1);
   $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
   $query1->bindParam(':pub_id', $dt_pub_id, PDO::PARAM_STR);
@@ -65,7 +65,6 @@ if(isset($_POST['submit']))
   $query1->bindParam(':url', $dt_url, PDO::PARAM_STR);
   $query1->bindParam(':description', $dt_description, PDO::PARAM_STR);
   $query1->bindParam(':availability', $dt_availability, PDO::PARAM_STR);
-
 
   $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
   $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);

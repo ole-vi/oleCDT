@@ -7,7 +7,7 @@ include('include/header.php');
 
 $id=base64_decode($_REQUEST['id']);
 
-$sql = "select r.*, m.name as member from tbl_resources as r left join tbl_individual_member as m on m.id=r.mem_id left join tbl_publishers as p on r.pub_id=p.pub_id where id=:id ";
+$sql = "select r.*, p.name as pub_name, m.fname as member from tbl_resources as r left join tbl_individual_member as m on m.id=r.mem_id left join tbl_publishers as p on r.pub_id=p.pub_id where r.id=:id";
 $query = $conn->prepare($sql);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
@@ -42,7 +42,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           </p></a>
         </div>
       </div>-->
-      <div class="text-pera last">
+      <div class="text-pera last col-sm-12 ">
         <div class="lastupdate">Last Updated On <?php echo date('d-M-Y',strtotime($row['last_update'])); ?></div>
         <h1><?php echo $row['name'];?></h1>
         
@@ -75,18 +75,16 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
       </div>
 
       <div class="w-line-2"></div>
-      <div class="text-pera last">
-        <div class="col-sm-9">
+      <div class="new-1-pera col-sm-12">
           <p><b style="color:#000;">Publication:</b><?php echo $row['pub_name'];?></p>
           <p><b style="color:#000;">Publication Date:</b><?php echo $row['pub_date'];?></p>
           <p><b style="color:#000;">Author:</b><?php echo $row['a_fname'].' '.$row['a_lname'];?></p>
           <p><b style="color:#000;">URL:</b><?php echo $row['url'];?></p>
           <p><b style="color:#000;">Availability:</b><?php echo $row['availability'];?></p>
-        </div>
       </div>
 
       <div class="w-line-2"></div>
-      <div class="text-pera last">
+      <div class="new-1-pera col-sm-12">
       <p><?php echo $row['description'];?>
       </p>
       </div>

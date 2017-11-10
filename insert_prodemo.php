@@ -1,7 +1,4 @@
 <?php
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
 ob_start();
 session_start();
 include('include/config.php');
@@ -16,12 +13,12 @@ if(isset($_POST['submit']))
   $dt_m_info = isset($_REQUEST['m_info']) ? $_REQUEST['m_info'] : '';
   $dt_c_name = isset($_REQUEST['c_name']) ? $_REQUEST['c_name'] : '';
   $dt_c_email = isset($_REQUEST['c_email']) ? $_REQUEST['c_email'] : '';
-  $dt_c_phone = isset($_REQUEST['c_phone']) ? $_REQUEST['c_phone'] : '';
+  $dt_c_phone = !empty($_REQUEST['c_phone']) ? $_REQUEST['c_phone'] : 0;
   $dt_c_url = isset($_REQUEST['c_url']) ? $_REQUEST['c_url'] : '';
   $dt_c_address = isset($_REQUEST['c_address']) ? $_REQUEST['c_address'] : '';
   $dt_o_name = isset($_REQUEST['o_name']) ? $_REQUEST['o_name'] : '';
   $dt_o_address = isset($_REQUEST['o_address']) ? $_REQUEST['o_address'] : '';
-  $dt_o_phone = isset($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : '';
+  $dt_o_phone = !empty($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : 0;
   $dt_o_email = isset($_REQUEST['o_email']) ? $_REQUEST['o_email'] : '';
   $dt_o_skype = isset($_REQUEST['o_skype']) ? $_REQUEST['o_skype'] : '';
   $dt_o_other = isset($_REQUEST['o_other']) ? $_REQUEST['o_other'] : '';
@@ -77,10 +74,12 @@ if(isset($_POST['submit']))
         header('location:'.$site_url.'add_publisher');
       }
     }
+  } else {
+    $dt_pic = '';
   }
   //$path="uploaded_doc/" .$pic;
 
-
+  /*
   $sql = "select * from `tbl_publishers` where o_email=:o_email";
   $query = $conn->prepare($sql);
   $query->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
@@ -92,8 +91,8 @@ if(isset($_POST['submit']))
     header('location:'.$site_url.'add_publisher');
   }
   else
-  {
-    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:cname, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:update, status=:status, mem_id=:mem_id";
+  {*/
+    $sql1 = "insert into `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, pic=:pic, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, add_date=:date, last_update=:update, status=:status, mem_id=:mem_id";
     $query1 = $conn->prepare($sql1);
     $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
     $query1->bindParam(':web', $dt_web, PDO::PARAM_STR);
@@ -135,7 +134,7 @@ if(isset($_POST['submit']))
     $query1->bindParam(':status', $status, PDO::PARAM_STR);
     $query1->bindParam(':mem_id', $_SESSION['id'], PDO::PARAM_STR);
 
-    $query1->bindParam(':pic', $pic, PDO::PARAM_STR);
+    $query1->bindParam(':pic', $dt_pic, PDO::PARAM_STR);
     $run=$query1->execute();
     if($run)
     {
@@ -216,6 +215,6 @@ if(isset($_POST['submit']))
       $_SESSION['msg']="Registration is not sucessful";
       header('location:'.$site_url.'add_publisher');
     }
-  }
+ // }
 }
 ?>
