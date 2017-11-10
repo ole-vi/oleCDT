@@ -3,8 +3,8 @@ class Database
 {   
   private $host = "localhost";
   private $db_name = "dppms_fieldguide";
-  private $username = "root";
-  private $password = "lams";
+  private $username = "dppms";
+  private $password = "dfHGf$3987Jgf";
   public $conn;
      
   public function dbConnection()
