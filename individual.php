@@ -367,7 +367,7 @@ $(document).ready(function()
 
                 <!-- Interest -->
                 <div class="form-group">
-                  <label class="control-label col-sm-3">Interest</label>
+                  <label class="control-label col-sm-3">Interests</label>
                   <div class="col-sm-9">
                     <div class="row">
                       <?php foreach($pub_filter_lbl as $filter_type => $filter_lbl) {
@@ -384,7 +384,7 @@ $(document).ready(function()
                 </div>
                 <!-- Purpose -->
                 <div class="form-group">
-                  <label class="control-label col-sm-3">Purpose</label>
+                  <label class="control-label col-sm-3">Purposes</label>
                   <div class="col-sm-9">
                     <div class="row">
                       <?php foreach($member_purpose as $purpose) {

@@ -374,7 +374,7 @@ $(document).ready(function()
                 </div>
                 <!-- Date -->
                 <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label">Publication DateI</label>
+                  <label for="firstName"  class="col-sm-3 control-label">Publication Date</label>
                   <div class="col-sm-2">
                     <input id="mob" maxlength="4" placeholder="YYYY" class="form-control" value="<?php echo $row['pub_date'];?>" required name="pub_date" type="text">
                     <span id="errmsg"></span>
@@ -428,7 +428,7 @@ $(document).ready(function()
                 </div>
                 <!-- Interest -->
                 <div class="form-group">
-                  <label class="control-label col-sm-3">Interest</label>
+                  <label class="control-label col-sm-3">Interests</label>
                   <div class="col-sm-9">
                     <div class="row">
                       <?php

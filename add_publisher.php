@@ -329,7 +329,7 @@ function onsubmitform()
                     </div>
                   </div>
                 </div>
-                <div class="pubdetail-section" style="display:none;">
+                <div id="pubdetail-section" style="display:none;">
                   <!-- Grade Level -->
                   <div class="form-group">
                     <label class="control-label col-sm-3">Grade Levels</label>
@@ -586,7 +586,7 @@ function onsubmitform()
                   </div>
                 </div>
                 -->
-                <a href="#" id="pubdetail">Publisher Details</a>
+                <a href="javascript:;" id="pubdetail">Publisher Details</a>
                 <!-- Buttons -->
                 <div class="form-group">
                   <div class="col-sm-2  marg-5 ">
@@ -627,8 +627,10 @@ $('[name="edu_usage"]').textareaCounter({limit: 100, ref: "edu_usage"});
 $('[name="content_usage"]').textareaCounter({limit: 100, ref: "content_usage"});
 $('[name="content_other"]').textareaCounter({limit: 100, ref: "content_other"});
 $('[name="content_quality"]').textareaCounter({limit: 100, ref: "content_quality"});
-$('#pubdetail').on('click', function() {
-  $('#pubdetail-section').toggle();
+$(function(){
+  $('#pubdetail').on('click', function() {
+    $('#pubdetail-section').toggle();
+  });
 });
 </script>
 <!-- contact end -->
