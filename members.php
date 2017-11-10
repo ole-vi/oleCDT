@@ -10,12 +10,17 @@ $final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
-  $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
 }
-$checkboxes['purpose'] = $filter_params['purpose'] = isset($_POST['purpose']) ? $_POST['purpose'] : array();
+$checkboxes['purpose'] = $filter_params['purpose'] = array();
 $_SESSION['list'] = $checkboxes;
 if(isset($_POST['submit']))
 {
+  foreach($pub_filter_group as $filter_type => $group_no) {
+    $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  }
+  $checkboxes['purpose'] = $filter_params['purpose'] = isset($_POST['purpose']) ? $_POST['purpose'] : array();
+
   $sql1 = "SELECT * from `tbl_individual_member` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
@@ -178,6 +183,7 @@ input.big {
                 if(in_array($pur, $filter_params['purpose'])) { echo 'checked="checked"'; }
                 echo ' >'.$pur.'</label>';
               } ?>
+              <a href="members"><label class="button button2" type="button" style="background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;">All</label></a>
             </div>
           </div>
 
@@ -275,7 +281,7 @@ input.big {
 
         <?php } }?>
         <?php if(isset($_POST['submit'])) {?>
-          <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+          <a href="<?php echo $site_url;?>members" class="lastupdate1">Return to Members</a>
         <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>

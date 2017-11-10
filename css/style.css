@@ -2473,6 +2473,11 @@ footer .color-overlay {
     position: absolute;
     width: 100px;*/
 }
+.sdfr label {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 0;
+}
 .sdfr .button {
   width: auto;
 }

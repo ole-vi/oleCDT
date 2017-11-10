@@ -24,12 +24,12 @@ if(isset($_POST['submit']))
   $dt_m_info = isset($_REQUEST['m_info']) ? $_REQUEST['m_info'] : '';
   $dt_c_name = isset($_REQUEST['c_name']) ? $_REQUEST['c_name'] : '';
   $dt_c_email = isset($_REQUEST['c_email']) ? $_REQUEST['c_email'] : '';
-  $dt_c_phone = isset($_REQUEST['c_phone']) ? $_REQUEST['c_phone'] : '';
+  $dt_c_phone = !empty($_REQUEST['c_phone']) ? $_REQUEST['c_phone'] : 0;
   $dt_c_url = isset($_REQUEST['c_url']) ? $_REQUEST['c_url'] : '';
   $dt_c_address = isset($_REQUEST['c_address']) ? $_REQUEST['c_address'] : '';
   $dt_o_name = isset($_REQUEST['o_name']) ? $_REQUEST['o_name'] : '';
   $dt_o_address = isset($_REQUEST['o_address']) ? $_REQUEST['o_address'] : '';
-  $dt_o_phone = isset($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : '';
+  $dt_o_phone = !empty($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : 0;
   $dt_o_email = isset($_REQUEST['o_email']) ? $_REQUEST['o_email'] : '';
   $dt_o_skype = isset($_REQUEST['o_skype']) ? $_REQUEST['o_skype'] : '';
   $dt_o_other = isset($_REQUEST['o_other']) ? $_REQUEST['o_other'] : '';
@@ -142,7 +142,7 @@ if(isset($_POST['submit']))
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label>Email</label>
-                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email" required value="<?php echo $row['c_email'];?>">
+                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email" value="<?php echo $row['c_email'];?>">
                           <span class="help-block" id="error"></span>
                         </div>
                       </div>

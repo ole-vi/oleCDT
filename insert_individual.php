@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 {
   $dt_fname = $_REQUEST['fname'];
   $dt_email = isset($_REQUEST['email']) ? $_REQUEST['email'] : '';
-  $dt_mob = !empty($_REQUEST['mob']) ? $_REQUEST['mob'] : '';
+  $dt_mob = !empty($_REQUEST['mob']) ? $_REQUEST['mob'] : 0;
   $dt_off_phone = !empty($_REQUEST['off_phone']) ? $_REQUEST['off_phone'] : 0;
   $dt_o_phone = !empty($_REQUEST['o_phone']) ? $_REQUEST['o_phone'] : 0;
   $dt_skype = isset($_REQUEST['skype']) ? $_REQUEST['skype'] : '';

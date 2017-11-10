@@ -10,11 +10,14 @@ $final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
-  $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
 }
 $_SESSION['list'] = $checkboxes;
 if(isset($_POST['submit']))
 {
+  foreach($pub_filter_group as $filter_type => $group_no) {
+   $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  }
   $sql1 = "SELECT * from `tbl_resources` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
@@ -132,7 +135,8 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button>
+              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Researcher (<?php echo count($found); ?>)</button>
+              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All</button>
             </div>
           </div>
 
@@ -230,7 +234,7 @@ input.big {
 
         <?php } }?>
         <?php if(isset($_POST['submit'])) {?>
-          <a href="<?php echo $site_url;?>searching" class="lastupdate1">Return to Directory</a>
+          <a href="<?php echo $site_url;?>resources" class="lastupdate1">Return to Resources</a>
         <?php } ?>
       </div>
       <div id="result1" class="maty-op"></div>

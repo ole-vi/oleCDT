@@ -10,11 +10,15 @@ $final = isset($_SESSION['final']) ? $_SESSION['final'] : array();*/
 $filter_params = array();
 $found = array();
 foreach($pub_filter_group as $filter_type => $group_no) {
-  $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+ $checkboxes[$filter_type] = $filter_params[$filter_type] = array();
 }
 $_SESSION['list'] = $checkboxes;
+//print_r($_POST); exit;
 if(isset($_POST['submit']))
 {
+  foreach($pub_filter_group as $filter_type => $group_no) {
+   $checkboxes[$filter_type] = $filter_params[$filter_type] = isset($_POST[$filter_type]) ? $_POST[$filter_type] : array();
+  }
   $sql1 = "SELECT * from `tbl_publishers` ";
   $query1 = $conn->prepare($sql1);
   $query1->execute();
@@ -172,7 +176,8 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button>
+              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher (<?php echo count($found); ?>)</button>
+              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All</button>
             </div>
           </div>
 
@@ -192,7 +197,7 @@ input.big {
                       <div class="box-po">
                         <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type];?>">
                           <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
-                            <input style="margin:0px; "  type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
+                            <input style="margin:0px; " type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
                               <?php if(in_array($pub_filter[$filter_type][$k], $filter_params[$filter_type])) { ?> checked="checked"
                               style='background-color:#333; color:#FFF;' <?php } ?> >
                           </label>

@@ -225,23 +225,23 @@ $(document).ready(function()
                   </div>
 
                 <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label">Mobile phone*</label>
+                  <label for="firstName"  class="col-sm-3 control-label">Mobile phone</label>
                   <div class="col-sm-9">
-                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" required name="mob" type="text">
+                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" name="mob" type="text">
                       <span id="errmsg"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Office phone</label>
                   <div class="col-sm-9">
-                    <input id="mob2"  placeholder="Office phone" maxlength="10" class="form-control" autofocus=""  name="off_phone" type="text">
+                    <input id="mob2"  placeholder="Office phone" maxlength="10" class="form-control" autofocus="" name="off_phone" type="text">
                     <span id="errmsg2"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Other phone</label>
                   <div class="col-sm-9">
-                    <input id="mob3"  placeholder="Other phone" maxlength="10" class="form-control" autofocus=""  name="o_phone" type="text">
+                    <input id="mob3"  placeholder="Other phone" maxlength="10" class="form-control" autofocus="" name="o_phone" type="text">
                     <span id="errmsg3"></span>
                   </div>
                 </div>
@@ -349,12 +349,12 @@ $(document).ready(function()
                 </div>
 
                 <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label"> Birth Date*</label>
+                  <label for="firstName"  class="col-sm-3 control-label"> Birth Date</label>
                   <div class="col-sm-4">
-                    <input id="dateofplay" name="dob" required placeholder=" Birth Date" class="form-control" autofocus="" type="text">
+                    <input id="dateofplay" name="dob" placeholder=" Birth Date" class="form-control" autofocus="" type="text">
                   </div>
                   <div class="col-sm-5">
-                    <input id="Citizenship" required name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text">
+                    <input id="Citizenship" name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text">
                   </div>
                 </div>
 

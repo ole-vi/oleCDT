@@ -377,7 +377,7 @@ background-color:#FFD9D9;
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">Email*</label>
+                    <label for="firstName" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
                       <?php echo $row['email']; ?>
                       <span id="status1"></span>
@@ -387,15 +387,15 @@ background-color:#FFD9D9;
                   <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label"></label>
                     <div class="col-sm-9">
-                      <label for="firstName" class=" control-label">User Name*</label>
+                      <label for="firstName" class=" control-label">User Name</label>
                       <?php echo $row['l_name']; ?>
                     </div>
                   </div>
 
                 <div class="form-group">
-                  <label for="firstName"  class="col-sm-3 control-label">Mobile phone*</label>
+                  <label for="firstName"  class="col-sm-3 control-label">Mobile phone</label>
                   <div class="col-sm-9">
-                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" required name="mob" type="text" value="<?php echo $row['mob'];?>">
+                    <input id="mob" maxlength="10" placeholder="Mobile phone" class="form-control" autofocus="" name="mob" type="text" value="<?php echo $row['mob'];?>">
                       <span id="errmsg"></span>
                   </div>
                 </div>
@@ -482,10 +482,10 @@ background-color:#FFD9D9;
                 <div class="form-group">
                   <label for="firstName"  class="col-sm-3 control-label"> Birth Date*</label>
                   <div class="col-sm-4">
-                    <input id="dateofplay" name="dob" required placeholder=" Birth Date" class="form-control" autofocus="" type="text" value="<?php echo $row['dob'];?>">
+                    <input id="dateofplay" name="dob" placeholder=" Birth Date" class="form-control" autofocus="" type="text" value="<?php echo $row['dob'];?>">
                   </div>
                   <div class="col-sm-5">
-                    <input id="Citizenship" required name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text" value="<?php echo $row['citizenship'];?>">
+                    <input id="Citizenship" name="citizenship" placeholder="Citizenship" class="form-control" autofocus="" type="text" value="<?php echo $row['citizenship'];?>">
                   </div>
                 </div>
 
