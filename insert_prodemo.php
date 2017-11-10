@@ -53,30 +53,31 @@ if(isset($_POST['submit']))
   $imgFile = $_FILES['pic']['name'];
   $tmp_dir = $_FILES['pic']['tmp_name'];
   $imgSize = $_FILES['pic']['size'];
-
-  $upload_dir = 'publisher/'; // upload directory
+  if($imgFile!='') 
+  {
+    $upload_dir = 'publisher/'; // upload directory
   
-  $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+    $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
 
-  // valid image extensions
-  $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+    // valid image extensions
+    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
 
-  // rename uploading image
-  $dt_pic = rand(1000,1000000).".".$imgExt;
+    // rename uploading image
+    $dt_pic = rand(1000,1000000).".".$imgExt;
 
-  // allow valid image file formats
-  if(in_array($imgExt, $valid_extensions)){
-    // Check file size '5MB'
-    if($imgSize < 5000000) {
-      move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
-    }
-    else
-    {
-      $_SESSION['msg']="Sorry, your file is large than 5MB";
-      header('location:'.$site_url.'add_publisher');
+    // allow valid image file formats
+    if(in_array($imgExt, $valid_extensions)){
+      // Check file size '5MB'
+      if($imgSize < 5000000) {
+        move_uploaded_file($tmp_dir, $upload_dir.$dt_pic);
+      }
+      else
+      {
+        $_SESSION['msg']="Sorry, your file is large than 5MB";
+        header('location:'.$site_url.'add_publisher');
+      }
     }
   }
-
   //$path="uploaded_doc/" .$pic;
 
 

@@ -193,14 +193,6 @@ CREATE TABLE `tbl_admin` (
   `admin_lastlogin` datetime NOT NULL
 ) ;
 
---
--- Dumping data for table `tbl_admin`
---
-
-INSERT INTO `tbl_admin` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_status`, `admin_joindate`, `admin_lastlogin`) VALUES
-(1, 'admin', 'admin@gmail.com', '$2y$10$U6Qy7FOANPkHhAvRT2FY5eHOXdIyl7eux3xzERX/qMYyD9gWPvr3K', 'y', '2016-10-06 05:48:47', '0000-00-00 00:00:00'),
-(3, 'Richard', 'richard@rowe.com', '$2y$10$CJjPBLwxJj8iEjLuwqJS/ekc6a266fBd2CyZXB8kjZestsDIioX5S', 'y', '2017-01-24 09:43:24', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --

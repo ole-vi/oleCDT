@@ -17,7 +17,7 @@ if(isset($_POST['username']))
       //return true; 
       //echo "<font color='#cc0000'>Invalid Email Address.</font>";
   
-      $sql_check = "SELECT * from pro_democracy where o_email =:a";
+      $sql_check = "SELECT * from tbl_publishers where o_email =:a";
       $query = $conn->prepare($sql_check);
       $query->bindParam(':a' , $username, PDO::PARAM_STR);
       $query->execute();

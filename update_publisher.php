@@ -11,7 +11,7 @@ $query->bindParam(':id',$_SESSION['id'],PDO::PARAM_STR);
 $query->execute();
 $row = $query->fetch(PDO::FETCH_ASSOC);
 $id = $row['publisher'];
-//$id=base64_decode($_REQUEST['id']);
+$id=base64_decode($_REQUEST['id']);
 
 if(isset($_POST['update']))
 {
@@ -83,7 +83,7 @@ if(isset($_POST['update']))
     // if no error occured, continue ....
     if(!isset($msg))
     {
-      $stmt = "update `pro_democracy` SET  logo=:pic where `pro_id`=:id";
+      $stmt = "update `tbl_publishers` SET  pic=:pic where `pub_id`=:id";
       $query = $conn->prepare($stmt);
       $query->bindParam(':pic',$pic1, PDO::PARAM_STR);
       $query->bindParam(':id',$id , PDO::PARAM_STR);
@@ -91,44 +91,47 @@ if(isset($_POST['update']))
     }
   }
 
-  $sql1 = "update `pro_democracy` set name=:name, weblink=:web, establish_year=:year, tax_exempt=:tax, legal_status=:lstatus, location=:location, curr_priorities=:priorities, curr_action=:action, achievements=:achievements, associated_org=:org, more_info=:m_info, seeking=:seeking, work_type=:w_type, w_other=:w_other, mission=:mission, strategies=:strategie,  state=:state, c_name=:c_name, address=:address, phone=:phone, email=:email, skype=:skype, other=:c_other, o_name=:o_name, o_address=:o_address, o_email=:o_email, o_phone=:o_phone, o_skype=:o_skype, o_other=:o_other, l_other=:l_other, last_update=:date where pro_id=:id";
+  $sql1 = "update `tbl_publishers` set name=:name, web=:web, mission=:mission, m_info=:m_info, c_name=:c_name, c_email=:c_email, c_phone=:c_phone, c_url=:c_url, c_address=:c_address, o_name=:o_name, o_address=:o_address, o_phone=:o_phone, o_email=:o_email, o_skype=:o_skype, o_other=:o_other, grade=:grade, subject=:subject, format=:format, distribution=:distribution, license=:license, language=:language, msa=:msa, wcag=:wcag, pub_available=:pub_available, curriculum=:curriculum, edu_usage=:edu_usage, edu_content=:edu_content, assessment=:assessment, content_usage=:content_usage, content_other=:content_other, content_quality=:content_quality, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, last_update=:date where `pub_id`=:id";
   $query1 = $conn->prepare($sql1);
   $query1->bindParam(':id', $id, PDO::PARAM_STR);
-  $query1->bindParam(':name', $name, PDO::PARAM_STR);
-  $query1->bindParam(':web', $web, PDO::PARAM_STR);
-  $query1->bindParam(':year', $year, PDO::PARAM_STR);
-  $query1->bindParam(':tax', $tax, PDO::PARAM_STR);
-  $query1->bindParam(':lstatus', $lstatus, PDO::PARAM_STR);
-  $query1->bindParam(':location', $location, PDO::PARAM_STR);
-  $query1->bindParam(':w_other', $w_other, PDO::PARAM_STR);
-  $query1->bindParam(':mission', $mission, PDO::PARAM_STR);
-  $query1->bindParam(':priorities', $priorities, PDO::PARAM_STR);
-  $query1->bindParam(':action', $action, PDO::PARAM_STR);
-  $query1->bindParam(':achievements', $achievements, PDO::PARAM_STR);
-  $query1->bindParam(':org', $org, PDO::PARAM_STR);
-  $query1->bindParam(':m_info', $m_info, PDO::PARAM_STR);
-  $query1->bindParam(':seeking', $seeking, PDO::PARAM_STR);
-  $query1->bindParam(':w_type', $w_type, PDO::PARAM_STR);
-  $query1->bindParam(':strategie', $strategie, PDO::PARAM_STR);
-  $query1->bindParam(':state', $state2, PDO::PARAM_STR);
-  //$query1->bindParam(':pic1', $pic1, PDO::PARAM_STR);
-  //$query1->bindParam(':budget', $budget, PDO::PARAM_STR);
-  $query1->bindParam(':address', $address, PDO::PARAM_STR);
-  $query1->bindParam(':phone', $phone, PDO::PARAM_STR);
-  $query1->bindParam(':email', $email, PDO::PARAM_STR);
-  $query1->bindParam(':skype', $skype, PDO::PARAM_STR);
-  $query1->bindParam(':c_other', $c_other, PDO::PARAM_STR);
-  $query1->bindParam(':o_address', $o_address, PDO::PARAM_STR);
-  $query1->bindParam(':o_phone', $o_phone, PDO::PARAM_STR);
-  $query1->bindParam(':o_email', $o_email, PDO::PARAM_STR);
-  $query1->bindParam(':o_skype', $o_skype, PDO::PARAM_STR);
-  $query1->bindParam(':o_other', $o_other, PDO::PARAM_STR);
-  $query1->bindParam(':c_name', $c_name, PDO::PARAM_STR);
-  $query1->bindParam(':o_name', $o_name, PDO::PARAM_STR);
-  $query1->bindParam(':l_other', $l_other, PDO::PARAM_STR);
+  $query1->bindParam(':name', $dt_name, PDO::PARAM_STR);
+  $query1->bindParam(':web', $dt_web, PDO::PARAM_STR);
+  $query1->bindParam(':mission', $dt_mission, PDO::PARAM_STR);
+  $query1->bindParam(':m_info', $dt_m_info, PDO::PARAM_STR);
+  $query1->bindParam(':c_name', $dt_c_name, PDO::PARAM_STR);
+  $query1->bindParam(':c_email', $dt_c_email, PDO::PARAM_STR);
+  $query1->bindParam(':c_phone', $dt_c_phone, PDO::PARAM_STR);
+  $query1->bindParam(':c_url', $dt_c_url, PDO::PARAM_STR);
+  $query1->bindParam(':c_address', $dt_c_address, PDO::PARAM_STR);
+  $query1->bindParam(':o_name', $dt_o_name, PDO::PARAM_STR);
+  $query1->bindParam(':o_address', $dt_o_address, PDO::PARAM_STR);
+  $query1->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+  $query1->bindParam(':o_email', $dt_o_email, PDO::PARAM_STR);
+  $query1->bindParam(':o_skype', $dt_o_skype, PDO::PARAM_STR);
+  $query1->bindParam(':o_other', $dt_o_other, PDO::PARAM_STR);
+  $query1->bindParam(':grade', $dt_grade, PDO::PARAM_STR);
+  $query1->bindParam(':subject', $dt_subject, PDO::PARAM_STR);
+  $query1->bindParam(':format', $dt_format, PDO::PARAM_STR);
+  $query1->bindParam(':distribution', $dt_distribution, PDO::PARAM_STR);
+  $query1->bindParam(':license', $dt_license, PDO::PARAM_STR);
+  $query1->bindParam(':language', $dt_language, PDO::PARAM_STR);
+  $query1->bindParam(':msa', $dt_msa, PDO::PARAM_STR);
+  $query1->bindParam(':wcag', $dt_wcag, PDO::PARAM_STR);
+  $query1->bindParam(':pub_available', $dt_pub_available, PDO::PARAM_STR);
+  $query1->bindParam(':curriculum', $dt_curriculum, PDO::PARAM_STR);
+  $query1->bindParam(':edu_usage', $dt_edu_usage, PDO::PARAM_STR);
+  $query1->bindParam(':edu_content', $dt_edu_content, PDO::PARAM_STR);
+  $query1->bindParam(':assessment', $dt_assessment, PDO::PARAM_STR);
+  $query1->bindParam(':content_usage', $dt_content_usage, PDO::PARAM_STR);
+  $query1->bindParam(':content_other', $dt_content_other, PDO::PARAM_STR);
+  $query1->bindParam(':content_quality', $dt_content_quality, PDO::PARAM_STR);
+  $query1->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+  $query1->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+  $query1->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+  $query1->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
   $query1->bindParam(':date', $date, PDO::PARAM_STR);
+  $query1->bindParam(':status', $status, PDO::PARAM_STR);
 
-  //$query1->bindParam(':pic', $pic, PDO::PARAM_STR);
   $run=$query1->execute();
   if($run)
   {

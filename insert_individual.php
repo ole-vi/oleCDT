@@ -55,8 +55,8 @@ if(isset($_POST['submit']))
     }
     else
     {
-      $_SESSION['org']="Sorry, your file is large than 5MB";
-      header('location:'.$site_url.'profile');
+      $_SESSION['msg']="Sorry, your file is large than 5MB";
+      header('location:'.$site_url.'individual');
     }
   }
 
@@ -67,12 +67,12 @@ if(isset($_POST['submit']))
   $count = $query->rowCount();
   if($count>0)
   {
-    $_SESSION['ind'] = "Email Already Exist";
+    $_SESSION['msg'] = "Email Already Exist";
     header('location:'.$site_url.'individual');
   }
   elseif($pass1!=$pass2)
   {
-    $_SESSION['ind'] = "Please Enter Same Password";
+    $_SESSION['msg'] = "Please Enter Same Password";
     header('location:'.$site_url.'individual');
   }
   else
@@ -168,18 +168,18 @@ if(isset($_POST['submit']))
       {
         echo '<script>alert("Thank You for your registration! verification link has been send to your corresponding email check it.")</script>';
         echo '<script>window.location.href="'.$site_url.'"</script>';
-        //$_SESSION['ind']="Thank You for your registration! verification link has been send to your corresponding email check it.";
+        //$_SESSION['msg']="Thank You for your registration! verification link has been send to your corresponding email check it.";
         //header('location:'.$site_url);
       }
       else
       {
-        $_SESSION['ind1']="Login details has not been send";
+        $_SESSION['msg']="Login details has not been send";
         header('location:'.$site_url.'individual');
       }
     }
     else
     {
-      $_SESSION['ind']="Record is not Inserted";
+      $_SESSION['msg']="Record is not Inserted";
       header('location:'.$site_url.'individual');
     }
   }

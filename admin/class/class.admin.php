@@ -491,6 +491,8 @@ class ADMIN
         }
       }
     // if no error occured, continue ....
+    } else {
+      $dt_pic = '';
     }
     
     try

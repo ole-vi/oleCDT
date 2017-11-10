@@ -210,7 +210,7 @@ function onsubmitform()
                 <div class="form-group">
                   <label for="firstName" class="col-sm-3 control-label">Publisher Name</label>
                   <div class="col-sm-9">
-                    <input  name="name" id="firstName" placeholder="Publisher Name" class="form-control" autofocus="" type="text">
+                    <input  name="name" id="firstName" placeholder="Publisher Name" class="form-control" autofocus="" type="text" required>
                   </div>
                 </div>
                 <!-- Website -->
@@ -271,17 +271,17 @@ function onsubmitform()
                   <label class="control-label col-sm-3 pada">Organization Editor</label>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input required name="o_name" id="Phone" placeholder="Name" class="form-control" autofocus="" type="text">
+                      <input name="o_name" id="Phone" placeholder="Name" class="form-control" autofocus="" type="text">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input required name="o_address" id="Phone" placeholder="Address" class="form-control" autofocus="" type="text">
+                      <input name="o_address" id="Phone" placeholder="Address" class="form-control" autofocus="" type="text">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="inpu">
-                      <input required name="o_phone" id="mob2" placeholder="Phone" class="form-control" autofocus="" type="number">
+                      <input name="o_phone" id="mob2" placeholder="Phone" class="form-control" autofocus="" type="number">
                       <span id="status3"></span>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ function onsubmitform()
                   </div>
                   <div class="col-sm-3">
                     <div class="mar">
-                      <input required name="o_email" id="mail1" placeholder=" Email" class="form-control" autofocus="" type="email">
+                      <input name="o_email" id="mail1" placeholder=" Email" class="form-control" autofocus="" type="email">
                       <span id="status1"></span>
                     </div>
                   </div>
@@ -308,7 +308,7 @@ function onsubmitform()
                 <div class="form-group">
                   <label for="Logo" class="col-sm-3 control-label">Logo</label>
                   <div class="col-sm-9">
-                    <input  id="file" name="pic" class="custom-file-input" type="file">
+                    <input id="file" name="pic" class="custom-file-input" type="file">
                     <span class="custom-file-control"></span>
                   </div>
                 </div>

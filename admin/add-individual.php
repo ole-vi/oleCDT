@@ -8,7 +8,6 @@ include('include/sidebar.php');
 
 if(isset($_POST['submit']))
 {
-	
 $_SESSION['indv'] = "Please fill All fields";
 
 $name = $_POST['fname'];

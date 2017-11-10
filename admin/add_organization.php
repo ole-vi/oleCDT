@@ -157,7 +157,7 @@ if(isset($_POST['submit']))
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label>Email</label>
-                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email" required>
+                          <input type="text" class="form-control" placeholder="E-mail Id" name="c_email">
                           <span class="help-block" id="error"></span>
                         </div>
                       </div>
@@ -187,7 +187,7 @@ if(isset($_POST['submit']))
                       <div class="col-sm-4">
                         <div class="form-group">
                           <label>Logo</label>
-                          <input type="file" class="form-control"  name="pic" required>
+                          <input type="file" class="form-control"  name="pic">
                         </div>
                       </div>
                     </div>

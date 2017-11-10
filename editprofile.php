@@ -357,16 +357,6 @@ background-color:#FFD9D9;
   display:none;
 }
 </style>
-<?php
-if(isset($_SESSION['ind']))
-{
-  $msg=$_SESSION['ind'];
-  echo '<script language="javascript">';
-  echo 'alert("'.$msg.'")';
-  echo '</script>';
-  unset($_SESSION['ind']);
-}
-?>
 <section id="contact" class="" style="padding: 139px 0 1500px;">
   <div class="container">
     <div class="row">

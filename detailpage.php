@@ -51,12 +51,12 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           echo (!empty($row['c_email'])) ? ' • '.$row['c_email'] : '';
           echo (!empty($row['web'])) ? ' • '.'<a href="'.$row['web'].'">'.$row['web'].'</a>' : '';
           ?></p>
-          <p><b style="color:#000;">Mission:</b><?php echo $row['mission'];?></p>
-          <p><b style="color:#000;">About:</b><?php echo $row['m_info'];?></p>
+          <p><b style="color:#000;">Mission: </b><?php echo $row['mission'];?></p>
+          <p><b style="color:#000;">About: </b><?php echo $row['m_info'];?></p>
         </div>
 
         <div class="col-sm-3">
-        <?php if($row['pic']!=''){ ?>
+        <?php if($row['pic'] != ''){ ?>
           <img src="publisher/<?php echo $row['pic'];?>" height="150px" width="150px">
         <?php } else { ?>
           <img src="img/ole_logo.png" height="150px" width="150px">
@@ -67,7 +67,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 
       <div class="col-sm-12">
         <div class="new-1-pera">
-          <h1>Interests</h1>
+          <h1>Context Areas</h1>
           <p><?php foreach($pub_filter_group as $filter_type => $group) {
             if(!empty($row[$filter_type])) {
               $filters = explode('::', $row[$filter_type]);
@@ -77,22 +77,6 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
             }
           }
           ?></p>
-        </div>
-      </div>
-
-      <div class="w-line-2"></div>
-
-      <div class="col-sm-12">
-        <div class="new-1-pera">
-          <h1>Your Entry Points</h1>
-          <p class="font_9"><span style="color:#666666;">Attend the Brennan Center’s&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">events</span></a></span><span style="color:#666666;">&nbsp;and explore its detailed&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">policy proposals</span></a></span><span style="color:#666666;">,&nbsp;</span><span style="font-weight:bold;"><a href="#" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">expert analysis</span></a></span><span style="color:#666666;">, and easy-to-read&nbsp;</span><span style="font-weight:bold;"><a href="http://www.brennancenter.org/press" target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">articles</span></a></span><span style="color:#666666;">&nbsp;online. Want to get more involved? Apply for one of the Brennan Center’s many&nbsp;</span><span style="font-weight:bold;"><a href="#" 
-          target="_blank" data-content="#" data-type="external">
-          <span style="color:#0957a2;">fellowship opportunities</span></a></span><span style="color:#666666;">
-          &nbsp;or, if you are a legal professional,&nbsp;</span><span style="font-weight:bold;"><a href="#" 
-          target="_blank" data-content="#" data-type="external"><span style="color:#0957a2;">volunteer</span>
-          </a></span><span style="color:#666666;">&nbsp;with the Center on litigation, policy research, 
-          and public advocacy. While based in New York City, the Brennan Center works with people across
-           the country and in many different fields.</span></p>
         </div>
       </div>
 
