@@ -33,34 +33,15 @@ input.big {
   height: 2.5em;
   width: 2.5em;
 }
-.slant-filter {
-  width: 37px;
-  float: left;
-  height: 300px;
-  margin-top: 65px;
-  position: relative;
-}
-.slant-filter h3 {
-  background: hsl(21, 100%, 64%) !important;
-  color: black;
-  transform: rotate(-75deg);
-  width: 300px;
-  position: absolute;
-  left: -100px;
-  height: 40px;
-  bottom: 120px;
-  padding-left: 35px;
-  border: 2px solid black;
-}
 </style>
 
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12" style="z-index: 50;">
     <div class="sdfr pull-right">
-      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Collections</button>
-      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
-      <a href="members"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+      <a href="resources"><button class="button btn-white" type="button">Resources</button></a>
+      <button class="button btn-active">Collections</button>
+      <a href="searching"><button class="button btn-white" type="button">Publishers</button></a>
+      <a href="members"><button class="button btn-white" type="button">Members</button></a>
     </div>
   </div>
   <div class="col-sm-12 ">
@@ -79,7 +60,7 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button>
+              <button class="button button2 btn-transparent">Collections</button>
             </div>
           </div>
 
@@ -99,7 +80,7 @@ input.big {
                       <div class="box-po">
                         <div class="btn-group <?php echo 'koi-po-'.$pub_filter_group[$filter_type];?>">
                           <label class="btn btn-success  mao-po" style="padding: 11px 12px !important; border:none;">
-                            <input style="margin:0px; "  type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
+                            <input style="margin:0px; " type="checkbox" name="<?php echo $filter_type.'[]'; ?>" value="<?php echo $pub_filter[$filter_type][$k]; ?>"
                               <?php if(in_array($pub_filter[$filter_type][$k], $filter_params[$filter_type])) { ?> checked="checked"
                               style='background-color:#333; color:#FFF;' <?php } ?> >
                           </label>
@@ -109,7 +90,7 @@ input.big {
                   } ?>
 
                   <div class=" lo-po-12 " >
-                    <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>
                 </form>
