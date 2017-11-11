@@ -145,8 +145,82 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
           <?php } ?>
           </div>
           <div class="col-sm-6 butten le">
-            <button class="default btn-lg bun-1 mat-12">Detail</button>
+            <a href="javascript:;" id="view-detail"><button class="default btn-lg bun-1 mat-12">Detail</button></a>
           </div>
+        </div>
+      </div>
+
+      <div class="w-line-2"></div>
+      <div class="col-sm-12" id="detail-section" style="display:none;">
+        <div class="new-1-pera">
+          <h1>Detail</h1>
+          <div class="col-sm-12"><b style="color:#000;">Grade Levels: </b></div>
+          <?php $pub_grades = explode('::', $row['grade']);
+            foreach($pub_grades as $pub_grade) {
+              echo '<div class="col-sm-3">• '.$pub_grade.'</div>';
+            } ?>
+          <div class="col-sm-12"><b style="color:#000;">Subject Areas: </b></div>
+          <?php $pub_subjects = explode('::', $row['subject']);
+          foreach($pub_subjects as $pub_subject) {
+            echo '<div class="col-sm-3">• '.$pub_subject.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Available Digital Formats: </b></div>
+          <?php $pub_formats = explode('::', $row['format']);
+          foreach($pub_formats as $pub_format) {
+            echo '<div class="col-sm-3">• '.$pub_format.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">How is the content distributed?</b></div>
+          <?php $pub_distributions = explode('::', $row['distribution']);
+          foreach($pub_distributions as $pub_distribution) {
+            echo '<div class="col-sm-3">• '.$pub_distribution.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">How is the content currently licensed?</b><p class="col-sm-12">Unsure of licensing? See <a href="https://creativecommons.org/licenses/" target="_blank">creativecommons.org/licenses</a> for various Creative Commons licensing definitions.</p></div>
+          <?php $pub_licenses = explode('::', $row['license']);
+          foreach($pub_licenses as $pub_license) {
+            echo '<div class="col-sm-3">• '.$pub_license.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Language(s)</b></div>
+          <?php $pub_languages = explode('::', $row['language']);
+          foreach($pub_languages as $pub_language) {
+            echo '<div class="col-sm-3">• '.$pub_language.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Currently available in Modern Standard Arabic (MSA) or a particular dialect</b></div>
+          <?php $pub_msas = explode('::', $row['msa']);
+          foreach($pub_msas as $pub_msa) {
+            echo '<div class="col-sm-3">• '.$pub_msa.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">What is the accessibility level of the content according to the Web Content Accessibility Guidelines (WCAG)?</b><p class="col-sm-12">Learn more about levels here: <a href="https://www.w3.org/TR/WCAG21/#cc1" target="_blank">https://www.w3.org/TR/WCAG21/#cc1</a></p></div>
+          <?php $pub_wcags = explode('::', $row['wcag']);
+          foreach($pub_wcags as $pub_wcag) {
+            echo '<div class="col-sm-3">• '.$pub_wcag.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Status</b></div>
+          <?php $pub_statuses = explode('::', $row['pub_available']);
+          foreach($pub_statuses as $pub_status) {
+            echo '<div class="col-sm-3">• '.$pub_status.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Usage, Geographies and Standards</b><p class="col-sm-12"><small><em>Optional, but valuable.</em></small></p>
+            <p class="col-sm-12">Has this content been aligned to curricular standards and/or approved by a curricular body?</p></div>
+          <?php echo '<p>'.$row['curriculum'].'</p>'; ?>
+          <div class="col-sm-12"><b style="color:#000;">What is the educational function of the content (how it fits into a particular learning pathway)?</b><p class="col-sm-12"><small>Note: The content doesn't need to have a particular educational focus (e.g., it could be a book, news program, etc. that initially wasn't intended for an educational use).</small></p></div>
+          <?php echo '<p>'.$row['edu_usage'].'</p>'; ?>
+          <div class="col-sm-12"><b style="color:#000;">Standard educational pathway (i.e. progressing through grade levels or a degree program)</b></div>
+          <?php $pub_contents = explode('::', $row['edu_content']);
+          foreach($pub_contents as $pub_content) {
+            echo '<div class="col-sm-3">• '.$pub_content.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Does the content include any type of assessment mechanism?</b></div>
+          <?php $pub_assessments = explode('::', $row['assessment']);
+          foreach($pub_assessments as $pub_assessment) {
+            echo '<div class="col-sm-3">• '.$pub_assessment.'</div>';
+          } ?>
+          <div class="col-sm-12"><b style="color:#000;">Where is the content being used (if known) and at what scale?</b><p class="col-sm-12">Please include geographic contexts, programmatic organizations, number of users (if known), etc.</small></p>
+          <?php echo '<p>'.$row['content_usage'].'</p>'; ?>
+            <p class="col-sm-12">Is there anything else you would like to note about this content?</p>
+            <?php echo '<p>'.$row['content_other'].'</p>'; ?>
+            <p class="col-sm-12">Do you know whether the content has gone through any process for quality control, and if so, by who?</p>
+            <?php echo '<p>'.$row['content_quality'].'</p>'; ?>
+           </div>
         </div>
       </div>
     </div>
@@ -162,7 +236,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 <script>
 $('#delPub').on('click', function() {
   if (confirm("Are you sure? Deleting publisher will delete related resources as well.") == true) {
-    window.location.href="<?php echo $site_url.'delete_publisher?id='.base64_encode($row['id']) ?>";
+    window.location.href="<?php echo $site_url.'delete_publisher?id='.base64_encode($row['pub_id']) ?>";
   }
 })
 $( "#dateofplay" ).datepicker({
@@ -173,6 +247,11 @@ $( "#dateofplay" ).datepicker({
   changeMonth: true,
   changeYear: true,
   yearRange: "-5:+0",
+});
+$(function(){
+  $('#view-detail').click(function() {
+    $('#detail-section').toggle();
+  });
 });
 </script>
 <!-- map end -->
