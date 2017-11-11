@@ -86,38 +86,33 @@ $(document).ready(function()
     <div class="row">
       <div class="col-sm-12 jal mar-left-12 pad-ouar">
         <div class="manu" data-wow-delay=".6s" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: fadeInRight;">
-          <p class=" jal-2"><span><h1>Welcome</h1></span><br>
+          <p class="jal-2"><span><h1 class="home-title-white">Welcome</h1></span><br>
           </p>
         </div>
         <!-- /.intro-block end -->
       </div>
       <div class="text-pera">
-        <h2>Welcome to the Collections Development Toolkit</h2>
-        <p><b>Our Goals.</b> The Collections Development Toolkit is designed to help you find, learn about, 
-        and join organizations that are addressing issues and strategies concerning
-        democracy that are important for you, including those working in locations close to you. It providesdescription of organizations that are committed 
-        to strengthening democracy and makes it easy for you to connect with them.</p>
-        <p>As a Member of the Collections Development Toolkit you can create your personal profile of interests, skills, the types of work and locations that interests you.  You can choose toshare your profile with those organizations that match some or all of the features of your profile. Your personal profile will be shared only with those organizations that you choose to contact through the Guide. 
-        We also make it easy for you, as a Member, to identify and sign up additional organizations 
-        that share our commitment to wor
-        k together in the Democracy Movement.</p>
-
+        <h2 class="home-title-blue">Collections Development Tool</h2>
+        <p>OLE’s Collections Development Tool is designed to enable you to search for and find learning resources that are aligned with your needs. It can also be used for policy makers and publishers to identify resource gaps.</p>
+        <p>As a brief overview, each database of the Tool––Publishers, Resources, Collections and Members–– shares a common set of filters, under the overall content areas of grade levels, subjects, or languages, for example that are used to identify specific Publishers and Resources.</p>
+        <p>The Advisory Board of OLE’S <a href="https://www.ole.org/free-education-library-syrians/">Free Education Library for Syrians</a> (FELS) is responsible for overseeing the functions and uses of the Collections Development Tool. Chaired by Fernando Reimers, Professor of Education at the Harvard Graduate School of Education, FELS is an open library of resources that will enable Syrians continued learning of Syrian educational content, along with resources to pursue career pathways, and specific guides to help Syrian refugees of all ages adjust to life in their host country.</p>
+        <p>To learn more about FELS, contact fels@ole.org</p>
         <div class="men-div">
-          <div id="flip" class="mean-clas"><h1> Read Collections Development Toolkit Policies</h1>
+          <div id="flip" class="mean-clas"><h1 id="home-policy-title">Read Collections Development Tool Policies</h1>
           </div>
-          <div id="panel" class="wor">
-            <h3>As a Member of the Collections Development Toolkit you agree:</h3>
+          <div id="panel" class="wor green-background">
+            <h3>As a Member of the Collections Development Tool you agree:</h3>
             <h3> Our Basic Policies.</h3>
             <p>a) to always be respectful in your contributions to the Guide and not use language that is hateful or disparaging of individuals 
                or organizations, even regarding those you with which you strongly disagree;</p>
             <p>b) to accurately and honestly describe yourself, other individuals and organizations, not misrepresenting 
                facts, or shading the truth in ways that can mislead others, </p>
             <p>c) to cite credible sources that support controversial statements, and</p>
-            <p>d) to notify the Editor of the Collections Development Toolkit immediately,using the Guide’s Feedback form, whenever you experience anything in the Guide that violates these basic policies,.</p>
+            <p>d) to notify the Editor of the Collections Development Tool immediately, using the Guide’s Feedback form, whenever you experience anything in the Guide that violates these basic policies,.</p>
 
-            <h4>Thank you and Welcome to the Collections Development Toolkit.</h4>
+            <h4>Thank you and Welcome to the Collections Development Tool.</h4>
             <h4><input required="" name="confirm" type="checkbox">
-               I have read,endorse the Purpose and accept Basic Policies of the Collections Development Toolkit.</h4>
+               I have read,endorse the Purpose and accept Basic Policies of the Collections Development Tool.</h4>
             <div class="col-sm-12 voli">
               <a href="individual"><button type="submit" class="btn btn-primary btn-block belpo">Accept</button></a>
             </div>
