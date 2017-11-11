@@ -136,7 +136,7 @@
         <div class="col-sm-12 serach">
           <div class="col-sm-5">
           </div>
-          <div class="col-sm-4 KO">
+          <div class="col-sm-3 KO">
             <!-- <form method ="post" action="">
               <div class="glo">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -146,7 +146,7 @@
               <input class="nb" value="Search" type="submit">
             </form>-->
           </div>
-          <div class="col-sm-3 padin">
+          <div class="col-sm-4 padin">
             <?php if(isset($_SESSION['id'])){?>
               <!-- <a href="<?php echo $site_url;?>editprofile?id=<?php echo base64_encode($_SESSION['id']); ?>"> <button type="button" class="default btn-lg bun-1" >edit Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>-->
               <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1 btn-green" >My Account <i class="fa fa-user" aria-hidden="true"></i></button></a>
