@@ -109,9 +109,9 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
       <div class="w-line-2"></div>
       <div class="col-sm-12">
         <div class="new-1-pera">
-          <h1>Interests</h1>
           <p><?php foreach($pub_filter_group as $filter_type => $group) {
             if(!empty($row[$filter_type])) {
+          <h1>Content Areas</h1>
               $filters = explode('::', $row[$filter_type]);
               foreach($filters as $interest) {
                 echo '<div class="col-sm-3">• '.$interest.'</div>';
