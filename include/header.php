@@ -149,14 +149,14 @@
           <div class="col-sm-3 padin">
             <?php if(isset($_SESSION['id'])){?>
               <!-- <a href="<?php echo $site_url;?>editprofile?id=<?php echo base64_encode($_SESSION['id']); ?>"> <button type="button" class="default btn-lg bun-1" >edit Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>-->
-              <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1 btn-green" >My Account<i class="fa fa-user" aria-hidden="true"></i></button></a>
-              <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1 btn-green" >Logout<i class="fa fa-user" aria-hidden="true"></i></button></a>
+              <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1 btn-green" >My Account <i class="fa fa-user" aria-hidden="true"></i></button></a>
+              <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1 btn-green" >Log Out <i class="fa fa-user" aria-hidden="true"></i></button></a>
             <?php } else {?>
               <a href="<?php echo $site_url;?>individual"><button type="button" class="default btn-lg bun-1 btn-green" >Join Us <i class="fa fa-user" aria-hidden="true"></i>
               </button></a>
               <a href="<?php echo $site_url;?>login"> <button type="button" class="default btn-lg bun-1 btn-green" >Login <i class="fa fa-user" aria-hidden="true"></i></button></a>
             <?php } ?>
-            <a href="#"> <button type="button" class="default btn-lg bun-1" >Feedback</button> </a>
+            <a href="#"> <button type="button" class="default btn-lg bun-1 btn-green" >Feedback</button> </a>
           </div>
         </div>
       </div>
@@ -179,12 +179,11 @@
           <!-- Collect the nav toggling -->
           <div class="collapse navbar-collapse navbar-geo" style="float:right;" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav mar">
-              <li class=""><a href="<?php echo $site_url;?>searching">Directory</a></li>
+              <li class=""><a href="<?php echo $site_url;?>searching">Directories</a></li>
               <li class=""><a href="#">News</a></li>
-              <li class=""><a href="#">Testimonials</a></li>
-              <li class=""><a href="#">Learn More </a></li>
-              <li class=""><a href="#">Glossary</a></li>
+              <li class=""><a href="#">Reports</a></li>
               <li class=""><a href="#">About Us</a></li>
+              <li class=""><a href="#">Help</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
