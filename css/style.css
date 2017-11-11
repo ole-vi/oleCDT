@@ -1906,9 +1906,6 @@ footer .color-overlay {
     font-size: 35px;
     font-weight: 900;
 }
-.text-pera h2.home-title-blue {
-    color: hsl(209, 55%, 48%);
-}
 .text-pera h4 {
     color: hsl(209, 55%, 48%) !important;
     font-size: 22px;
@@ -2651,4 +2648,8 @@ footer .color-overlay {
 }
 .hero .container p {
     font-size: 1.6em;
+}
+section#cdt-in-brief #cdt-intro {
+    background-color: hsl(0, 0%, 100%);
+    margin-top: 30px;
 }
