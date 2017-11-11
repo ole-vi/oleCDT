@@ -154,10 +154,10 @@ input.big {
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12" style="z-index: 50;">
     <div class="sdfr pull-right">
-      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-      <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Publishers</button>
-      <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+      <a href="resources"><button class="button btn-white" type="button">Resources</button></a>
+      <a href="collections"><button class="button btn-white" type="button" >Collections</button></a>
+      <button class="button btn-active">Publishers</button>
+      <a href="members"><button class="button btn-white" type="button">Members</button></a>
     </div>
   </div>
   <div class="col-sm-12 ">
@@ -176,8 +176,8 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publisher (<?php echo count($found); ?>)</button>
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All</button>
+              <button class="button button2 btn-transparent" type="button">Publisher (<?php echo count($found); ?>)</button>
+              <button class="button button2 btn-transparent">All</button>
             </div>
           </div>
 
@@ -213,7 +213,7 @@ input.big {
                       </button>
                     </a>
                     <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>
                 </form>
