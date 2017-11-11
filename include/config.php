@@ -1,10 +1,10 @@
 <?php
-$site_url = 'http://localhost/oleCDT/';
+$site_url = 'http://cdt.ole.org/';
 $mail_send_from = 'test@dppms.com';
 $host = 'localhost';
 $dbname = 'dppms_fieldguide';
-$username = 'root';
-$password = 'lams';
+$username = 'dppms';
+$password = 'dfHGf$3987Jgf';
 
 date_default_timezone_set("Asia/Kolkata");
 

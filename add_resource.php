@@ -300,7 +300,252 @@ function onsubmitform()
                     </div>
                   </div>
                 </div>
-
+                <div id="pubdetail-section" style="display:none;">
+                  <!-- Grade Level -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Grade Levels</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['grade'] as $pub_grade) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="grade[]" value="'.$pub_grade.'" type="checkbox"><span class="mat">'.$pub_grade.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="grade[]" placeholder="Other Grade" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Subject -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Subject Areas</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['subject'] as $pub_subject) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="subject[]" value="'.$pub_subject.'" type="checkbox"><span class="mat">'.$pub_subject.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="subject[]" placeholder="Other Subject" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Digital Formats -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Available Digital Formats</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['format'] as $pub_format) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="format[]" value="'.$pub_format.'" type="checkbox"><span class="mat">'.$pub_format.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="format[]" placeholder="Other Formats" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Content Distribution -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">How is the content distributed?</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['distribution'] as $pub_distribution) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="distribution[]" value="'.$pub_distribution.'" type="checkbox"><span class="mat">'.$pub_distribution.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="distribution[]" placeholder="Other Distribution" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- License -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">How is the content currently licensed?</label>
+                    <p class="col-sm-12">Unsure of licensing? See <a href="https://creativecommons.org/licenses/" target="_blank">creativecommons.org/licenses</a> for various Creative Commons licensing definitions.</p>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <?php foreach($pub_options['license'] as $pub_license) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="license[]" value="'.$pub_license.'" type="checkbox"><span class="mat">'.$pub_license.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="license[]" placeholder="Other License" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Language -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Language(s)</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['language'] as $pub_language) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="language[]" value="'.$pub_language.'" type="checkbox"><span class="mat">'.$pub_language.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- MSA -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">Currently available in Modern Standard Arabic (MSA) or a particular dialect</label>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <?php foreach($pub_options['msa'] as $pub_msa) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="msa[]" value="'.$pub_msa.'" type="checkbox"><span class="mat">'.$pub_msa.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="msa[]" placeholder="Other MSA" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- WCAG -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">What is the accessibility level of the content according to the Web Content Accessibility Guidelines (WCAG)?</label>
+                    <p class="col-sm-12">Learn more about levels here: <a href="https://www.w3.org/TR/WCAG21/#cc1" target="_blank">https://www.w3.org/TR/WCAG21/#cc1</a>
+                    </p>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <?php foreach($pub_options['wcag'] as $pub_wcag) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="wcag[]" value="'.$pub_wcag.'" type="checkbox"><span class="mat">'.$pub_wcag.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <p class="col-sm-12">Huh? What are these levels? I'm not sure (if so, put how you think the content may be accessible in "other')
+                        </p>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="wcag[]" placeholder="Other WCAG" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Status -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Status</label>
+                    <div class="col-sm-9">
+                      <div class="row">
+                        <?php foreach($pub_options['pub_available'] as $pub_status) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="pub_available[]" value="'.$pub_status.'" type="checkbox"><span class="mat">'.$pub_status.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Educational Content -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">Usage, Geographies and Standards</label>
+                    <p class="col-sm-12"><small><em>Optional, but valuable.</em></small></p>
+                    <p class="col-sm-12">Has this content been aligned to curricular standards and/or approved by a curricular body?</p>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" name="curriculum" placeholder=""></textarea>
+                    </div>
+                    <p class="col-sm-12">What is the educational function of the content (how it fits into a particular learning pathway)?
+                    <br/><small>Note: The content doesn't need to have a particular educational focus (e.g., it could be a book, news program, etc. that initially wasn't intended for an educational use).</small>
+                    <p>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" name="edu_usage" placeholder=""></textarea>
+                    </div>
+                    <p class="col-sm-12">Standard educational pathway (i.e. progressing through grade levels or a degree program)
+                    </p>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <?php foreach($pub_options['edu_content'] as $pub_content) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="edu_content[]" value="'.$pub_content.'" type="checkbox"><span class="mat">'.$pub_content.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="edu_content[]" placeholder="Other Content" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Assessment Mechanism -->
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">Does the content include any type of assessment mechanism?</label>
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <?php foreach($pub_options['assessment'] as $pub_assessment) {
+                        echo '<div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="assessment[]" value="'.$pub_assessment.'" type="checkbox"><span class="mat">'.$pub_assessment.'</span>
+                          </label>
+                        </div>';
+                        } ?>
+                        <div class="col-sm-4">
+                          <label class="radio-inline">
+                            <input name="assessment[]" placeholder="Other Assessment Mechanism" class="form-control" autofocus="" type="text">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-12">Where is the content being used (if known) and at what scale?</label>
+                    <p class="col-sm-12">Please include geographic contexts, programmatic organizations, number of users (if known), etc.</p>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" name="content_usage" placeholder=""></textarea>
+                    </div>
+                    <p class="col-sm-12">Is there anything else you would like to note about this content?</p>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" name="content_other" placeholder=""></textarea>
+                    </div>
+                    <p class="col-sm-12">Do you know whether the content has gone through any process for quality control, and if so, by who?</p>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" name="content_quality" placeholder=""></textarea>
+                    </div>
+                  </div>
+                </div>
+                <a href="javascript:;" id="pubdetail">Resource Details</a>
                 <!-- Buttons -->
                 <div class="form-group">
                   <div class="col-sm-2  marg-5 ">
@@ -341,6 +586,11 @@ $('[name="edu_usage"]').textareaCounter({limit: 100, ref: "edu_usage"});
 $('[name="content_usage"]').textareaCounter({limit: 100, ref: "content_usage"});
 $('[name="content_other"]').textareaCounter({limit: 100, ref: "content_other"});
 $('[name="content_quality"]').textareaCounter({limit: 100, ref: "content_quality"});
+$(function(){
+  $('#pubdetail').on('click', function() {
+    $('#pubdetail-section').toggle();
+  });
+});
 </script>
 <!-- contact end -->
 <?php include('include/footer.php');?>
