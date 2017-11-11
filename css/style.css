@@ -701,7 +701,7 @@ footer .color-overlay-1 {
     padding: 75px 0;
 }
 .color-overlay-1 {
-    background: hsla(194, 52%, 20%, 0.6) none repeat scroll 0 0;
+    background: hsl(0, 0%, 15.3%);
 }
 .circle {
     background: hsl(0, 0%, 100%) none repeat scroll 0 0;
@@ -1542,6 +1542,12 @@ p {
 }
 footer {
     background: hsla(0, 0%, 0%, 0) url("../img/banner-8.jpg") no-repeat fixed center center / cover ;
+}
+footer a {
+    color: hsl(0, 0%, 100%);
+}
+footer a:hover {
+    color: hsl(0, 0%, 80%);
 }
 footer .color-overlay {
     padding: 75px 0;

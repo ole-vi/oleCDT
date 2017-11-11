@@ -6,7 +6,7 @@
         <div class="col-sm-12 text-center">
           <div class="adres">
             <h1>Open Learning Exchange</h1>
-            <p>One Broadway, Cambridge, MA 02139 • <a href="mailto:solutions@ole.org">solutions@ole.org</a> • ole.org</p>
+            <p>One Broadway, Cambridge, MA 02139 • <a href="mailto:solutions@ole.org">solutions@ole.org</a> • <a href="https://www.ole.org/">ole.org</a></p>
           </div>
         </div>
       </div>
