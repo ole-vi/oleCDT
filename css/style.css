@@ -367,6 +367,17 @@ header .app li {
 .btn-green {
     background-color: hsl(100, 49%, 46%);
 }
+button.btn-transparent {
+    background-color: transparent;
+    color: hsl(222, 100%, 34%);
+}
+button.btn-white {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(222, 100%, 34%);
+}
+button.btn-active {
+    background-color: hsl(210, 65%, 48%);
+}
 .mat {
     margin-top: -45px;
 }
@@ -1935,7 +1946,7 @@ footer .color-overlay {
     max-width: 100%;
 }
 .background-uplod-2 {
-    background-color: hsl(240, 100%, 28%);
+    background-color: #75ac39;
     height: 302px;
     margin-top: 150px;
     max-width: 100%;
@@ -1951,8 +1962,11 @@ footer .color-overlay {
     font-weight: 900;
     margin-left: 24px;
 }
+.ads li a {
+    color: hsl(0, 0%, 100%);
+}
 .ads {
-    background-color: hsl(113, 82%, 51%);
+    background-color: #75ac39;
     float: left;
     width: 80%;
 }
@@ -1984,7 +1998,7 @@ footer .color-overlay {
     margin-left: 21px;
 }
 .na-color {
-    background-color: hsl(113, 82%, 51%);
+    background-color: #75ac39;
     padding-left: 0;
     padding-right: 0;
 }
@@ -2498,21 +2512,21 @@ footer .color-overlay {
   width: auto;
 }
 .koi-po-1 label {
-    background-color: hsl(21, 100%, 64%) !important;
+    background-color: hsl(200, 35%, 65%);
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
 }
 .koi-po-2 label {
-    background-color: hsl(192, 51%, 72%) !important;
+    background-color: hsl(199, 35%, 47%);
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
 }
 .koi-po-3 label {
-    background-color: hsl(120, 100%, 90%) !important;
+    background-color: hsl(197, 25%, 42%);
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
@@ -2526,13 +2540,13 @@ footer .color-overlay {
     padding: 4px 10px !important;
 }
 .slant-group-1 {
-  background-color: hsl(21, 100%, 64%) !important;
+  background-color: hsl(200, 35%, 65%);
 }
 .slant-group-2 {
-  background-color: hsl(192, 51%, 72%) !important;
+  background-color: hsl(199, 35%, 47%);
 }
 .slant-group-3 {
-  background-color: hsl(120, 100%, 90%) !important;
+  background-color: hsl(197, 25%, 42%);
 }
 .slant-group-4 {
   background-color: hsl(60, 100%, 50%) !important;
@@ -2590,4 +2604,7 @@ footer .color-overlay {
     text-decoration: none;
     transition-duration: 0.4s;
     width: 100%;
+}
+.nav-custom {
+    border-bottom: 0px;
 }
