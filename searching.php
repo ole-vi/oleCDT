@@ -195,7 +195,7 @@ input.big {
                       </button>
                     </a>
                     <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Filter 
                     </button>
                   </div>
                 </form>
