@@ -131,24 +131,6 @@ input.big {
   height: 2.5em;
   width: 2.5em;
 }
-.slant-filter {
-  width: 37px;
-  float: left;
-  height: 300px;
-  margin-top: 65px;
-  position: relative;
-}
-.slant-filter h3 {
-  color: black;
-  transform: rotate(-75deg);
-  width: 300px;
-  position: absolute;
-  left: -100px;
-  height: 40px;
-  bottom: 120px;
-  padding-left: 35px;
-  border: 2px solid black;
-}
 </style>
 
 <div class="menu-bar-fixed" id="" >
@@ -209,7 +191,7 @@ input.big {
                   <div class=" lo-po-12 " >
                     <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
                     <a href="add_publisher">
-                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
+                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 btn-transparent pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
                       </button>
                     </a>
                     <?php } ?>

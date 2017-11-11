@@ -90,33 +90,15 @@ input.big {
   height: 2.5em;
   width: 2.5em;
 }
-.slant-filter {
-  width: 37px;
-  float: left;
-  height: 300px;
-  margin-top: 65px;
-  position: relative;
-}
-.slant-filter h3 {
-  color: black;
-  transform: rotate(-75deg);
-  width: 300px;
-  position: absolute;
-  left: -100px;
-  height: 40px;
-  bottom: 120px;
-  padding-left: 35px;
-  border: 2px solid black;
-}
 </style>
 
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12" style="z-index: 50;">
     <div class="sdfr pull-right">
-      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Resources</button>
-      <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
-      <a href="members"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Members</button></a>
+      <button class="button btn-active">Resources</button>
+      <a href="collections"><button class="button btn-white" type="button">Collections</button></a>
+      <a href="searching"><button class="button btn-white" type="button">Publishers</button></a>
+      <a href="members"><button class="button btn-white" type="button">Members</button></a>
     </div>
   </div>
   <div class="col-sm-12 ">
@@ -135,8 +117,8 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Researcher (<?php echo count($found); ?>)</button>
-              <button class="button button2 " style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>All</button>
+              <button class="button button2 btn-transparent" type="button">Researcher (<?php echo count($found); ?>)</button>
+              <button class="button button2 btn-transparent">All</button>
             </div>
           </div>
 
@@ -168,11 +150,11 @@ input.big {
                   <div class=" lo-po-12 " >
                     <?php if(isset($_SESSION['id'])) { ?>
                     <a href="add_resource">
-                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
+                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 btn-transparent pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
                       </button>
                     </a>
                     <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>
                 </form>

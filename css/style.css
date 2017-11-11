@@ -367,6 +367,10 @@ header .app li {
 .btn-green {
     background-color: hsl(100, 49%, 46%);
 }
+label.btn-transparent {
+    background-color: transparent;
+    color: hsl(222, 100%, 34%);
+}
 button.btn-transparent {
     background-color: transparent;
     color: hsl(222, 100%, 34%);
@@ -396,10 +400,6 @@ button.btn-active {
 }
 .padin {
     padding-left: 0 !important;
-}
-.bun-1:hover {
-    background-color: hsl(356, 61%, 43%);
-    color: hsl(0, 0%, 100%);
 }
 .glo .fa.fa-search {
     color: hsl(222, 5%, 59%);
@@ -2533,11 +2533,30 @@ footer .color-overlay {
     padding: 4px 10px !important;
 }
 .koi-po-4 label {
-    background-color: hsl(60, 100%, 50%) !important;
+    /*background-color: hsl(60, 100%, 50%) !important;*/
+    background-color: hsl(197, 25%, 42%);
     border-color: hsl(0, 0%, 0%) !important;
     border-radius: 2px !important;
     color: hsl(0, 0%, 100%);
     padding: 4px 10px !important;
+}
+.slant-filter {
+  width: 37px;
+  float: left;
+  height: 300px;
+  margin-top: 65px;
+  position: relative;
+}
+.slant-filter h3 {
+  color: black;
+  transform: rotate(-75deg);
+  width: 300px;
+  position: absolute;
+  left: -100px;
+  height: 40px;
+  bottom: 120px;
+  padding-left: 35px;
+  border: 2px solid black;
 }
 .slant-group-1 {
   background-color: hsl(200, 35%, 65%);
@@ -2549,7 +2568,8 @@ footer .color-overlay {
   background-color: hsl(197, 25%, 42%);
 }
 .slant-group-4 {
-  background-color: hsl(60, 100%, 50%) !important;
+  /*background-color: hsl(60, 100%, 50%) !important;*/
+  background-color: hsl(197, 25%, 42%);
 }
 .menu-bar-fixed {
     margin-top:140px ;
@@ -2581,7 +2601,7 @@ footer .color-overlay {
     text-align: center;
 }
 .lastupdate1 {
-    background-color: hsl(356, 61%, 43%);
+    background-color: hsl(100, 49%, 46%);
     border-radius: 3px;
     color: hsl(0, 0%, 100%);
     float: right;

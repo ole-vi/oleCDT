@@ -133,33 +133,15 @@ input.big {
   height: 2.5em;
   width: 2.5em;
 }
-.slant-filter {
-  width: 37px;
-  float: left;
-  height: 300px;
-  margin-top: 65px;
-  position: relative;
-}
-.slant-filter h3 {
-  color: black;
-  transform: rotate(-75deg);
-  width: 300px;
-  position: absolute;
-  left: -100px;
-  height: 40px;
-  bottom: 120px;
-  padding-left: 35px;
-  border: 2px solid black;
-}
 </style>
 
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12" style="z-index: 50;">
     <div class="sdfr pull-right">
-      <a href="resources"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Resources</button></a>
-      <a href="collections"><button class="button button2" type="button"  style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Collections</button></a>
-      <a href="searching"><button class="button button2" type="button" style='background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;'>Publishers</button></a>
-      <button class="button button2" style='background-color: hsl(356, 61%, 43%) !important; hsl(0, 0%, 100%) !important;'>Members</button>
+      <a href="resources"><button class="button btn-white" type="button">Resources</button></a>
+      <a href="collections"><button class="button btn-white" type="button">Collections</button></a>
+      <a href="searching"><button class="button btn-white" type="button">Publishers</button></a>
+      <button class="button btn-active">Members</button>
     </div>
   </div>
   <div class="col-sm-12 ">
@@ -179,11 +161,11 @@ input.big {
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-align:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr" style="text-align: center;">
               <?php foreach($member_purpose as $pur) {
-                echo '<label class="button button2" type="button" style="background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;"><input style="margin:0px; " type="checkbox" name="purpose[]" value="'.$pur.'" ';
+                echo '<label class="button button2 btn-transparent" type="button"><input style="margin:0px; " type="checkbox" name="purpose[]" value="'.$pur.'" ';
                 if(in_array($pur, $filter_params['purpose'])) { echo 'checked="checked"'; }
                 echo ' >'.$pur.'</label>';
               } ?>
-              <a href="members"><label class="button button2" type="button" style="background-color: hsl(113, 82%, 51%) !important;color: hsl(222, 100%, 34%) !important;">All</label></a>
+              <a href="members"><label class="button button2 btn-transparent" type="button">All</label></a>
             </div>
           </div>
 
@@ -213,13 +195,7 @@ input.big {
                   } ?>
 
                   <div class=" lo-po-12 " >
-                    <?php if(isset($_SESSION['id']) && empty($_SESSION['publisher'])) { ?>
-                    <a href="add_publisher">
-                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 ba-colo-r pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
-                      </button>
-                    </a>
-                    <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 ba-colo-r"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
                     </button>
                   </div>
                 </form>
