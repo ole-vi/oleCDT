@@ -149,14 +149,14 @@
           <div class="col-sm-3 padin">
             <?php if(isset($_SESSION['id'])){?>
               <!-- <a href="<?php echo $site_url;?>editprofile?id=<?php echo base64_encode($_SESSION['id']); ?>"> <button type="button" class="default btn-lg bun-1" >edit Myaccount<i class="fa fa-user" aria-hidden="true"></i></button></a>-->
-              <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1" >My Account <i class="fa fa-user" aria-hidden="true"></i></button></a>
-              <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1" >Log Out <i class="fa fa-user" aria-hidden="true"></i></button></a>
+              <a href="<?php echo $site_url;?>myaccount"> <button type="button" class="default btn-lg bun-1 btn-green" >My Account <i class="fa fa-user" aria-hidden="true"></i></button></a>
+              <a href="<?php echo $site_url;?>logout"> <button type="button" class="default btn-lg bun-1 btn-green" >Log Out <i class="fa fa-user" aria-hidden="true"></i></button></a>
             <?php } else {?>
-              <a href="<?php echo $site_url;?>individual"><button type="button" class="default btn-lg bun-1" >Join Us <i class="fa fa-user" aria-hidden="true"></i>
+              <a href="<?php echo $site_url;?>individual"><button type="button" class="default btn-lg bun-1 btn-green" >Join Us <i class="fa fa-user" aria-hidden="true"></i>
               </button></a>
-              <a href="<?php echo $site_url;?>login"> <button type="button" class="default btn-lg bun-1" >Login <i class="fa fa-user" aria-hidden="true"></i></button></a>
+              <a href="<?php echo $site_url;?>login"> <button type="button" class="default btn-lg bun-1 btn-green" >Login <i class="fa fa-user" aria-hidden="true"></i></button></a>
             <?php } ?>
-            <a href="#"> <button type="button" class="default btn-lg bun-1" >Feedback</button> </a>
+            <a href="#"> <button type="button" class="default btn-lg bun-1 btn-green" >Feedback</button> </a>
           </div>
         </div>
       </div>
