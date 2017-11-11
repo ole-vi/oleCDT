@@ -134,9 +134,10 @@ $pub_filter = array(
     'Politics & Government',
     'Art and Music',
     'Sports & Entertainment',
-    'Arabic culture & Religion',
-    'Accessible (Disabilities)'),
-  'interest3' => array('Arabic'),
+    'Arabic culture & Religion'),
+  'interest3' => array(
+    'Accessible (Disabilities)',
+    'Arabic'),
   'interest4' => array('Multimedia') // Any value will be ...
 );
 $pub_filter_lbl = array(
@@ -158,9 +159,10 @@ $pub_filter_lbl = array(
     'Politics & Government',
     'Art and Music',
     'Sports & Entertainment',
-    'Arabic culture & Religion',
-    'Accessible (Disabilities)'),
-  'interest3' => array('Arabic'),
+    'Arabic culture & Religion'),
+  'interest3' => array(
+    'Accessible (Disabilities)',
+    'Arabic'),
   'interest4' => array('Multimedia')
 );
 $pub_filter_group = array(
