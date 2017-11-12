@@ -94,7 +94,7 @@ input.big {
 
 <div class="menu-bar-fixed" id="" >
   <div class="col-sm-12 cdt-head">
-    <h2 class="cdt-head-text">Collection Development Toolkit</h2>
+    <h2 class="cdt-head-text">Collections Development Tool</h2>
     <div class="sdfr pull-right">
       <button class="button btn-active">Resources</button>
       <a href="collections"><button class="button btn-white" type="button">Collections</button></a>
@@ -151,9 +151,9 @@ input.big {
                       </button>
                     </a>
                     <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Filter
-                    </button>
                     <button class="button button2 btn-transparent"><i class="fa fa-refresh" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Reset</button>
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-search" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Search
+                    </button>
                   </div>
                 </form>
               </div>
