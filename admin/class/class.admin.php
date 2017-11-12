@@ -89,163 +89,132 @@ class ADMIN
 		header("Location: $url");
 	}
 	
-	public function adindividual($name,$location,$education,$history,$hours,$email,$mob,$phone,$skype,$facebook,$street,$city,$state,$zip,$dob,$citizenship,$pass3,$worktype,$phone2,$phone3,$imgFile,$tmp_dir,$imgSize,$imgFile2,$tmp_dir2,$imgSize2)
-	{
-		if($imgFile!='') 
-		{
-		  $upload_dir = '../img/'; // upload directory
-	
-			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg");
-		
-			// rename uploading image
-			$pic1 = rand(1000,1000000).".".$imgExt;
-				
-			// allow valid image file formats
-			if(in_array($imgExt, $valid_extensions)){			
-				// Check file size '10KB'
-				if($imgSize < 5000000)				{
-					move_uploaded_file($tmp_dir,$upload_dir.$pic1);
-				}
-				else{
-					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-			
-  		// if no error occured, continue ....
-	  } 
-		if($imgFile2!='') 
-		{
-			$upload_dir2 = '../img/'; // upload directory
-	
-			$imgExt2 = strtolower(pathinfo($imgFile2,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions2 = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
-		
-			// rename uploading image
-			$pic2 = rand(1000,1000000).".".$imgExt2;
-				
-			// allow valid image file formats
-			if(in_array($imgExt2, $valid_extensions2)){			
-				// Check file size '10KB'
-				if($imgSize2 < 5000000)				{
-					move_uploaded_file($tmp_dir2,$upload_dir2.$pic2);
-				}
-				else{
-					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-			
-		  // if no error occured, continue ....
-	  } 
-			
-		try
-		{
-			$status='Active';
-			$pass4= md5($pass3);
-			$joindate = date('Y/m/d');
-			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
-			
-			$stmt = $this->conn->prepare("insert into `tbl_individual_member` set name=:name, location=:location, work_type=:worktype, education=:education, work_history=:history, hours_perweak=:hours, email=:email, mob=:mob, phone=:phone ,office_phone=:phone2, other_phone=:phone3, skype=:skype , facebook=:facebook ,street=:street , city=:city , state=:state , zip=:zip , dob=:dob1 , citizenship=:citizenship , pic=:pic, resume=:pic2,  pass=:pass, status=:status, add_date=:date, last_update=:date");
-												  
-			$stmt->bindParam(':name', $name);
-			$stmt->bindParam(':location', $location);
-			$stmt->bindParam(':education', $education);
-			$stmt->bindParam(':history', $history);
-			$stmt->bindParam(':hours', $hours);
-			$stmt->bindParam(':email', $email);
-			$stmt->bindParam(':mob', $mob);
-			$stmt->bindParam(':phone', $phone);
-			$stmt->bindParam(':phone2', $phone2);
-			$stmt->bindParam(':phone3', $phone3);
-			$stmt->bindParam(':skype', $skype);
-			$stmt->bindParam(':facebook', $facebook);
-			$stmt->bindParam(':street', $street);
-			$stmt->bindParam(':city', $city);
-			$stmt->bindParam(':state', $state);
-			$stmt->bindParam(':zip', $zip);
-			$stmt->bindParam(':dob1', $dob);
-			$stmt->bindParam(':citizenship', $citizenship);
-			$stmt->bindParam(':date', $joindate);
-			$stmt->bindParam(':pass', $pass4);
-			$stmt->bindParam(':worktype', $worktype);
-			$stmt->bindParam(':status', $status);								  
-			$stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);	
-			$stmt->bindParam(':pic2',$pic2, PDO::PARAM_STR);	
-			$stmt->execute();	
-			
-			$to = $email;
-	    $from = "test@dppms.com";
-		 
-		  $subject ='Registration Sucessfully';
-		   
-		  $message='<table align="center" border="1" bordercolor="#caecf7" cellpadding="0" cellspacing="0" style="width: 804px;">
-		<tbody>
-			<tr align="center">
-				<td class="area" height="19">
-					<table border="0" cellpadding="0" cellspacing="0" style="height: 246px; width: 800px;">
-						<tbody>
-							<tr>
-								<td align="center" bgcolor="#caecf7" class="smallgreylink" height="32">
-									&nbsp;</td>
-								<td align="left" bgcolor="#caecf7" class="style1 smallgreylink" height="32" style="padding-right: 5px;" valign="middle" width="97%">
-									<strong>Individual Member Registration Confirmation</strong></td>
-							</tr>
-							<tr>
-								<td align="center" class="smallgreylink" height="81" width="3%">
-									&nbsp;</td>
-								<td align="center" class="smallgreylink style1" height="81" style="padding-right: 5px;" valign="top">
-									<p align="left" class="style2">
-										Dear '.$name.'</p>
-									<p align="justify" class="style2">
-										Thank you for registering As Individual </p>
-									<p align="justify" class="style2">
-										Your Account registration has been successfully created.</p>
-									<p align="justify" class="style2">
-										User Name: '.$name.'</p>
-										<p align="justify" class="style2">
-										Password: '.$pass3.'</p>
-										<strong>Thank You</strong></p>
-									<p align="justify" class="style2">
-										<strong>fieldguide Team</strong></p>
-									<p align="justify" class="style2">
-										&nbsp;</p>
-								</td>
-							</tr>
-							<tr>
-								<td align="center" bgcolor="#caecf7" class="smallgreylink" height="20">
-									&nbsp;</td>
-								<td align="left" bgcolor="#caecf7" class="smallgreylink style1" height="32" valign="middle">
-									<br />
-									&nbsp;</td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>';
-		  
-		  $headers  = 'MIME-Version: 1.0' . "\r\n";
-          $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	      $headers .= 'From:'.$from."\r\n";
-		 
-		$res = mail ( $to, $subject, $message, $headers );
-		
+  public function adindividual($dt_fname, $dt_lname, $dt_email, $dt_pass, $dt_mob, $dt_off_phone, $dt_o_phone, $dt_skype, $dt_facebook, $dt_street, $dt_city, $dt_state, $dt_zip, $dt_dob, $dt_citizenship, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $dt_purpose, $imgFile, $tmp_dir, $imgSize)
+  {
+    if($imgFile!='') 
+    {
+      $upload_dir = '../profile/'; // upload directory
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+      // rename uploading image
+      $pic = rand(1000,1000000).".".$imgExt;
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)) {
+        // Check file size '10KB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir,$upload_dir.$pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+      // if no error occured, continue ....
+    } else {
+      $pic = '';
+    }
+      
+    try
+    {
+      $status='Active';
+      $pass3= md5($dt_pass);
+      $date = date('Y/m/d');
+      //$new_password = password_hash($upass, PASSWORD_DEFAULT);
+      $stmt = $this->conn->prepare("insert into `tbl_individual_member` set fname=:fname, email=:email, mob=:mob, off_phone=:off_phone, o_phone=:o_phone, skype=:skype , facebook=:facebook , pic=:pic, street=:street , city=:city , state=:state , zip=:zip , dob=:dob , citizenship=:citizenship, l_name=:l_name , pass=:pass, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, purpose=:purpose, last_update=:update_date, add_date=:date, status=:status");
 
-			
-			return $stmt;	
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}				
-	}
+      $stmt->bindParam(':fname', $dt_fname, PDO::PARAM_STR);
+      $stmt->bindParam(':email', $dt_email, PDO::PARAM_STR);
+      $stmt->bindParam(':mob', $dt_mob, PDO::PARAM_STR);
+      $stmt->bindParam(':off_phone', $dt_off_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':skype', $dt_skype, PDO::PARAM_STR);
+      $stmt->bindParam(':facebook', $dt_facebook, PDO::PARAM_STR);
+      $stmt->bindParam(':street', $dt_street, PDO::PARAM_STR);
+      $stmt->bindParam(':city', $dt_city, PDO::PARAM_STR);
+      $stmt->bindParam(':state', $dt_state, PDO::PARAM_STR);
+      $stmt->bindParam(':zip', $dt_zip, PDO::PARAM_STR);
+      $stmt->bindParam(':dob', $dt_dob, PDO::PARAM_STR);
+      $stmt->bindParam(':citizenship', $dt_citizenship, PDO::PARAM_STR);
+      $stmt->bindParam(':l_name', $dt_lname, PDO::PARAM_STR);
+      $stmt->bindParam(':pass', $pass3, PDO::PARAM_STR);
+      $stmt->bindParam(':update_date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+      $stmt->bindParam(':purpose', $dt_purpose, PDO::PARAM_STR);
+      $stmt->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $stmt->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $stmt->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $stmt->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+
+      $stmt->bindParam(':pic', $pic, PDO::PARAM_STR);
+      $stmt->execute();
+
+      $to = $email;
+      $from = "test@dppms.com";
+
+      $subject ='Registration Sucessfully';
+
+      $message='<table align="center" border="1" bordercolor="#caecf7" cellpadding="0" cellspacing="0" style="width: 804px;">
+    <tbody>
+      <tr align="center">
+        <td class="area" height="19">
+          <table border="0" cellpadding="0" cellspacing="0" style="height: 246px; width: 800px;">
+            <tbody>
+              <tr>
+                <td align="center" bgcolor="#caecf7" class="smallgreylink" height="32">
+                  &nbsp;</td>
+                <td align="left" bgcolor="#caecf7" class="style1 smallgreylink" height="32" style="padding-right: 5px;" valign="middle" width="97%">
+                  <strong>Individual Member Registration Confirmation</strong></td>
+              </tr>
+              <tr>
+                <td align="center" class="smallgreylink" height="81" width="3%">
+                  &nbsp;</td>
+                <td align="center" class="smallgreylink style1" height="81" style="padding-right: 5px;" valign="top">
+                  <p align="left" class="style2">
+                    Dear '.$name.'</p>
+                  <p align="justify" class="style2">
+                    Thank you for registering As Individual </p>
+                  <p align="justify" class="style2">
+                    Your Account registration has been successfully created.</p>
+                  <p align="justify" class="style2">
+                    User Name: '.$name.'</p>
+                    <p align="justify" class="style2">
+                    Password: '.$pass3.'</p>
+                    <strong>Thank You</strong></p>
+                  <p align="justify" class="style2">
+                    <strong>fieldguide Team</strong></p>
+                  <p align="justify" class="style2">
+                    &nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" bgcolor="#caecf7" class="smallgreylink" height="20">
+                  &nbsp;</td>
+                <td align="left" bgcolor="#caecf7" class="smallgreylink style1" height="32" valign="middle">
+                  <br />
+                  &nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>';
+
+      $headers  = 'MIME-Version: 1.0' . "\r\n";
+      $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+      $headers .= 'From:'.$from."\r\n";
+
+      $res = mail ( $to, $subject, $message, $headers );
+
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
 
 	public function delete_ind($id)
 	{
@@ -318,144 +287,85 @@ class ADMIN
 	}
 	
  
-  public function editindividual($id,$name,$location,$education,$history,$hours,$email,$mob,$phone,$skype,$facebook,$street,$city,$state,$zip,$dob,$citizenship,$worktype,$w_other,$imgFile,$tmp_dir,$imgSize,$phone2,$phone3,$imgFile2,$tmp_dir2,$imgSize2)
+  public function editindividual($id, $dt_fname, $dt_email, $dt_mob, $dt_off_phone, $dt_o_phone, $dt_skype, $dt_facebook, $dt_street, $dt_city, $dt_state, $dt_zip, $dt_dob, $dt_citizenship, $dt_interest1, $dt_interest2, $dt_interest3, $dt_interest4, $dt_purpose, $imgFile, $tmp_dir, $imgSize)
   {
-		if($imgFile!='') 
-		{
-			
-			
-		
-		
-			$upload_dir = '../img/'; // upload directory
-	
-			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions = array("exl", "doc", "docm", "docx","csv","pdf","jpg");
-		
-			// rename uploading image
-			$pic1 = rand(1000,1000000).".".$imgExt;
-				
-			// allow valid image file formats
-			if(in_array($imgExt, $valid_extensions)){			
-				// Check file size '10KB'
-				if($imgSize < 10240)				{
-					move_uploaded_file($tmp_dir,$upload_dir.$pic1);
-				}
-				else{
-					$msg = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-			
-		
-		
-		// if no error occured, continue ....
-		if(!isset($msg))
-		{
-		$stmt = $this->conn->prepare('update `tbl_individual_member` SET  resume=:pic where id=:id');
-			$stmt->bindParam(':pic',$pic1, PDO::PARAM_STR);
-			$stmt->bindParam(':id',$id , PDO::PARAM_STR);			
-			
-			if($stmt->execute())
-			{
-				$successMSG = "new record succesfully inserted ...";
-			}
-			else
-			{
-				$errMSG = "error while inserting....";
-			}
-		}
-	} 
-	if($imgFile2!='') 
-		{
-			
-			
-		
-		
-			$upload_dir2 = '../img/'; // upload directory
-	
-			$imgExt2 = strtolower(pathinfo($imgFile2,PATHINFO_EXTENSION)); // get image extension
-		
-			// valid image extensions
-			$valid_extensions2 = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
-		
-			// rename uploading image
-			$pic2 = rand(1000,1000000).".".$imgExt2;
-				
-			// allow valid image file formats
-			if(in_array($imgExt2, $valid_extensions2)){			
-				// Check file size '10KB'
-				if($imgSize2 < 5000000)				{
-					move_uploaded_file($tmp_dir2,$upload_dir2.$pic2);
-				}
-				else{
-					$msg2 = "Sorry, your file is too large.";
-					//header("location:stream-details");
-				}
-			}
-			
-		
-		
-		// if no error occured, continue ....
-		if(!isset($msg2))
-		{
-		$stmt = $this->conn->prepare('update `tbl_individual_member` SET  pic=:pic2 where id=:id');
-			$stmt->bindParam(':pic2',$pic2, PDO::PARAM_STR);
-			$stmt->bindParam(':id',$id , PDO::PARAM_STR);			
-			
-			if($stmt->execute())
-			{
-				$successMSG = "new record succesfully inserted ...";				 
-			}
-			else
-			{
-				$errMSG = "error while inserting....";
-			}
-		}
-		
-	} 
-		
-		
-		try
-		{
-			$joindate = date('Y/m/d');
-			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
-			
-			$stmt = $this->conn->prepare("update `tbl_individual_member` set name=:name, location=:location, work_type=:worktype, education=:education, work_history=:history, hours_perweak=:hours, email=:email, mob=:mob, phone=:phone ,  office_phone=:phone2, other_phone=:phone3, skype=:skype , facebook=:facebook ,street=:street , city=:city , state=:state , zip=:zip , dob=:dob1 , citizenship=:citizenship ,w_other=:w_other, last_update=:date where id=:id ");
-			$stmt->bindParam(':id', $id);
-			$stmt->bindParam(':name', $name);
-			$stmt->bindParam(':location', $location);
-			$stmt->bindParam(':education', $education);
-			$stmt->bindParam(':history', $history);
-			$stmt->bindParam(':hours', $hours);
-			$stmt->bindParam(':email', $email);
-			$stmt->bindParam(':mob', $mob);
-			$stmt->bindParam(':phone', $phone);
-			$stmt->bindParam(':phone2', $phone2);
-			$stmt->bindParam(':phone3', $phone3);
-			$stmt->bindParam(':skype', $skype);
-			$stmt->bindParam(':facebook', $facebook);
-			$stmt->bindParam(':street', $street);
-			$stmt->bindParam(':city', $city);
-			$stmt->bindParam(':state', $state);
-			$stmt->bindParam(':zip', $zip);
-			$stmt->bindParam(':dob1', $dob);
-			$stmt->bindParam(':citizenship', $citizenship);
-			$stmt->bindParam(':date', $joindate);
-			$stmt->bindParam(':w_other', $w_other);
-			$stmt->bindParam(':worktype', $worktype);
-											  
-				
-			$stmt->execute();	
-			
-			return $stmt;	
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}				
-	}
+  if($imgFile!='') 
+    {
+      $upload_dir = '../profile/'; // upload directory
+
+      $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+
+      // valid image extensions
+      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+
+      // rename uploading image
+      $pic = rand(1000,1000000).".".$imgExt;
+
+      // allow valid image file formats
+      if(in_array($imgExt, $valid_extensions)){
+        // Check file size '10KB'
+        if($imgSize < 5000000) {
+          move_uploaded_file($tmp_dir,$upload_dir.$pic);
+        }
+        else{
+          $msg = "Sorry, your file is too large.";
+          //header("location:stream-details");
+        }
+      }
+      // if no error occured, continue ....
+      if(!isset($msg))
+      {
+        $stmt = $this->conn->prepare('update `tbl_individual_member` SET  pic=:pic where id=:id');
+        $stmt->bindParam(':pic',$pic, PDO::PARAM_STR);
+        $stmt->bindParam(':id',$id , PDO::PARAM_STR);
+      
+        if($stmt->execute())
+        {
+          $successMSG = "new record succesfully inserted ...";
+        }
+        else
+        {
+          $errMSG = "error while inserting....";
+        }
+      }
+
+    }
+
+    try
+    {
+      $date = date('Y/m/d');
+      //$new_password = password_hash($upass, PASSWORD_DEFAULT);
+      $stmt = $this->conn->prepare("update `tbl_individual_member` set fname=:fname, email=:email, mob=:mob, off_phone=:off_phone, o_phone=:o_phone, skype=:skype , facebook=:facebook , street=:street , city=:city , state=:state , zip=:zip , dob=:dob , citizenship=:citizenship, interest1=:interest1, interest2=:interest2, interest3=:interest3, interest4=:interest4, purpose=:purpose, last_update=:update_date where id=:id ");
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':fname', $dt_fname, PDO::PARAM_STR);
+      $stmt->bindParam(':email', $dt_email, PDO::PARAM_STR);
+      $stmt->bindParam(':mob', $dt_mob, PDO::PARAM_STR);
+      $stmt->bindParam(':off_phone', $dt_off_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':o_phone', $dt_o_phone, PDO::PARAM_STR);
+      $stmt->bindParam(':skype', $dt_skype, PDO::PARAM_STR);
+      $stmt->bindParam(':facebook', $dt_facebook, PDO::PARAM_STR);
+      $stmt->bindParam(':street', $dt_street, PDO::PARAM_STR);
+      $stmt->bindParam(':city', $dt_city, PDO::PARAM_STR);
+      $stmt->bindParam(':state', $dt_state, PDO::PARAM_STR);
+      $stmt->bindParam(':zip', $dt_zip, PDO::PARAM_STR);
+      $stmt->bindParam(':dob', $dt_dob, PDO::PARAM_STR);
+      $stmt->bindParam(':citizenship', $dt_citizenship, PDO::PARAM_STR);
+      $stmt->bindParam(':update_date', $date, PDO::PARAM_STR);
+      $stmt->bindParam(':purpose', $dt_purpose, PDO::PARAM_STR);
+      $stmt->bindParam(':interest1', $dt_interest1, PDO::PARAM_STR);
+      $stmt->bindParam(':interest2', $dt_interest2, PDO::PARAM_STR);
+      $stmt->bindParam(':interest3', $dt_interest3, PDO::PARAM_STR);
+      $stmt->bindParam(':interest4', $dt_interest4, PDO::PARAM_STR);
+
+      $stmt->execute();
+      
+      return $stmt;
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
 
   public function pub_list() {
     $stmt = $this->conn->prepare("SELECT pub_id, name from `tbl_publishers`");
