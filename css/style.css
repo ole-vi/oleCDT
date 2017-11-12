@@ -678,6 +678,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 .nav.navbar-nav.mar a {
     color: hsl(209, 55%, 48%) !important;
+    font-weight: bold;
 }
 .nav.navbar-nav.mar a:hover {
     color: hsl(0, 0%, 25%) !important;
