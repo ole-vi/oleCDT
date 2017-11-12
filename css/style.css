@@ -1746,7 +1746,7 @@ footer .color-overlay {
 .login-form {
     background: hsla(0, 0%, 0%, 0) url("../img/bac-g.jpg") no-repeat scroll 0 0 / cover ;
     border-radius: 3px;
-    border-top: 6px solid hsl(356, 65%, 42%);
+    border-top: 6px solid hsl(209, 55%, 48%);
     box-shadow: 0 35px 44px -22px hsla(0, 0%, 0%, 0.72);
     margin: 0 auto;
     padding: 10px;
@@ -1770,12 +1770,12 @@ footer .color-overlay {
     margin-left: 24px;
 }
 .login-form h2 {
-    color: hsla(0, 0%, 100%, 0.97);
+    color: hsla(209, 55%, 48%, 0.97);
     font-size: 26px;
     text-align: center;
 }
 .login-form form p {
-    color: hsl(0, 0%, 100%);
+    color: hsl(209, 55%, 48%);
     font-size: 20px;
     margin-top: 44px;
     padding: 0.3px;
@@ -1791,7 +1791,7 @@ footer .color-overlay {
     border-image: none;
     border-style: none none solid;
     border-width: medium medium 1px;
-    color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 75%);
     display: block;
     font-size: 1em;
     margin: 0 auto;
@@ -1800,7 +1800,7 @@ footer .color-overlay {
     width: 95%;
 }
 .login-form.w3-agile input[type="submit"] {
-    background: hsl(356, 65%, 42%) none repeat scroll 0 0;
+    background: hsl(209, 55%, 48%) none repeat scroll 0 0;
     border: medium none;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
@@ -1815,7 +1815,6 @@ footer .color-overlay {
     width: 30%;
 }
 .login-form.w3-agile > a {
-    color: hsl(0, 0%, 100%);
     float: right;
 }
 .fro {
