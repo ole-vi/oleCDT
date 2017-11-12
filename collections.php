@@ -92,6 +92,7 @@ input.big {
                   <div class=" lo-po-12 " >
                     <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Filter 
                     </button>
+                    <button class="button button2 btn-transparent">Reset</button>
                   </div>
                 </form>
               </div>

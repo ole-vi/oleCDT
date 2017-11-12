@@ -165,7 +165,6 @@ input.big {
                 if(in_array($pur, $filter_params['purpose'])) { echo 'checked="checked"'; }
                 echo ' >'.$pur.'</label>';
               } ?>
-              <a href="members"><label class="button button2 btn-transparent" type="button">All</label></a>
             </div>
           </div>
 
@@ -197,6 +196,7 @@ input.big {
                   <div class=" lo-po-12 " >
                     <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Filter 
                     </button>
+                    <a href="members"><label class="button button2 btn-transparent" type="button">Reset</label></a>
                   </div>
                 </form>
               </div>

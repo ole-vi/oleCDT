@@ -117,7 +117,6 @@ input.big {
           <div class="col-sm-3">
             <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr " style="text-align: center;">
-              <button class="button button2 btn-transparent">All</button>
               <h2>Resources Directory (<?php echo count($found); ?>)</h2>
             </div>
           </div>
@@ -156,6 +155,7 @@ input.big {
                     <?php } ?>
                     <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Filter 
                     </button>
+                    <button class="button button2 btn-transparent">Reset</button>
                   </div>
                 </form>
               </div>
