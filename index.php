@@ -89,7 +89,7 @@ $(document).ready(function()
 </section>
 <section id="cdt-in-brief" class="background-img-uplod">
   <div class="container">
-    <div id="cdt-intro" class="jumbotron">
+    <div class="jumbotron">
       <p>OLE’s Collections Development Tool is designed to enable you to search for and find learning resources that are aligned with your needs. It can also be used for policy makers and publishers to identify resource gaps.</p>
       <p>As a brief overview, each database of the Tool––Publishers, Resources, Collections and Members–– shares a common set of filters, under the overall content areas of grade levels, subjects, or languages, for example that are used to identify specific Publishers and Resources.</p>
       <p>The Advisory Board of OLE’S <a href="https://www.ole.org/free-education-library-syrians/">Free Education Library for Syrians</a> (FELS) is responsible for overseeing the functions and uses of the Collections Development Tool. Chaired by Fernando Reimers, Professor of Education at the Harvard Graduate School of Education, FELS is an open library of resources that will enable Syrians continued learning of Syrian educational content, along with resources to pursue career pathways, and specific guides to help Syrian refugees of all ages adjust to life in their host country.</p>
