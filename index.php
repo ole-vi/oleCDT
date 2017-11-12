@@ -89,33 +89,11 @@ $(document).ready(function()
 </section>
 <section id="cdt-in-brief" class="background-img-uplod">
   <div class="container">
-      <div id="cdt-intro" class="jumbotron">
-        <p>OLE’s Collections Development Tool is designed to enable you to search for and find learning resources that are aligned with your needs. It can also be used for policy makers and publishers to identify resource gaps.</p>
-        <p>As a brief overview, each database of the Tool––Publishers, Resources, Collections and Members–– shares a common set of filters, under the overall content areas of grade levels, subjects, or languages, for example that are used to identify specific Publishers and Resources.</p>
-        <p>The Advisory Board of OLE’S <a href="https://www.ole.org/free-education-library-syrians/">Free Education Library for Syrians</a> (FELS) is responsible for overseeing the functions and uses of the Collections Development Tool. Chaired by Fernando Reimers, Professor of Education at the Harvard Graduate School of Education, FELS is an open library of resources that will enable Syrians continued learning of Syrian educational content, along with resources to pursue career pathways, and specific guides to help Syrian refugees of all ages adjust to life in their host country.</p>
-        <p>To learn more about FELS, contact fels@ole.org</p>
-        <div class="men-div">
-          <div id="flip" class="mean-clas"><h1 id="home-policy-title">Read Collections Development Tool Policies</h1>
-          </div>
-          <div id="panel" class="wor green-background">
-            <h3>As a Member of the Collections Development Tool you agree:</h3>
-            <h3> Our Basic Policies.</h3>
-            <p>a) to always be respectful in your contributions to the Guide and not use language that is hateful or disparaging of individuals 
-               or organizations, even regarding those you with which you strongly disagree;</p>
-            <p>b) to accurately and honestly describe yourself, other individuals and organizations, not misrepresenting 
-               facts, or shading the truth in ways that can mislead others, </p>
-            <p>c) to cite credible sources that support controversial statements, and</p>
-            <p>d) to notify the Editor of the Collections Development Tool immediately, using the Guide’s Feedback form, whenever you experience anything in the Guide that violates these basic policies,.</p>
-
-            <h4>Thank you and Welcome to the Collections Development Tool.</h4>
-            <h4><input required="" name="confirm" type="checkbox">
-               I have read,endorse the Purpose and accept Basic Policies of the Collections Development Tool.</h4>
-            <div class="col-sm-12 voli">
-              <a href="individual"><button type="submit" class="btn btn-primary btn-block belpo">Accept</button></a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="jumbotron">
+      <p>OLE’s Collections Development Tool is designed to enable you to search for and find learning resources that are aligned with your needs. It can also be used for policy makers and publishers to identify resource gaps.</p>
+      <p>As a brief overview, each database of the Tool––Publishers, Resources, Collections and Members–– shares a common set of filters, under the overall content areas of grade levels, subjects, or languages, for example that are used to identify specific Publishers and Resources.</p>
+      <p>The Advisory Board of OLE’S <a href="https://www.ole.org/free-education-library-syrians/">Free Education Library for Syrians</a> (FELS) is responsible for overseeing the functions and uses of the Collections Development Tool. Chaired by Fernando Reimers, Professor of Education at the Harvard Graduate School of Education, FELS is an open library of resources that will enable Syrians continued learning of Syrian educational content, along with resources to pursue career pathways, and specific guides to help Syrian refugees of all ages adjust to life in their host country.</p>
+      <p>To learn more about FELS, contact fels@ole.org</p>
     </div>
   </div>
 </section>

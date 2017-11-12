@@ -2655,7 +2655,7 @@ footer .color-overlay {
 .hero {
     background-image: url("../img/tiger-coaches.jpg");
     background-repeat: no-repeat;
-    background-size: 120%;
+    background-size: cover;
     background-position-x: 20%;
     margin-top: 107px;
     height: 100vh;
@@ -2676,7 +2676,7 @@ footer .color-overlay {
 .hero .container p {
     font-size: 1.6em;
 }
-section#cdt-in-brief #cdt-intro {
+section#cdt-in-brief .jumbotron {
     background-color: hsl(0, 0%, 100%);
     margin-top: 30px;
 }
