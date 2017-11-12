@@ -87,7 +87,7 @@ $(document).ready(function()
     <p>A tool that makes easy finding learning resources aligned with your needs</p>
   </div>
 </section>
-<section id="cdt-in-brief" class="background-img-uplod">
+<section id="cdt-in-brief">
   <div class="container">
     <div class="jumbotron">
       <p>OLE’s Collections Development Tool is designed to enable you to search for and find learning resources that are aligned with your needs. It can also be used for policy makers and publishers to identify resource gaps.</p>

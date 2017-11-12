@@ -1540,9 +1540,6 @@ p {
     height: 400px;
     width: 100%;
 }
-footer {
-    background: hsla(0, 0%, 0%, 0) url("../img/banner-8.jpg") no-repeat fixed center center / cover ;
-}
 footer a {
     color: hsl(0, 0%, 100%);
 }
@@ -2672,6 +2669,9 @@ footer .color-overlay {
 }
 .hero .container p {
     font-size: 1.6em;
+}
+section#cdt-in-brief {
+    background-color: hsl(0, 0%, 95.3%);
 }
 section#cdt-in-brief .jumbotron {
     background-color: hsl(0, 0%, 100%);
