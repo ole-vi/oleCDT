@@ -2504,6 +2504,7 @@ footer .color-overlay {
     width: 100px;*/
 }
 .sdfr h2 {
+    font-size: 2em;
     color: hsl(0, 0%, 100%);
 }
 .sdfr label {
