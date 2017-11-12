@@ -1955,9 +1955,11 @@ footer .color-overlay {
     max-width: 100%;
 }
 .lok-lo {
-    margin-top: -85px;
+    margin-top: -35px;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
+    color:#fff;
+    font-size:32px;
 }
 .ads li {
     color: hsl(222, 100%, 34%);
@@ -2500,11 +2502,30 @@ footer .color-overlay {
     right: -10px;
     position: absolute;
     width: 100px;
+    bottom: 0;
+    text-align: right;
+}
+.lo-po-12 .button {
+  width: auto;
+}
+.cdt-head {
+    background: #fff;
+    z-index: 50;
+}
+.cdt-head-text {
+    color: hsl(222, 100%, 34%);
+    float: left;
+    font-size: 30px;
+    margin: 0px;
 }
 .sdfr {
     /*margin-left: -150px;
     position: absolute;
     width: 100px;*/
+}
+.sdfr h2 {
+    font-size: 2em;
+    color: hsl(0, 0%, 100%);
 }
 .sdfr label {
   padding-left: 8px;
@@ -2632,7 +2653,7 @@ footer .color-overlay {
 .hero {
     background-image: url("../img/tiger-coaches.jpg");
     background-repeat: no-repeat;
-    background-size: 120%;
+    background-size: cover;
     background-position-x: 20%;
     margin-top: 107px;
     height: 100vh;
@@ -2653,7 +2674,7 @@ footer .color-overlay {
 .hero .container p {
     font-size: 1.6em;
 }
-section#cdt-in-brief #cdt-intro {
+section#cdt-in-brief .jumbotron {
     background-color: hsl(0, 0%, 100%);
     margin-top: 30px;
 }

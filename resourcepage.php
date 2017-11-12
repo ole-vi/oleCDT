@@ -61,7 +61,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 
       <div class="col-sm-12">
         <div class="new-1-pera">
-          <h1>Interests</h1>
+          <h1>Content Areas</h1>
           <p><?php foreach($pub_filter_group as $filter_type => $group) {
             if(!empty($row[$filter_type])) {
               $filters = explode('::', $row[$filter_type]);
