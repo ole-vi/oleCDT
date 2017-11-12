@@ -1744,7 +1744,7 @@ footer .color-overlay {
     font-size: 19px;
 }
 .login-form {
-    background: hsla(0, 0%, 0%, 0) url("../img/bac-g.jpg") no-repeat scroll 0 0 / cover ;
+    background-color: hsl(0, 0%, 95.3%);
     border-radius: 3px;
     border-top: 6px solid hsl(209, 55%, 48%);
     box-shadow: 0 35px 44px -22px hsla(0, 0%, 0%, 0.72);
