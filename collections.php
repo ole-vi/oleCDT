@@ -36,7 +36,8 @@ input.big {
 </style>
 
 <div class="menu-bar-fixed" id="" >
-  <div class="col-sm-12" style="z-index: 50;">
+  <div class="col-sm-12 cdt-head">
+    <h2 class="cdt-head-text">Collection Development Toolkit</h2>
     <div class="sdfr pull-right">
       <a href="resources"><button class="button btn-white" type="button">Resources</button></a>
       <button class="button btn-active">Collections</button>
@@ -58,10 +59,7 @@ input.big {
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
-            <div class="sdfr " style="text-align: center;">
-              <h2>Collections Directory (<?php echo count($found); ?>)</h2>
-            </div>
+            <h1 class="lok-lo">Collections Directory (<?php echo count($found); ?>)</h1>
           </div>
 
           <div class="col-sm-9">
@@ -90,9 +88,9 @@ input.big {
                   } ?>
 
                   <div class=" lo-po-12 " >
-                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Filter 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Filter
                     </button>
-                    <button class="button button2 btn-transparent">Reset</button>
+                    <button class="button button2 btn-transparent"><i class="fa fa-refresh" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Reset</button>
                   </div>
                 </form>
               </div>
