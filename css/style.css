@@ -2503,6 +2503,9 @@ footer .color-overlay {
     position: absolute;
     width: 100px;*/
 }
+.sdfr h2 {
+    color: hsl(0, 0%, 100%);
+}
 .sdfr label {
   padding-left: 8px;
   padding-right: 8px;

@@ -158,8 +158,8 @@ input.big {
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-align:center;"><b>Collections Development Toolkit</b></span></h1>
             <div class="sdfr" style="text-align: center;">
+              <h2>Members Directory (<?php echo count($found); ?>)</h2>
               <?php foreach($member_purpose as $pur) {
                 echo '<label class="button button2 btn-transparent" type="button"><input style="margin:0px; " type="checkbox" name="purpose[]" value="'.$pur.'" ';
                 if(in_array($pur, $filter_params['purpose'])) { echo 'checked="checked"'; }
