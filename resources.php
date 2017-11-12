@@ -93,7 +93,8 @@ input.big {
 </style>
 
 <div class="menu-bar-fixed" id="" >
-  <div class="col-sm-12" style="z-index: 50;">
+  <div class="col-sm-12 cdt-head">
+    <h2 class="cdt-head-text">Collection Development Toolkit</h2>
     <div class="sdfr pull-right">
       <button class="button btn-active">Resources</button>
       <a href="collections"><button class="button btn-white" type="button">Collections</button></a>
@@ -115,11 +116,7 @@ input.big {
         <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-3">
-            <h1 class="lok-lo"><span style="color:#fff; font-size:35px; font-family:futura-lt-w01-book, sans-serif; letter-spacing:0.15em; text-aline:center;"><b>Collections Development Toolkit</b></span></h1>
-            <div class="sdfr " style="text-align: center;">
-              <button class="button button2 btn-transparent" type="button">Researcher (<?php echo count($found); ?>)</button>
-              <button class="button button2 btn-transparent">All</button>
-            </div>
+            <h1 class="lok-lo">Resources Directory (<?php echo count($found); ?>)</h1>
           </div>
 
           <div class="col-sm-9">
@@ -150,12 +147,13 @@ input.big {
                   <div class=" lo-po-12 " >
                     <?php if(isset($_SESSION['id'])) { ?>
                     <a href="add_resource">
-                      <button type="button" style="margin-top: -40px; width: 80%;" class="button button2 btn-transparent pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 5px;" class="fa fa-plus"></i>Add 
+                      <button type="button" class="button button2 btn-transparent pull-right"><i aria-hidden="true" style="margin-left: 0px;float: left;margin-top: 4px;" class="fa fa-plus"></i>&nbsp;Add
                       </button>
                     </a>
                     <?php } ?>
-                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>Select 
+                    <button type="submit" name ="submit" class="button button2 btn-transparent"><i class="fa fa-arrow-left" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Filter
                     </button>
+                    <button class="button button2 btn-transparent"><i class="fa fa-refresh" aria-hidden="true" style='margin-left: 0px;float: left;margin-top: 4px;'></i>&nbsp;Reset</button>
                   </div>
                 </form>
               </div>
