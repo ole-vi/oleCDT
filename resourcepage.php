@@ -53,7 +53,7 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
 
         <div class="col-sm-3">
         <?php if($row['publication']!=''){ ?>
-          <a href="resource/<?php echo $row['publication'];?>">Download</a>
+          <a href="resource/<?php echo $row['publication'];?>"><button class="default btn-lg bun-1 mat-12" style="width:auto">Download</button></a>
         <?php } ?>
       </div>
 
