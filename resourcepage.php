@@ -29,10 +29,10 @@ $is_owner = (isset($_SESSION['id']) && $row['mem_id'] == $_SESSION['id']);
       <?php if($is_owner) { ?>
         <div class="col-sm-4 pull-right">
           <a href="update_resource?id=<?php echo base64_encode($row['id']); ?>">
-            <button type="button" class="default btn-lg bun-1">Update Resource <i class="fa fa-edit" aria-hidden="true"></i></button>
+            <button type="button" class="default btn-lg bun-1 btn-green">Update Resource <i class="fa fa-edit" aria-hidden="true"></i></button>
           </a>
           <a href="javascript:void(0);" id="delPub">
-            <button type="button" class="default btn-lg bun-1">Delete Resource <i class="fa fa-trash" aria-hidden="true"></i></button>
+            <button type="button" class="default btn-lg bun-1 btn-green">Delete Resource <i class="fa fa-trash" aria-hidden="true"></i></button>
           </a>
         </div>
       <?php } ?>
