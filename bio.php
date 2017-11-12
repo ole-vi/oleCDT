@@ -21,12 +21,12 @@ $row = $query->fetch(PDO::FETCH_ASSOC);
       <?php if(isset($my_profile)) { ?>
         <div class="pull-right">
           <a href="editprofile">
-            <button type="button" class="default btn-lg bun-1">Update Profile <i class="fa fa-edit" aria-hidden="true"></i></button>
+            <button type="button" class="default btn-lg bun-1 btn-green">Update Profile <i class="fa fa-edit" aria-hidden="true"></i></button>
           </a>
-          <a href="add_publisher"><button type="button" class="default btn-lg bun-1">Add Publisher <i class="fa fa-edit" aria-hidden="true"></i></button></a>
-          <a href="#"><button type="button" class="default btn-lg bun-1">My Publishers <i class="fa fa-edit" aria-hidden="true"></i></button></a>
-          <a href="add_resource"><button type="button" class="default btn-lg bun-1">Add Resource <i class="fa fa-edit" aria-hidden="true"></i></button></a>
-          <a href="#"><button type="button" class="default btn-lg bun-1">My Resources <i class="fa fa-edit" aria-hidden="true"></i></button></a>
+          <a href="add_publisher"><button type="button" class="default btn-lg bun-1 btn-green">Add Publisher <i class="fa fa-edit" aria-hidden="true"></i></button></a>
+          <a href="#"><button type="button" class="default btn-lg bun-1 btn-green">My Publishers <i class="fa fa-edit" aria-hidden="true"></i></button></a>
+          <a href="add_resource"><button type="button" class="default btn-lg bun-1 btn-green">Add Resource <i class="fa fa-edit" aria-hidden="true"></i></button></a>
+          <a href="#"><button type="button" class="default btn-lg bun-1 btn-green">My Resources <i class="fa fa-edit" aria-hidden="true"></i></button></a>
         </div>
       <?php } ?>
       <div class="text-pera last col-sm-12">
